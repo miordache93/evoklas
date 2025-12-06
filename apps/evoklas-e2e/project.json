@@ -1,0 +1,9 @@
+{
+  "name": "evoklas-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/evoklas-e2e/src",
+  "implicitDependencies": ["evoklas"],
+  "// targets": "to see all targets run: nx show project evoklas-e2e --web",
+  "targets": {}
+}
