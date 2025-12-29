@@ -59,7 +59,7 @@ class SubscriptionService {
   getNotifications(): void {
     this.notificationsPollSubscription = this.getUserNotifications()
       .pipe(
-        this.pollWhile(5000, (res) => true) // poll every 5 seconds
+        this.pollWhile(15000, (res) => true) // poll every 5 seconds
       )
       .subscribe((res) => {
         this.notificationsSubject.next(res);

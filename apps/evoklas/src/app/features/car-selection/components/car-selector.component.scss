@@ -1,0 +1,1140 @@
+@import '../../../../styles/variables';
+@import '../../../../styles/responsive.mixin.scss';
+
+@mixin text-font {
+  font-family: Roboto;
+  font-style: normal;
+  color: $dark-blue;
+}
+
+::ng-deep {
+
+  p-listbox,
+  .regions-list {
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .producers-list {
+    width: 100% !important;
+    max-width: 600px !important;
+    margin: 0 auto !important;
+    
+    .p-listbox {
+      width: 100% !important;
+      max-width: 600px !important;
+      box-sizing: border-box;
+    }
+  }
+}
+
+.car-selector-component {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+
+  .stepper-actions {
+    margin: 20px auto;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 16px;
+    box-sizing: border-box;
+    
+    // Override the .show class display: block
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 12px;
+    
+    // Mobile only - vertical stack
+    @include screen('phone') {
+      flex-direction: column;
+      margin: 12px 0;
+      padding: 0 8px;
+    }
+
+    @media (min-width: 1366px) {
+      flex-wrap: nowrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    // Hide stepper tabs on tablet/mobile, rely on arrows instead
+    @media (max-width: 1365px) {
+      display: none;
+    }
+
+    // Tablet
+    @media (min-width: 769px) and (max-width: 1024px) {
+      margin: 30px 0;
+      padding: 0 24px;
+    }
+
+    // Desktop and up - no wrapping
+    @media (min-width: 1025px) {
+      margin: 40px auto;
+      width: 100%;
+      padding: 0 16px;
+    }
+
+    // Large desktop
+    @media (min-width: 1367px) {
+      max-width: 1200px;
+    }
+
+    hr {
+      margin: 0;
+      flex-shrink: 0;
+      display: none;
+      
+      @include screen('tablet') {
+        display: none;
+      }
+      
+      // Show HR separators on desktop for better visual separation
+      @media (min-width: 1025px) {
+        display: none;
+      }
+    }
+
+    button {
+      white-space: normal;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      hyphens: auto;
+      flex: 1 1 auto;
+      text-align: center;
+      background-color: $white;
+      border: 1px solid $dark-blue;
+      color: $dark-blue;
+      border-radius: 6px;
+      font-weight: 600;
+      font-family: Roboto;
+
+      // Mobile
+      @include screen('phone') {
+        min-width: 80px;
+        font-size: 9px;
+        padding: 8px 4px;
+        line-height: 1.2;
+        min-height: 40px;
+      }
+      
+      @include screen('phone-landscape') {
+        min-width: 90px;
+        font-size: 10px;
+        padding: 8px 6px;
+        line-height: 1.3;
+        min-height: 44px;
+      }
+      
+      // Tablet
+      @media (min-width: 769px) and (max-width: 1024px) {
+        min-width: 120px;
+        font-size: 12px;
+        padding: 10px 12px;
+        line-height: 1.4;
+        min-height: 48px;
+      }
+      
+    // Desktop and up
+    @media (min-width: 1366px) {
+      min-width: 120px;
+      font-size: 13px;
+      padding: 10px 12px;
+      line-height: 1.35;
+      min-height: 48px;
+      flex: 1 1 0;
+      white-space: normal;
+    }
+
+      &.active {
+        background-color: $logo;
+        border-color: $logo;
+        color: $white;
+        box-shadow: 0 0 0 2px rgba(79, 193, 224, 0.25);
+      }
+
+      &.completed {
+        background-color: $dark-blue;
+        border-color: $dark-blue;
+        color: $white;
+      }
+    }
+  }
+
+  .step-count {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    flex: 0 0 auto;
+    justify-self: end;
+
+    button {
+      border-radius: 6px;
+      border: 1px solid $dark-blue;
+      color: $dark-blue;
+      background-color: $white;
+      font-weight: 600;
+      font-family: Roboto;
+    }
+  }
+
+  hr {
+    background-color: $dark-blue;
+    width: 11px;
+    height: 3px;
+    align-self: center;
+  }
+
+  .stepper-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1 1 auto;
+
+    &.fullWidth {
+      padding: 0;
+    }
+  }
+
+  .stepper-info {
+    width: 70%;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex: 1 1 auto;
+    margin-bottom: 24px;
+
+    @include screen('desktop-large') {
+      margin-top: 20px;
+      width: 85%;
+    }
+
+    @include screen('desktop') {
+      margin-top: 20px;
+      width: 90%;
+    }
+
+    @media (max-width: 1365px) {
+      width: 90%;
+      grid-template-columns: 1fr;
+      justify-items: center;
+      text-align: center;
+    }
+
+    &.info-step-8 {
+      margin-top: 40px;
+      width: 60%;
+
+      @include screen('desktop-large') {
+        width: 85%;
+      }
+
+      @include screen('desktop') {
+        width: 90%;
+      }
+    }
+
+    .step-details {
+      @media (max-width: 1365px) {
+        width: 100%;
+      }
+
+      h1 {
+        font-weight: bold;
+        font-size: 32px;
+        line-height: 40px;
+        @include text-font();
+        margin: 0;
+      }
+
+      p {
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 20px;
+        @include text-font();
+      }
+    }
+
+    .step-count {
+      flex-direction: row;
+      flex-wrap: nowrap;
+      white-space: nowrap;
+
+      @media (max-width: 1365px) {
+        width: 100%;
+        justify-content: center;
+        margin-top: 12px;
+        gap: 20px;
+      }
+
+      i {
+        display: inline-flex;
+        color: #225361;
+        font-size: 24px;
+        cursor: pointer;
+
+        &:hover {
+          color: $logo;
+        }
+
+        @media (max-width: 1365px) {
+          font-size: 32px;
+        }
+      }
+
+      button {
+        display: inline-flex;
+        min-width: 94px;
+
+        @include screen('phone-landscape') {
+          min-width: 65px;
+        }
+
+        @media (max-width: 1365px) {
+          min-width: 120px;
+        }
+
+        &:hover {
+          color: $dark-blue;
+        }
+      }
+    }
+  }
+
+  .stepper-content {
+    width: 100%;
+    margin-top: 24px;
+    margin-bottom: 136px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+
+    // Stepper content responsive breakpoints
+    ::ng-deep {
+
+    .producers-list,
+    .models-list {
+      width: 100%;
+      max-width: 560px;
+      margin: 0 auto;
+
+      .p-listbox {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: auto;
+        margin-top: 20px;
+      }
+
+      @media (max-width: 1365px) {
+        max-width: 640px;
+      }
+
+      @include screen('tablet-landscape') {
+        max-width: 520px;
+        width: 90%;
+      }
+
+      @include screen('phone') {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .car-model-image {
+        width: 105px;
+        height: 45px;
+        object-fit: contain;
+      }
+    }
+    }
+
+
+
+    .car-versions-cards {
+      padding: 0 20%;
+      margin-top: 40px !important;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 24px;
+      align-items: stretch;
+
+      @include screen('desktop-large') {
+        padding: 0 7%;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      @include screen('desktop') {
+        padding: 0 5%;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      @include screen('tablet-landscape') {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      @include screen('phone') {
+        grid-template-columns: 1fr;
+      }
+
+      .version-card-wrapper {
+        display: flex;
+      }
+
+
+      .version-card {
+        text-align: center;
+        color: $dark-blue;
+        background-color: $white;
+        padding: 24px;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        width: 100%;
+
+        &.selected {
+          border: 2px solid $dark-blue;
+        }
+
+        &:hover {
+          border: 2px solid $blue;
+        }
+
+        .car-version-image {
+          width: 170px;
+          height: 160px;
+          object-fit: contain;
+        }
+
+        a {
+          &.version-equipments {
+            margin-top: 24px;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 24px;
+          }
+
+          i {
+            margin-right: 16px;
+          }
+        }
+
+        @include screen('tablet-landscape') {
+          padding: 7.5px;
+
+          img {
+            width: 187px;
+            height: 160px;
+            object-fit: contain;
+            padding: 0 2.5px;
+          }
+
+          a {
+            i {
+              margin-right: 12px;
+            }
+          }
+
+          .select-btn,
+          .next-btn {
+            padding: 0 13.5px 15.5px 13.5px;
+          }
+        }
+
+        @include screen('tablet') {
+          padding: 24px;
+
+          .select-btn,
+          .next-btn {
+            padding: 0;
+          }
+
+          img {
+            padding: 0;
+          }
+        }
+
+        p,
+        span {
+          font-family: Roboto;
+          font-style: normal;
+          margin: 0;
+
+          &.version-name {
+            font-weight: bold;
+            font-size: 24px;
+            line-height: 32px;
+          }
+
+
+          &.version-startingPrice {
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 24px;
+            margin-top: 8px;
+          }
+        }
+
+
+      }
+    }
+
+    .fuel-types {
+      margin-top: 80px !important;
+      padding: 0 20%;
+      height: 100%;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 32px;
+      align-items: stretch;
+
+
+      @include screen('desktop-large') {
+        padding: 0 7%;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      @include screen('desktop') {
+        padding: 0 5%;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      @include screen('tablet-landscape') {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+      }
+
+      @include screen('phone') {
+        grid-template-columns: 1fr;
+      }
+
+      .fuel-card {
+        display: flex;
+        flex-direction: column;
+
+        .fuel-details {
+          padding: 56px 24px 24px 24px !important;
+          background-color: $white;
+          cursor: pointer;
+          width: 100%;
+          text-align: center;
+          border-radius: 5px;
+
+          &.selected {
+            border: 2px solid $dark-blue;
+          }
+
+          &:hover {
+            border: 2px solid $blue;
+          }
+        }
+
+        img {
+          margin: auto;
+
+        }
+
+        .fuel-name {
+          font-weight: bold;
+          font-size: 24px;
+          line-height: 32px;
+          color: $dark-blue;
+          margin: 24px 0 0 0;
+        }
+      }
+    }
+
+    .car-engines-cards {
+      margin-top: 40px !important;
+      padding: 0 20%;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+      align-items: stretch;
+
+      @include screen('desktop-large') {
+        padding: 0 7%;
+      }
+
+      @include screen('desktop') {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      @include screen('tablet-landscape') {
+        padding: 0 5%;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      @include screen('tablet') {
+        grid-template-columns: 1fr;
+      }
+
+      .engine-card-wrapper {
+        display: flex;
+      }
+
+      .engine-header-name {
+        p {
+          margin: 0;
+          font-size: 20px;
+          line-height: 32px;
+          color: $dark-blue;
+        }
+      }
+
+      .engine-card {
+        padding: 24px;
+        background-color: $white;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 4px;
+        width: 100%;
+
+        &.selected {
+          border: 2px solid $dark-blue;
+        }
+
+        &:hover {
+          border: 2px solid $blue;
+        }
+
+        .engine-specs {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+
+          .engine-row {
+            width: 100%;
+            font-size: 16px;
+            line-height: 24px;
+            font-weight: normal;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+
+            .spec-icon-and-name {
+              display: flex;
+              align-items: center;
+              gap: 16px;
+              flex: 1 1 auto;
+              min-width: 0;
+            }
+
+            .spec-value-wrap {
+              flex: 0 0 auto;
+              min-width: 60px;
+            }
+
+            .spec-name {
+              font-weight: bold;
+              color: $dark-blue;
+            }
+
+            .spec-value {
+              text-align: right;
+            }
+          }
+
+          .engine-price {
+            img {
+              width: 48px;
+              height: 24px;
+            }
+          }
+        }
+      }
+    }
+
+    .car-color-select {
+      margin: 40px auto 0 auto;
+      padding: 0 15%;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 32px;
+      align-items: start;
+
+
+      @include screen('desktop-large') {
+        padding: 0 15%;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      @include screen('tablet-landscape') {
+        padding: 0 5%;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+      }
+
+      @include screen('tablet') {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      @include screen('phone') {
+        grid-template-columns: 1fr;
+      }
+
+      .color-selector {
+        border-radius: 4px;
+        cursor: pointer;
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 32px;
+        color: $dark-blue;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+
+        .color-container {
+          height: 54px;
+          width: 54px;
+          border-radius: 50%;
+          padding: 2px;
+          box-shadow: 0 0 0 3px $white inset;
+          box-sizing: border-box;
+          background: linear-gradient(to top, rgba(0, 0, 0, 0.0), rgb(107, 106, 106));
+
+
+          &.selected {
+            border: 2px solid $dark-blue;
+          }
+
+          &:hover {
+            border: 2px solid $blue;
+          }
+        }
+
+        .color-name {
+          margin: 0;
+          font-size: 14px;
+          font-family: Roboto;
+        }
+
+        padding: 24px;
+
+        @include screen('desktop-large') {
+          padding: 24px 100px;
+        }
+
+        @include screen('tablet-landscape') {
+          padding: 24px 58px;
+        }
+
+        @include screen('phone-landscape') {
+          padding: 24px 35px;
+        }
+      }
+    }
+
+    .regions-list {
+      padding: 24px;
+      width: 30%;
+      background-color: $white;
+      border-radius: 4px;
+      margin: 40px auto auto;
+
+      @include screen('tablet-landscape') {
+        width: 40%;
+      }
+
+      @include screen('tablet') {
+        width: 90%;
+      }
+
+      .region-item {
+        margin: 0;
+        color: $dark-blue;
+      }
+
+    }
+
+    .client-request-view {
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+
+      .request-details {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .name-logo {
+          width: 100%;
+
+          .detail-value {
+            font-weight: bold;
+            font-size: 24px;
+            line-height: 28px;
+          }
+
+          .name-logo-row {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+          }
+        }
+      }
+
+      .request-details,
+      .regions-list {
+        padding: 24px;
+        width: 40%;
+        background-color: $white;
+        border-radius: 4px;
+
+        @include screen('tablet-landscape') {
+          width: 40%;
+        }
+
+        @include screen('tablet') {
+          width: 90%;
+        }
+
+        p {
+          margin: 0;
+          color: $dark-blue;
+        }
+
+        .detail-description, .detail-description-title {
+          // font-weight: bold;
+          // font-size: 22px;
+          // line-height: 28px;
+          font-family: Roboto;
+          font-style: normal;
+          font-size: 16px;
+          line-height: 18px;
+          margin-top: 2px;
+        }
+
+        .detail-value {
+          // font-family: Roboto;
+          // font-style: normal;
+          // font-size: 16px;
+          // line-height: 18px;
+          // margin-top: 8px;
+
+          font-weight: bold;
+          font-size: 22px;
+          line-height: 28px;
+        }
+      }
+
+      .request-details {
+        width: 50% !important;
+
+        @include screen('desktop') {
+          width: 40% !important;
+        }
+
+        @include screen('desktop-large') {
+          width: 35% !important;
+        }
+
+        @include screen('tablet') {
+          width: 90% !important;
+        }
+
+        .request-details-additional-info {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          gap: 50px;
+          flex-wrap: wrap;
+        }
+
+        .request-details-left-panel {
+          display: flex;
+          flex-direction: column;
+          gap: 14px;
+          flex: 1 1 220px;
+        }
+
+        .request-details-right-panel {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+          flex: 1 1 220px;
+        }
+
+        .detail,
+        .region {
+          display: flex;
+          flex-direction: column-reverse;
+          align-items: flex-start;
+          gap: 6px;
+        }
+      }
+
+      .send-request {
+        width: 30%;
+
+        @include screen('tablet-landscape') {
+          width: 40%;
+        }
+
+        @include screen('tablet') {
+          width: 100%;
+          padding: 0 5%;
+          ;
+        }
+      }
+    }
+
+    .select-btn,
+    .next-btn {
+      width: 100%;
+
+      ::ng-deep {
+        button {
+          background-color: $dark-blue;
+          margin-top: 24px;
+          width: 100%;
+          height: 56px;
+          border-radius: 33px;
+        }
+      }
+
+    }
+  }
+
+  ::ng-deep {
+    .p-listbox {
+      display: flex;
+      flex-direction: column;
+    }
+
+    // PrimeNG v20 Material theme compatibility - Force search input visibility
+    .p-listbox {
+      .p-listbox-header,
+      .p-listbox-filter-container {
+        width: 100% !important;
+        // display: block !important;
+        // visibility: visible !important;
+        background-color: $white !important;
+        border-bottom: 1px solid #e0e0e0 !important;
+        padding: 12px !important;
+        margin-bottom: 8px !important;
+
+        .p-inputtext,
+        .p-listbox-filter,
+        input[type="text"] {
+          display: block !important;
+          visibility: visible !important;
+          background-color: $darker-white !important;
+          border: 2px solid #ddd !important;
+          border-radius: 6px !important;
+          padding: 12px 16px !important;
+          width: 100% !important;
+          max-width: 100% !important;
+          box-sizing: border-box !important;
+          font-size: 16px !important;
+          font-family: Roboto !important;
+          color: $dark-blue !important;
+          
+          &::placeholder {
+            color: #999 !important;
+            font-style: italic;
+          }
+          
+          &:focus {
+            border-color: $logo !important;
+            box-shadow: 0 0 0 3px rgba(79, 193, 224, 0.3) !important;
+            outline: none !important;
+          }
+        }
+
+        .pi-search,
+        .p-icon,
+        i[class*="pi-"] {
+          color: $dark-blue !important;
+          font-size: 18px !important;
+          position: absolute;
+          right: 16px;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+    }
+
+    // Listbox items styling for PrimeNG v20
+    .p-listbox .p-listbox-list {
+      .p-listbox-item {
+        padding: 12px 16px !important;
+        border-bottom: 1px solid #f0f0f0;
+        
+        &:hover {
+          background-color: rgba(79, 193, 224, 0.12) !important;
+        }
+        
+        &.p-highlight {
+          background-color: $logo !important;
+          color: white !important;
+        }
+      }
+    }
+
+    .producer-item {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 24px;
+      color: $dark-blue;
+
+      img {
+        width: 60px;
+      }
+    }
+
+    .car-item {
+      width: 100%;
+      color: $dark-blue;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+
+      p {
+        margin: 0;
+      }
+
+      .car-model-name {
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 24px;
+      }
+
+      .car-model-description {
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 20px;
+      }
+    }
+
+    .car-item-details {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 4px;
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+  }
+
+  .not-found-falback {
+    // min-height: 100vh;
+    margin: 15% 35%;
+
+    @include screen('desktop-large') {
+      margin: 20% 30%;
+    }
+
+    @include screen('tablet-landscape') {
+      margin: 35% 20%;
+    }
+
+    @include screen('tablet') {
+      margin: 45% 10%;
+    }
+
+    @include screen('phone-landscape') {
+      margin: 50% 5%;
+    }
+
+    .not-found-falback-failed-container {
+      background-color: $white;
+      height: 128px;
+      padding: 20px;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+
+      @include screen('phone-landscape') {
+        padding: 24px;
+      }
+
+      i {
+        color: $error;
+        font-size: 24px;
+        line-height: 32px;
+        margin-right: 16px;
+      }
+
+      p {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 32px;
+        color: $dark-blue;
+      }
+    }
+  }
+}
+
+p-dialog {
+  ::ng-deep {
+    .unavailable-producer-dialog {
+      .p-dialog-header {
+        color: $dark-blue;
+        font-family: Roboto;
+        font-style: normal;
+        padding-bottom: 0;
+      }
+    }
+
+    .content-message {
+      text-align: center;
+      font-family: Roboto;
+      font-style: normal;
+      color: $green;
+      font-weight: 500;
+      padding: 0;
+    }
+  }
+}
+
+.stoc-option {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  @include screen('tablet') {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

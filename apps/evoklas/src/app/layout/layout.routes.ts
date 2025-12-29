@@ -1,5 +1,7 @@
 import { Route } from '@angular/router';
 import { MainLayoutComponent } from './components/main-layout/main-layout.component';
+import { CarSelectorComponent } from '../features/car-selection/components/car-selector.component';
+import { ProducersResolver } from '../features/car-selection/resolvers/car-producers.resolver';
 
 const loadTerms = () =>
   import(
@@ -39,6 +41,13 @@ const loadPlaceholder = () =>
     (m) => m.PlaceholderPageComponent
   );
 
+// import { ProducersResolver } from '../features/car-selection/resolvers/producers.resolver';
+
+const loadCarSelector = () =>
+  import('../features/car-selection/components/car-selector.component').then(
+    (m) => m.CarSelectorComponent
+  );
+
 export const layoutRoutes: Route[] = [
   {
     path: '',
@@ -49,6 +58,11 @@ export const layoutRoutes: Route[] = [
       {
         path: 'register',
         loadComponent: loadRegister,
+      },
+      {
+        path: 'car-selector',
+        component: CarSelectorComponent,
+        resolve: { carSelectorData: ProducersResolver },
       },
       { path: 'terms-and-conditions', loadComponent: loadTerms },
       { path: 'privacy-and-policy', loadComponent: loadPrivacy },
