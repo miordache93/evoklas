@@ -1,0 +1,30 @@
+.app-sidebar {
+  background: #ffffff;
+  border-right: 1px solid #e5e7eb;
+  display: flex;
+  min-height: 100%;
+  width: 260px;
+  transition: width 180ms ease, transform 180ms ease;
+}
+
+.app-sidebar.is-collapsed {
+  transform: translateX(-100%);
+}
+
+.app-sidebar__scroll {
+  padding: 1rem;
+  width: 100%;
+}
+
+.app-sidebar__section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.app-sidebar__section-title {
+  color: #6b7280;
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}

@@ -1,0 +1,13 @@
+<div class="layout-shell">
+  <app-header />
+
+  @if (isNavigating()) {
+    <div class="layout-progress"></div>
+  }
+
+  <main class="layout-shell__content">
+    <router-outlet></router-outlet>
+  </main>
+
+  <app-footer />
+</div>

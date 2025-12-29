@@ -1,0 +1,101 @@
+<form [formGroup]="registerForm" class="register-client-form"
+    (ngSubmit)="onSubmit()">
+
+    <div 
+        class="form-panels">
+        <div class="left-panel">
+
+            <div class="p-field">
+                <label for="name">{{ 'APP.PAGES.REGISTER.FORM.FIELDS.NAME' | translate}}</label>
+                <input id="name" [placeholder]="'APP.PAGES.REGISTER.FORM.FIELDS.NAME_PLACEHOLDER' | translate" type="text"
+                    aria-describedby="name-help" pInputText formControlName="name" />
+                <small *ngIf="name?.errors && (name?.touched || name?.dirty)" id="name-help">
+                    {{ 'APP.PAGES.REGISTER.FORM.FIELDS.NAME_ERROR' | translate}}
+                </small>
+            </div>
+            <div class="p-field">
+                <label for="surname">{{ 'APP.PAGES.REGISTER.FORM.FIELDS.SURNAME' | translate}}</label>
+                <input id="surname" [placeholder]="'APP.PAGES.REGISTER.FORM.FIELDS.SURNAME_PLACEHOLDER' | translate" type="text"
+                    aria-describedby="surname-help" pInputText formControlName="surname" />
+                <small *ngIf="surname?.errors && (surname?.touched || surname?.dirty)" id="surname-help">
+                    {{ 'APP.PAGES.REGISTER.FORM.FIELDS.SURNAME_ERROR' | translate}}
+                </small>
+            </div>
+            <div class="p-field">
+                <label for="phone">{{ 'APP.PAGES.REGISTER.FORM.FIELDS.PHONE' | translate}}</label>
+                <input id="phone" type="tel"  [placeholder]="'APP.PAGES.REGISTER.FORM.FIELDS.PHONE_PLACEHOLDER' | translate" type="text"
+                    aria-describedby="phone-help" pInputText formControlName="phone" />
+                <small *ngIf="phone?.errors && (phone?.touched || phone?.dirty)" id="phone-help">
+                    {{ 'APP.PAGES.REGISTER.FORM.FIELDS.PHONE_ERROR' | translate}}
+                </small>
+            </div>
+        
+            <div class="p-field city-field">
+                <label for="city">{{ 'APP.PAGES.REGISTER.FORM.FIELDS.CITY' | translate}}</label>
+                <p-select id="city" styleClass="form-control" [options]="cities" 
+                            formControlName="city" optionLabel="name" [filter]="true" filterBy="name"
+                            [showClear]="true" [placeholder]="'APP.PAGES.REGISTER.FORM.FIELDS.CITY_PLACEHOLDER' | translate" optionValue="name" aria-describedby="city-help">
+                    <ng-template pTemplate="selectedItem">
+                        <div class="country-item country-item-value" *ngIf="city.value">
+                            <div>{{city.value}}</div>
+                        </div>
+                    </ng-template>
+                    <ng-template let-city pTemplate="item">
+                        <div class="city-item">
+                            <div>{{city.name}}</div>
+                        </div>
+                    </ng-template>
+                </p-select>
+                <small *ngIf="city?.errors && (city?.touched || city?.dirty)" id="city-help">
+                    {{ 'APP.PAGES.REGISTER.FORM.FIELDS.CITY_ERROR' | translate}}
+                </small>
+            </div>
+
+        </div>
+        <div class="right-panel">
+
+            <div class="p-field">
+                <label for="email">{{ 'APP.PAGES.REGISTER.FORM.FIELDS.EMAIL' | translate}}</label>
+                <input id="email" type="email" [placeholder]="'APP.PAGES.REGISTER.FORM.FIELDS.EMAIL_PLACEHOLDER' | translate"
+                    aria-describedby="email-help" pInputText formControlName="email" />
+                <small *ngIf="email?.errors && (email?.touched || email?.dirty)" id="email-help">
+                    {{ email?.errors.emailTaken ? ('APP.PAGES.REGISTER.FORM.FIELDS.EMAIL_TAKEN' | translate ) : ('APP.PAGES.REGISTER.FORM.FIELDS.EMAIL_ERROR' | translate ) }}
+                </small>
+            </div>
+        
+            <div class="p-field">
+                <label for="password">{{ 'APP.PAGES.REGISTER.FORM.FIELDS.PASSWORD' | translate}}</label>
+                <p-password id="password" type="password"
+                    [placeholder]="'APP.PAGES.REGISTER.FORM.FIELDS.PASSWORD_PLACEHOLDER' | translate"
+                    aria-describedby="password-help" formControlName="password" [toggleMask]="true">
+                </p-password>
+                <small *ngIf="password?.errors && (password?.touched || password?.dirty)" id="password-help">
+                    {{ password?.errors.mustMatch ? ('APP.PAGES.REGISTER.FORM.FIELDS.PASSWORD_MATCH_ERROR' | translate ) : ('APP.PAGES.REGISTER.FORM.FIELDS.PASSWORD_ERROR' | translate ) }}
+                </small>
+            </div>
+            <div class="p-field">
+                <label for="password2">{{ 'APP.PAGES.REGISTER.FORM.FIELDS.PASSWORD2' | translate}}</label>
+                <p-password id="password2" type="password"
+                    [placeholder]="'APP.PAGES.REGISTER.FORM.FIELDS.PASSWORD2_PLACEHOLDER' | translate"
+                    aria-describedby="password2-help" formControlName="password2" [toggleMask]="true">
+                </p-password>
+                <small *ngIf="password2?.errors && (password2?.touched || password2?.dirty)" id="password2-help">
+                    {{ password2?.errors.mustMatch ? ('APP.PAGES.REGISTER.FORM.FIELDS.PASSWORD_MATCH_ERROR' | translate ) : ('APP.PAGES.REGISTER.FORM.FIELDS.PASSWORD2_ERROR' | translate ) }}
+                </small>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="info-terms">
+        <p-checkbox formControlName="termsAndConditions" required binary="true"></p-checkbox>
+        <label for="binary">{{ 'APP.PAGES.REGISTER.FORM.INFO' | translate}}</label>
+        <small *ngIf="termsAndConditions?.errors && (termsAndConditions?.touched || termsAndConditions?.dirty)" id="termsAndConditions-help">
+            {{ 'APP.PAGES.REGISTER.FORM.FIELDS.TERMS_AND_CONDITIONS' | translate}}
+        </small>
+    </div>
+    <button pButton [disabled]="!registerForm.valid" pRipple class="register-button" type="submit"
+        [label]="'APP.PAGES.REGISTER.FORM.SUBMIT_BUTTON' | translate">
+    </button>
+</form>

@@ -1,0 +1,17 @@
+$breakpoints: (
+  'desktop-large': 1440px,
+  'desktop': 1200px,
+  'tablet-landscape': 1024px,
+  'tablet': 768px,
+  'phone-landscape': 576px,
+  'phone': 480px
+);
+
+@mixin screen($size) {
+  $width: map-get($breakpoints, $size);
+  @if $width {
+    @media (max-width: $width) {
+      @content;
+    }
+  }
+}

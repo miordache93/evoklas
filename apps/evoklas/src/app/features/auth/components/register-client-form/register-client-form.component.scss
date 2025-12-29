@@ -1,0 +1,43 @@
+@import '../../../../../styles/responsive.mixin.scss';
+@import '../../../../../styles/variables.scss';
+
+.register-client-form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+}
+
+.form-panels {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: space-between;
+}
+
+.left-panel,
+.right-panel {
+  flex: 1 1 48%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  @include screen('tablet') {
+    flex-basis: 100%;
+  }
+}
+
+.p-field {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.info-terms {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}

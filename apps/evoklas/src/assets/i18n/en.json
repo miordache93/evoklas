@@ -1,0 +1,409 @@
+{
+    "APP": {
+        "LOGO_NAME": "Platforma Auto",
+        "PAGES": {
+            "HOME": {
+                "FIRST_PANEL": {
+                    "BANNER_TITLE": "Finding your new car will become an easy task from now on.",
+                    "DESCRIPTION": "Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.",
+                    "SEARCH_BUTTON": "Start your search",
+                    "DEALER_BUTTON": "Check your requests"
+                },
+                "SECOND_PANEL": {
+                    "TITLE": "Reasons to use our services",
+                    "BENEFITS": {
+                        "FIRST_BENEFIT": {
+                            "TITLE": "#1 - All In One Place",
+                            "DESCRIPTION": "We know how hard and time consuming is to find a new car, that's why we made this process an easy task."
+                        },
+                        "SECOND_BENEFIT": {
+                            "TITLE": "#2 - Improved Process",
+                            "DESCRIPTION": "We know how hard and time consuming is to find a new car, that's why we made this process an easy task."
+                        },
+                        "THIRD_BENEFIT": {
+                            "TITLE": "#3 - Quick Replies",
+                            "DESCRIPTION": "We know how hard and time consuming is to find a new car, that's why we made this process an easy task."
+                        }
+                    }
+                },
+                "THIRD_PANEL": {
+                    "FAQ_LIST": {
+                        "TITLE": "F.A.Q List",
+                        "ITEMS": {
+                            "ITEM1": {
+                                "TITLE": "What is PlatformaAuto?",
+                                "DESCRIPTION": "Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy."
+                            },
+                            "ITEM2": {
+                                "TITLE": "Why do we use it?",
+                                "DESCRIPTION": "Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy."
+                            },
+                            "ITEM3": {
+                                "TITLE": "Where does it come from?",
+                                "DESCRIPTION": "Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy."
+                            },
+                            "LAST_ITEM": {
+                                "TITLE": "Where can I get some?",
+                                "DESCRIPTION": "Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy."
+                            }
+                        }
+                    }
+                },
+                "FOURTH_PANEL": {
+                    "TITLE": "Clients feedback"
+                }
+            },
+            "REGISTER": {
+                "TITLE": "Platforma Auto",
+                "REGISTER_DEALER": "Register as DEALER",
+                "REGISTER_CLIENT": "Register as CLIENT",
+                "REGISTER_SUCCESS_TITLE": "Congratulations!",
+                "REGISTER_SUCCESS_MESSAGE": "Now you can receiver cars requests!",
+                "FORM": {
+                    "TITLE": "Register",
+                    "TITLE1": "Register as CLIENT",
+                    "TITLE2": "Register as DEALER",
+                    "CREDIT_INFO": "5 free credits",
+                    "REGISTER-BUTTON": "Register",
+                    "INFO": "By clicking the button you agree to our T&C and confirm you have read our Privacy policy.",
+                    "FIELDS": {
+                        "NAME": "NAME",
+                        "NAME_PLACEHOLDER": "Your name",
+                        "NAME_ERROR": "Please check your name",
+                        "SURNAME": "SURNAME",
+                        "SURNAME_PLACEHOLDER": "Your surname",
+                        "SURNAME_ERROR": "Please check your surname",
+                        "PHONE": "PHONE",
+                        "PHONE_PLACEHOLDER": "Your mobile number",
+                        "PHONE_ERROR": "Please check your number",
+                        "ADDRESS": "ADDRESS",
+                        "ADDRESS_PLACEHOLDER": "Your address",
+                        "ADDRESS_ERROR": "Please check your address",
+                        "CUI": "Tax ID number",
+                        "CUI_PLACEHOLDER": "Tax identification number",
+                        "CUI_ERROR": "Please check your Tax ID",
+                        "CITY": "CITY",
+                        "CITY_PLACEHOLDER": "Your current city",
+                        "CITY_ERROR": "Please check your city",
+                        "COMPANY": "COMPANY",
+                        "COMPANY_PLACEHOLDER": "Your company",
+                        "COMPANY_ERROR": "Please check your company",
+                        "DEALER_BRANDS": "BRANDS",
+                        "DEALER_BRANDS_PLACEHOLDER": "Your brands",
+                        "DEALER_BRANDS_ERROR": "Please check your brands",
+                        "EMAIL": "EMAIL ADDRESS",
+                        "EMAIL_PLACEHOLDER": "Your email address",
+                        "EMAIL_ERROR": "Please check your email address",
+                        "EMAIL_TAKEN": "Email already taken",
+                        "PASSWORD": "PASSWORD",
+                        "PASSWORD_PLACEHOLDER": "Setup your password",
+                        "PASSWORD_ERROR": "Please check your password",
+                        "PASSWORD2": "RE-TYPE PASSWORD",
+                        "PASSWORD2_PLACEHOLDER": "Re-type your password",
+                        "PASSWORD2_ERROR": "Please check your password",
+                        "PASSWORD_MATCH_ERROR": "Passwords don't match",
+                        "TERMS_AND_CONDITIONS": "Fill terms and conditions"
+                    },
+                    "SUBMIT_BUTTON": "Register",
+                    "SOCIAL_MEDIA_ACTIONS": {
+                        "GMAIL_BUTTON": "Continue with Google",
+                        "FACEBOOK_BUTTON": "Continue with Facebook"
+                    }
+                }
+            },
+            "LOGIN": {
+                "TITLE": "Platforma Auto",
+                "INFO": "Don't you have an account?",
+                "REGISTER_LINK": "Register now!",
+                "FORGOT_PASSWORD": "Forgot your password?",
+                "FORM": {
+                    "FIELDS": {
+                        "EMAIL": "EMAIL ADDRESS",
+                        "EMAIL_PLACEHOLDER": "Your email address",
+                        "EMAIL_ERROR": "Please check your email address",
+                        "PASSWORD": "PASSWORD",
+                        "PASSWORD_PLACEHOLDER": "Your password",
+                        "PASSWORD_ERROR": "Please check your password"
+                    },
+                    "TITLE": "Login",
+                    "SUBMIT_BUTTON": "Login",
+                    "SOCIAL_MEDIA_ACTIONS": {
+                        "GMAIL_BUTTON": "Continue with Google",
+                        "FACEBOOK_BUTTON": "Continue with Facebook"
+                    }
+                },
+                "RESET_FORM": {
+                    "TITLE": "Please enter your email addres to reset your password",
+                    "SUBMIT_BUTTON": "Submit",
+                    "CANCEL_BUTTON": "Cancel"
+                }
+            },
+            "CAR_SELECTOR": {
+                "ACTIONS": {
+                    "STEP_1": "Choose Car",
+                    "STEP_2": "Choose Model",
+                    "STEP_3": "Choose Version",
+                    "STEP_4": "Choose Fuel",
+                    "STEP_5": "Choose Engine",
+                    "STEP_6": "Choose Color",
+                    "STEP_7": "Choose Region",
+                    "STEP_8": "Send Request"
+                },
+                "STEPPER": {
+                    "INFO": "* after that you'll be redirected automatically to the next step"
+                },
+                "STEP1": {
+                    "SEARCH_PLACEHOLDER": "Search brands..."
+                },
+                "STEP3_CARDS": {
+                    "EQUIPMENTS_BTN": "SEE ALL EQUIPMENTS",
+                    "SELECT_BTN": "Select",
+                    "STARTING_PRICE": "STARTING PRICE"
+                },
+                "STEP5_CARDS": {
+                    "SELECT_BTN": "Select",
+                    "POWER": "POWER",
+                    "PRICE": "PRICE",
+                    "FUEL": "FUEL",
+                    "TRANSMISION": "TRANSMISION",
+                    "DRIVE_TYPE": "DRIVE TYPE"
+                },
+                "STEP7": {
+                    "REGION": "Select region",
+                    "REGION_BTN": "Next step"
+                },
+                "STEP8": {
+                    "REQUEST_BTN": "Send Request",
+                    "REQUEST_DETAILS": {
+                        "CAR": "CAR",
+                        "MODEL": "MODEL",
+                        "VERSION": "VERSION",
+                        "FUEL": "FUEL",
+                        "ENGINE": "ENGINE",
+                        "COLOR": "COLOR",
+                        "REGION": "REGION",
+                        "POWER": "POWER",
+                        "PRICE": "PRICE",
+                        "TRANSMISION": "TRANSMISION",
+                        "DRIVE_TYPE": "DRIVE TYPE"
+                    },
+                    "STOC_OPTION": "Accept masini din stoc"
+                },
+                "NOT_FOUND": {
+                    "CARS": "No cars found",
+                    "VERSIONS": "No versions found for this model",
+                    "FUELS": "No fuel types found for this engine",
+                    "ENGINE": "No engine types fond for this fuel type",
+                    "PRODUCER": "No car makers found"
+                },
+                "INFO": {
+                    "UNAVAILABLE_PRODUCER": "Currently there is no dealer that's listing this car manufacturer.",
+                    "THANKS_FOR_UNDERSTANDING": "Thanks for understanding!"
+                }
+            },
+            "MESSAGES": {
+                "REQUEST_TITLE": "ALL YOUR REQUESTS",
+                "REQUEST_DETAILS": {
+                    "PRODUCER": "Car",
+                    "MODEL": "Model",
+                    "VERSION": "Version",
+                    "FUEL": "Fuel",
+                    "ENGINE": "Engine",
+                    "COLOR": "Color",
+                    "STOC_OPTION": "Acest client accepta masini din stoc"
+                },
+                "REQUEST_MESSAGE": {
+                    "GET_CAR_ERROR": "Failed to retrieve cars!"
+                },
+                "ACTION_BUTTONS": {
+                    "ADD_ATTACHMENT": "Upload Offer",
+                    "SEND_MESSAGE": "Send Message",
+                    "USE_CREDIT": "Use 1 Credit",
+                    "RENEW_CREDITS": "Renew your credits"
+                },
+                "REQUESTS_LEFT": "Left",
+                "CONFIRMATION_DIALOG": {
+                    "ACCEPT": "CONFIRM",
+                    "REJECT": "CANCEL"
+                },
+                "REQUESTS": {
+                    "SEARCH_INPUT": {
+                        "PLACEHOLDER": "Search",
+                        "LABEL": "Search your request"
+                    }
+                },
+                "CONVERSATIONS": {
+                    "SEARCH_INPUT": {
+                        "PLACEHOLDER": "Search",
+                        "LABEL": "Search your conversation"
+                    }
+                }
+            },
+            "PACKAGES": {
+                "ACTION_BUTTONS": {
+                    "BUY_NOW": "Buy Now",
+                    "GET_FOR_FREE": "Try Now"
+                },
+                "BILLING_INFO": {
+                    "DESCRIPTION": "In order to make a purchase you need to complete your billing info from ",
+                    "LINK": "here."
+                }
+            },
+            "CONTACT_US": {
+                "TITLE": "Contact.",
+                "DESCRIPTION1": "Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search.",
+                "DESCRIPTION2": "For any issues, please consider to send us a message.",
+                "NAME": "Name",
+                "EMAIL": "Email",
+                "MESSAGE": "Message",
+                "SUBMIT_BUTTON": "Send message"
+            },
+            "REQUESTS": {
+                "BLOCKED": "Blocked requests",
+                "NOT_ENOUGH_CREDIT": {
+                    "TITLE": "Not enough credits",
+                    "MESSAGE": "You're redirected to subscriptions page."
+                },
+                "UNBLOCKED": "Unblocked requests",
+                "USE_CREDIT": {
+                    "TEXT": "Are you sure you that you want to proceed?",
+                    "HEADER": "Confirmation",
+                    "ACCEPT": {
+                        "SUMMARY": "Confirmed",
+                        "DETAIL": "You have accepted"
+                    },
+                    "REJECT": {
+                        "SUMMARY": "Rejected",
+                        "DETAIL": "You have rejected"
+                    }
+                }
+            },
+            "USER_PROFILE": {
+                "SAVE_BTN": "Save",
+                "EDIT_BTN": "Edit",
+                "CANCEL_EDIT_BTN": "Cancel edit mode",
+                "BACK_TO_FORM": "Back to profile",
+                "CREDITS": "Credits",
+                "TABLE_DESCRIPTION": "Description",
+                "TABLE_PRICE": "Price",
+                "TABLE_DATE": "Date",
+                "TABLE_REQUESTS": "No. requests",
+                "CONFIRMATION_DIALOG": {
+                    "ACCEPT": "CONFIRM",
+                    "REJECT": "CANCEL"
+                },
+                "PERSONAL_DETAILS": "Personal details",
+                "BILLING_INFO": "Billing Info",
+                "BILLING_FORM": {
+                    "FIELDS": {
+                        "COMPANY": "Company name",
+                        "COMPANY_PLACEHOLDER": "Company name",
+                        "COMPANY_ERROR": "",
+                        "ADDRESS": "Address",
+                        "ADDRESS_PLACEHOLDER": "Address",
+                        "ADDRESS_ERROR": "Address",
+                        "FISCAL_CODE": "Fiscal code (CUI / CIF)",
+                        "FISCAL_CODE_PLACEHOLDER": "Fiscal code (CUI / CIF)",
+                        "FISCAL_CODE_ERROR": "Fiscal code (CUI / CIF)",
+                        "REG_NUMBER": "Registration number",
+                        "REG_NUMBER_PLACEHOLDER": "Registration number",
+                        "REG_NUMBER_ERROR": "Registration number",
+                        "IBAN": "IBAN",
+                        "IBAN_PLACEHOLDER": "RO49AAAA1B31007593840000",
+                        "IBAN_ERROR": "IBAN",
+                        "BANK_NAME": "Bank name",
+                        "BANK_NAME_PLACEHOLDER": "Bank name",
+                        "BANK_NAME_ERROR": "Bank name"
+                    }
+                },
+                "DESCRIPTION": "Note: In order to edit your billing info please use contact us form.",
+                "DELETE_ACCOUNT": {
+                    "TEXT": "Are you sure you that you want to proceed?",
+                    "HEADER": "Confirmation",
+                    "ACCEPT": {
+                        "SUMMARY": "Confirmed",
+                        "DETAIL": "You have accepted"
+                    },
+                    "REJECT": {
+                        "SUMMARY": "Rejected",
+                        "DETAIL": "You have rejected"
+                    }
+                }
+            },
+            "RESET_PASSWORD": {
+                "TITLE": "Reset password",
+                "SUBMIT_BUTTON": "SUBMIT",
+                "SUCCESS_RESET_TITLE": "Success",
+                "SUCCESS_RESET": "Your password has been reset. Redirecting to login..."
+            }
+        },
+        "HEADER": {
+            "OFFERS": "Add Credits",
+            "HOME": "Home",
+            "INBOX": "Inbox",
+            "REQUESTS": "Requests",
+            "PROFILE": "Profile",
+            "LOGOUT": "Logout",
+            "NOTIFICATIONS": {
+                "MESSAGES": {
+                    "TEXT1": "You have",
+                    "TEXT2": "new messages"
+                },
+                "REQUESTS": {
+                    "TEXT1": "You have",
+                    "TEXT2": "new requests"
+                }
+            },
+            "LOGIN_OR_REGISTER": "Login / Register"
+        },
+        "ERRORS": {
+            "400": {
+                "title": "Custom 400 error title",
+                "message": "Custom 400 error message"
+            },
+            "401": {
+                "title": "Custom 401 error title",
+                "message": "Custom 401 error message"
+            },
+            "403": {
+                "title": "Custom 403 error title",
+                "message": "Custom 403 error message"
+            },
+            "404": {
+                "title": "Custom 404 error title",
+                "message": "Custom 404 error message"
+            },
+            "500": {
+                "title": "Custom 500 error title",
+                "message": "Custom 500 error message"
+            },
+            "501": {
+                "title": "Custom 501 error title",
+                "message": "Custom 501 error message"
+            },
+            "504": {
+                "title": "Custom 504 error title",
+                "message": "Custom 504 error message"
+            },
+            "0": {
+                "title": "Custom default error title",
+                "message": "Custom default error message"
+            }
+        },
+        "SUCCESS": {
+            "RESET_PASSWORD_TITLE": "Email send",
+            "RESET_PASSWORD": "An email for password recovery has been send to your inbox!",
+            "EDIT_USER": "Your data has been updated",
+            "EDIT_BILLING_DETAILS": "Your billing info has been updated"
+        },
+        "FOOTER": {
+            "LINKS": {
+                "CONTACT_US": "Contact",
+                "PRIVACY_AND_POLICY": "Privacy and Policy",
+                "COOKIES_POLICY": "Cookies Policy",
+                "TERMS_AND_CONDITIONS": "Terms and Conditions",
+                "GDPR": "GDPR"
+            }
+        }
+    }
+}

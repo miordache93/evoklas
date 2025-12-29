@@ -1,0 +1,8 @@
+<aside class="app-sidebar" [ngClass]="sidebarClasses()">
+  <div class="app-sidebar__scroll">
+    <div class="app-sidebar__section">
+      <span class="app-sidebar__section-title">Navigation</span>
+      <app-navigation [items]="items()" (navigate)="navigate.emit($event)" />
+    </div>
+  </div>
+</aside>

@@ -1,0 +1,96 @@
+<div class="header-component">
+  <div class="navbar">
+    <div class="logo-name">
+      <img class="logo" src="/assets/images/logo.svg" routerLink="/" />
+    </div>
+
+    <div class="navbar-items">
+      <a
+        *ngIf="!isTabletLandscape && currentUser"
+        class="home-btn"
+        title="Home"
+        routerLink="/"
+        [routerLinkActiveOptions]="{ exact: true }"
+        routerLinkActive="active-link"
+      >
+        <i class="pi pi-home"></i>
+        <span> {{ 'APP.HEADER.HOME' | translate }} </span>
+      </a>
+
+      <a
+        *ngIf="currentUser && currentUser.role === 'DEALER'"
+        class="user-credits"
+        title="Subscriptions"
+        routerLink="/subscriptions"
+        [routerLinkActiveOptions]="{ exact: true }"
+        routerLinkActive="active-link"
+      >
+        <i class="fas fa-coins"></i>
+        <span> {{ credits$ | async }} </span>
+      </a>
+
+      <a
+        *ngIf="currentUser"
+        title="Notifications"
+        class="notifications"
+        (click)="
+          notificationItems.length > 0
+            ? notifyMenu.toggle($event)
+            : notifyMenu.hide()
+        "
+      >
+        <i [ngClass]="{ 'fas fa-bell bell': notificationItems.length > 0 }"></i>
+        <i
+          style="margin-right: 16px"
+          *ngIf="notificationItems.length === 0"
+          [ngClass]="{ 'far fa-bell': notificationItems.length === 0 }"
+        ></i>
+        <span class="notifications-container">
+          <div
+            class="circle"
+            [ngClass]="{
+              'notification-received': notificationItems.length > 0
+            }"
+            *ngIf="notificationItems.length > 0"
+          >
+            <span class="circle__content"> {{ notifications.length }} </span>
+          </div>
+        </span>
+      </a>
+      <p-menu #notifyMenu [popup]="true" [model]="notificationItems"></p-menu>
+
+      <!-- Main menu trigger -->
+      <a
+        *ngIf="currentUser"
+        class="my-account-btn"
+        (click)="menu.toggle($event)"
+      >
+        <i *ngIf="!isTabletLandscape" class="far fa-user"></i>
+        <span *ngIf="!isTabletLandscape">
+          {{ currentUser.name }} {{ currentUser.surname }}
+        </span>
+        <i
+          class="fa"
+          [ngClass]="{
+            'fa-chevron-down': !isTabletLandscape,
+            'fas fa-bars': isTabletLandscape
+          }"
+        ></i>
+      </a>
+      <p-menu #menu [popup]="true" [model]="items"></p-menu>
+
+      <a
+        *ngIf="!currentUser"
+        routerLink="/login"
+        title="Login"
+        [routerLinkActiveOptions]="{ exact: true }"
+        routerLinkActive="active-link"
+      >
+        <i class="pi pi-sign-in"></i>
+        <span *ngIf="!isMobile">
+          {{ 'APP.HEADER.LOGIN_OR_REGISTER' | translate }}
+        </span>
+      </a>
+    </div>
+  </div>
+</div>

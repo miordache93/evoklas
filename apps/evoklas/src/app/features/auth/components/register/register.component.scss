@@ -1,0 +1,239 @@
+@import '../../../../../styles/responsive.mixin.scss';
+@import '../../../../../styles/variables.scss';
+
+.register-component {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px 25.5%;
+    background: #f3f8fa;
+
+    app-register-dealer-form {
+        width: 100%;
+    }
+
+    @include screen('desktop-large') {
+        padding: 40px 32.5% 167px;
+    }
+
+    @include screen('desktop') {
+        padding: 20px 20.5% 44px;
+    }
+
+    @include screen('tablet-landscape') {
+        padding: 24px 15% 60px;
+    }
+
+    @include screen('tablet') {
+        padding: 20px 10.5% 46px;
+    }
+
+    @include screen('phone-landscape') {
+        padding: 20px 5% 92px;
+    }
+
+    &.dealer, &.client {
+        padding: 40px 30.5%;
+
+        @include screen('desktop-large') {
+            padding: 40px 25%;
+        }
+
+        @include screen('desktop') {
+            padding: 20px 20% 44px;
+        }
+
+        @include screen('tablet-landscape') {
+            padding: 24px 12% 60px;
+        }
+
+        @include screen('tablet') {
+            padding: 20px 5% 46px;
+        }
+    }
+
+    &.client {
+        .form-title {
+            margin-bottom: 10px;
+        }
+    }
+
+    .logo {
+        width: 200px;
+        object-fit: contain;
+    }
+
+    .header {
+        margin-bottom: 16px;
+
+        h1 {
+            margin: 0;
+            color: $dark-blue;
+            font-family: Roboto;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    }
+
+    .register-form {
+        background-color: $white;
+        padding: 32px;
+        margin-bottom: 32px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+        border: 1px solid $darker-white;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(24, 68, 81, 0.08);
+
+        .form-title {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            h2 {
+                margin: 0 0 20px 0;
+                color: $dark-blue;
+                font-family: Roboto;
+                font-size: 24px;
+                line-height: 32px;
+                text-align: center;
+                font-weight: 700;
+            }
+
+            a {
+                cursor: pointer;
+                margin-top: 5px;
+            }
+
+            i {
+                font-size: 24px;
+                margin-right: 16px;
+            }
+
+            .free-credit-info {
+                font-family: Roboto;
+                font-weight: bolder;
+                font-size: 24px;
+                margin-bottom: 5px;
+                margin-top: 0;
+                background-color: $logo;
+                color: $white;
+                padding: 7px;
+                border-radius: 50px;
+            }
+        }
+
+        .registration-selected {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .dealer-title {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    .register-social-media {
+        color: $white;
+        width: 100%;
+        text-align: center;
+
+        a {
+            border-radius: 3px;
+            cursor: pointer;
+
+            i {
+                margin-right: 16px;
+            }
+        }
+
+        .gmail-register {
+            background-color: $gmail;
+            width: 100%;
+            padding: 16px 10%;
+        }
+
+        .facebook-register {
+            background-color: $facebook;
+            width: 100%;
+            padding: 16px 10%;
+        }
+    }
+}
+
+.register-button {
+    background-color: $dark-blue;
+    color: $white;
+    border-radius: 8px;
+    font-weight: 600;
+    padding: 14px 20px;
+    border: 1px solid transparent;
+    transition: background-color 150ms ease, box-shadow 150ms ease, transform 150ms ease;
+
+    &:hover {
+        background-color: $darker-blue;
+        box-shadow: 0 6px 20px rgba(34, 83, 97, 0.18);
+        transform: translateY(-1px);
+    }
+
+    &:focus-visible {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba($logo, 0.25);
+    }
+}
+
+.registration-type-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    text-align: center;
+    border: 2px solid $dark-blue;
+    border-radius: 5px;
+    box-sizing: border-box;
+
+    a {
+        cursor: pointer;
+        width: 70%;
+        padding: 16px 2%;
+        font-family: Roboto;
+        background-color: $white;
+        color: $dark-blue;
+
+        &:first-child {
+            border-right: 2px solid $dark-blue;
+        }
+
+        &:hover {
+            color: $white;
+            border-color: $darker-blue;
+            background-color: $dark-blue;
+        }
+
+        
+
+        i {
+            margin-right: 16px;
+        }
+    }
+
+    .registration-option {
+        flex: 1 1 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+}

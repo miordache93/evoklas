@@ -1,0 +1,148 @@
+<p-toast />
+
+<div class="login-component">
+  <div class="header">
+    <a routerLink="/">
+      <img class="logo" src="/assets/images/logo.svg" />
+    </a>
+  </div>
+  <div class="login-form">
+    <div class="form-title">
+      <h2>{{ 'APP.PAGES.LOGIN.FORM.TITLE' | translate }}</h2>
+    </div>
+    <div class="form-container">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="p-field">
+          <label for="email">{{
+            'APP.PAGES.LOGIN.FORM.FIELDS.EMAIL' | translate
+          }}</label>
+          <input
+            id="email"
+            type="email"
+            [placeholder]="
+              'APP.PAGES.LOGIN.FORM.FIELDS.EMAIL_PLACEHOLDER' | translate
+            "
+            aria-describedby="email-help"
+            pInputText
+            formControlName="email"
+          />
+          <small
+            *ngIf="email?.errors && email?.touched && email?.dirty"
+            id="email-help"
+          >
+            {{ 'APP.PAGES.LOGIN.FORM.FIELDS.EMAIL_ERROR' | translate }}
+          </small>
+        </div>
+        <div
+          class="p-field flex-1 flex flex-column justify-between items-start"
+        >
+          <label for="password">{{
+            'APP.PAGES.LOGIN.FORM.FIELDS.PASSWORD' | translate
+          }}</label>
+          <p-password
+            id="password"
+            type="password"
+            [placeholder]="
+              'APP.PAGES.LOGIN.FORM.FIELDS.PASSWORD_PLACEHOLDER' | translate
+            "
+            formControlName="password"
+            [feedback]="false"
+          >
+          </p-password>
+          <small
+            *ngIf="password?.errors && password?.touched && password?.dirty"
+            id="password-help"
+          >
+            {{ 'APP.PAGES.LOGIN.FORM.FIELDS.PASSWORD_ERROR' | translate }}
+          </small>
+        </div>
+        <button
+          pButton
+          pRipple
+          class="login-button"
+          type="submit"
+          [disabled]="submitting"
+          [label]="'APP.PAGES.LOGIN.FORM.SUBMIT_BUTTON' | translate"
+        ></button>
+        <div class="info-forgot-pwd">
+          <a (click)="openResetPasswordDialog()">
+            {{ 'APP.PAGES.LOGIN.FORGOT_PASSWORD' | translate }}
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="register-redirect">
+    <p>
+      {{ 'APP.PAGES.LOGIN.INFO' | translate }}
+      <a routerLink="/register">
+        {{ 'APP.PAGES.LOGIN.REGISTER_LINK' | translate }}
+      </a>
+    </p>
+  </div>
+  <!-- <div class="login-social-media"
+    fxFlex
+    fxLayout="column"
+    fxLayoutGap="16px"
+    fxLayoutAlign="space-between center">
+    <a class="gmail-login">
+      <i class="fab fa-google"></i>
+      <span > {{ 'APP.PAGES.LOGIN.FORM.SOCIAL_MEDIA_ACTIONS.GMAIL_BUTTON' | translate}} </span> 
+    </a>
+    <a class="facebook-login">
+      <i class="fab fa-facebook-f"></i>      
+      <span> {{ 'APP.PAGES.LOGIN.FORM.SOCIAL_MEDIA_ACTIONS.FACEBOOK_BUTTON' | translate}} </span> 
+    </a>
+  </div> -->
+</div>
+
+<p-dialog
+  [header]="'APP.PAGES.LOGIN.RESET_FORM.TITLE' | translate"
+  [(visible)]="displayResetEmail"
+>
+  <div class="password-reset-dialog">
+    <form [formGroup]="resetForm" (ngSubmit)="resetPassword()">
+      <div class="p-field">
+        <label for="emailReset">{{
+          'APP.PAGES.LOGIN.FORM.FIELDS.EMAIL' | translate
+        }}</label>
+        <input
+          id="emailReset"
+          type="email"
+          [placeholder]="
+            'APP.PAGES.LOGIN.FORM.FIELDS.EMAIL_PLACEHOLDER' | translate
+          "
+          aria-describedby="emailReset-help"
+          pInputText
+          formControlName="emailReset"
+        />
+        <small
+          *ngIf="emailReset?.errors && email?.touched && emailReset?.dirty"
+          id="emailReset-help"
+        >
+          {{ 'APP.PAGES.LOGIN.FORM.FIELDS.EMAIL_ERROR' | translate }}
+        </small>
+      </div>
+      <div
+        class="action-items"
+      >
+        <button
+          pButton
+          pRipple
+          class="cancel-reset-button"
+          type="button"
+          (click)="displayResetEmail = false"
+          [label]="'APP.PAGES.LOGIN.RESET_FORM.CANCEL_BUTTON' | translate"
+        ></button>
+        <button
+          pButton
+          pRipple
+          class="submit-reset-button"
+          type="submit"
+          [disabled]="resetting"
+          [label]="'APP.PAGES.LOGIN.RESET_FORM.SUBMIT_BUTTON' | translate"
+        ></button>
+      </div>
+    </form>
+  </div>
+</p-dialog>

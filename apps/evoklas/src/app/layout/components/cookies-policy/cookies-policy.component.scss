@@ -1,0 +1,9 @@
+.cookies-component {
+  background: #f4fafb;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+:host ::ng-deep ngx-extended-pdf-viewer {
+  background: #f4fafb;
+}

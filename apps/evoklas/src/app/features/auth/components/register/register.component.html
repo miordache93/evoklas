@@ -1,0 +1,63 @@
+<div 
+  class="register-component"
+  [ngClass]="{'dealer': selectedRegistration === 'DEALER', 'client': selectedRegistration === 'CLIENT'}">
+  <div class="header">
+    <a routerLink="/">
+      <!-- <h1>{{ 'APP.PAGES.REGISTER.TITLE' | translate}}</h1> -->
+        <img class="logo" src="/assets/images/logo.svg" />
+    </a>
+  </div>
+  <div class="register-form">
+    <div 
+      class="form-title"
+      [ngClass]="{'registration-selected': selectedRegistration}">
+      <a
+        *ngIf="!!selectedRegistration" 
+        class="go-back" 
+        (click)="selectedRegistration = null">
+        <i class="fas fa-chevron-left"></i>
+      </a>
+      <h2 *ngIf="!selectedRegistration"> {{ 'APP.PAGES.REGISTER.FORM.TITLE' | translate }}</h2>
+      <h2 *ngIf="selectedRegistration === 'CLIENT'"> {{ 'APP.PAGES.REGISTER.FORM.TITLE1' | translate }}</h2>
+      <div 
+        *ngIf="selectedRegistration === 'DEALER'"
+        class="dealer-title">
+        <h2> {{ 'APP.PAGES.REGISTER.FORM.TITLE2' | translate }}</h2>
+        <h2 class="free-credit-info" *ngIf="selectedRegistration === 'DEALER'"> ({{ 'APP.PAGES.REGISTER.FORM.CREDIT_INFO' | translate }}) </h2>
+      </div>
+    </div>
+    <div class="form-container">
+      <div
+        *ngIf="!selectedRegistration" 
+        class="registration-type-container">
+        <a class="client-registration registration-option" (click)="selectedRegistration = 'CLIENT'">
+          <i class="fas fa-user"></i>
+          <span> {{ 'APP.PAGES.REGISTER.REGISTER_CLIENT' | translate}} </span>
+        </a>
+        <a class="dealer-registration registration-option" (click)="selectedRegistration = 'DEALER'">
+          <i class="fas fa-car"></i>
+          <span> {{ 'APP.PAGES.REGISTER.REGISTER_DEALER' | translate}} </span>
+        </a>
+      </div>
+      <app-register-client-form 
+        [cities]="cities"
+        *ngIf="selectedRegistration === 'CLIENT'">
+      </app-register-client-form>
+      <app-register-dealer-form 
+        [cities]="cities"
+        [brands]="brands"
+        *ngIf="selectedRegistration === 'DEALER'">
+      </app-register-dealer-form>
+    </div>
+  </div>
+  <!-- <div class="register-social-media" fxFlex fxLayout="column" fxLayoutGap="16px" fxLayoutAlign="space-between center">
+    <a class="gmail-register">
+      <i class="fab fa-google"></i>
+      <span> {{ 'APP.PAGES.REGISTER.FORM.SOCIAL_MEDIA_ACTIONS.GMAIL_BUTTON' | translate}} </span>
+    </a>
+    <a class="facebook-register">
+      <i class="fab fa-facebook-f"></i>
+      <span> {{ 'APP.PAGES.REGISTER.FORM.SOCIAL_MEDIA_ACTIONS.FACEBOOK_BUTTON' | translate}} </span>
+    </a>
+  </div> -->
+</div>

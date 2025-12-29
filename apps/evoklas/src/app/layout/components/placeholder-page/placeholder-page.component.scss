@@ -1,0 +1,26 @@
+.placeholder {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.placeholder__pill {
+  background: rgba(79, 193, 224, 0.16);
+  color: #0b2741;
+  border-radius: 999px;
+  font-weight: 700;
+  padding: 0.35rem 0.75rem;
+}
+
+.placeholder__headline {
+  color: #0b2741;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.placeholder__body {
+  color: #4b5563;
+  margin: 0;
+}

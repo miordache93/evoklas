@@ -1,0 +1,28 @@
+<nav class="app-navigation">
+  @for (item of items(); track trackByPath($index, item)) {
+  <a
+    pRipple
+    class="app-navigation__item"
+    [routerLink]="item.path"
+    routerLinkActive="is-active"
+    [class.is-disabled]="item.disabled"
+    (click)="onNavigate($event, item)"
+  >
+    @if (item.icon) {
+    <span
+      class="pi {{ item.icon }} app-navigation__icon"
+      aria-hidden="true"
+    ></span>
+    }
+    <span class="app-navigation__text">
+      <span class="app-navigation__label">{{ item.label }}</span>
+      @if (item.description) {
+      <small class="app-navigation__description">{{ item.description }}</small>
+      }
+    </span>
+    @if (item.badge !== undefined) {
+    <span class="p-badge app-navigation__badge">{{ item.badge }}</span>
+    }
+  </a>
+  }
+</nav>

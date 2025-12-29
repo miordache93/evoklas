@@ -1,0 +1,16 @@
+<p-card [header]="title()">
+  <div class="placeholder">
+    <div class="placeholder__pill">Layout scaffold</div>
+    <p class="placeholder__headline">{{ title() }} is coming soon.</p>
+    <p class="placeholder__body">
+      Routes are wired to the layout shell so you can start dropping in feature
+      components without changing the navigation.
+    </p>
+    <p-button
+      routerLink="/dashboard"
+      icon="pi pi-arrow-right"
+      label="Go to dashboard"
+      [text]="true"
+    ></p-button>
+  </div>
+</p-card>

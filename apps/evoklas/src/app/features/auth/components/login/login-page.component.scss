@@ -1,0 +1,242 @@
+.login-component {
+  min-height: 100vh;
+  padding: 80px 38.5% 142px 38.5%;
+  background: #f3f8fa;
+  color: #0b2741;
+
+  @media (max-width: 1600px) {
+    padding: 80px 35.5% 167px;
+  }
+
+  @media (max-width: 1400px) {
+    padding: 80px 33.5% 44px;
+  }
+
+  @media (max-width: 1200px) {
+    padding: 64px 23% 60px;
+  }
+
+  @media (max-width: 992px) {
+    padding: 40px 13.5% 46px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 40px 5% 92px;
+  }
+
+  .logo {
+    width: 200px;
+    object-fit: contain;
+  }
+
+  .header {
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+      margin: 0;
+      color: #0b2741;
+      font-family: Roboto, 'Inter', sans-serif;
+    }
+
+    a {
+      text-decoration: none;
+      display: inline-flex;
+      justify-content: center;
+    }
+  }
+
+  .login-form {
+    background-color: #ffffff;
+    padding: 32px 24px;
+    width: 100%;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    box-shadow: 0 10px 26px rgba(15, 23, 42, 0.08);
+
+    .form-title {
+      text-align: center;
+
+      h2 {
+        margin: 0 0 40px 0;
+        color: #0b2741;
+        font-family: Roboto, 'Inter', sans-serif;
+        font-size: 24px;
+        line-height: 32px;
+        font-weight: 700;
+      }
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .p-field {
+      font-family: Roboto, 'Inter', sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      width: 100%;
+
+      ::ng-deep {
+        label {
+          color: #0b2741;
+          padding-bottom: 16px;
+          line-height: 20px;
+          font-weight: 600;
+        }
+
+        p-password {
+          width: 100%;
+          border: none;
+
+          .p-inputwrapper {
+            width: 100%;
+
+            input {
+              width: 100%;
+            }
+          }
+        }
+
+        input {
+          color: #1f3b4d;
+          line-height: 24px;
+          border: none;
+          border-bottom: 1px solid #f3f8fa;
+          width: 100%;
+          padding: 0.35rem 0;
+          background: transparent;
+
+          &.p-filled {
+            color: #000000 !important;
+          }
+        }
+
+        small {
+          color: #e14040;
+          padding-top: 5px;
+        }
+      }
+    }
+
+    .login-button {
+      padding: 16px 10%;
+      background-color: #4fc1e0;
+      color: #0b2741;
+      width: 100%;
+      border: none;
+      border-radius: 6px;
+      font-weight: 700;
+      box-shadow: 0 10px 22px rgba(79, 193, 224, 0.28);
+
+      &:hover {
+        background-color: #3d95ad;
+        color: #ffffff;
+      }
+    }
+
+    .info-forgot-pwd {
+      text-align: center;
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 20px;
+
+      a {
+        color: #3d95ad;
+        font-size: 12px;
+        line-height: 20px;
+        cursor: pointer;
+
+        &:hover {
+          color: #0b2741;
+        }
+      }
+    }
+  }
+
+  .register-redirect {
+    font-size: 16px;
+    line-height: 24px;
+    color: #0b2741;
+    text-align: center;
+
+    a {
+      font-weight: 700;
+      text-decoration: none;
+      color: #3d95ad;
+
+      &:hover {
+        color: #0b2741;
+      }
+    }
+  }
+}
+
+::ng-deep {
+  .password-reset-dialog {
+    display: flex;
+    justify-content: center;
+
+    form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+
+      .p-field {
+        font-family: Roboto, 'Inter', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        width: 100%;
+
+        ::ng-deep {
+          label {
+            color: #0b2741;
+            padding-bottom: 16px;
+            line-height: 20px;
+          }
+
+          input {
+            color: #1f3b4d;
+            line-height: 24px;
+            border: none;
+            border-bottom: 1px solid #f3f8fa;
+            width: 100%;
+
+            &.p-filled {
+              color: #000000 !important;
+            }
+          }
+
+          small {
+            color: #e14040;
+          }
+        }
+      }
+
+      .action-items {
+        width: 100%;
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        .cancel-reset-button {
+          background-color: #e14040;
+          border: none;
+
+          &:hover {
+            background-color: #e14040;
+          }
+        }
+      }
+    }
+  }
+}

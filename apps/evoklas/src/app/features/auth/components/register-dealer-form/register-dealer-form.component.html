@@ -1,0 +1,243 @@
+<form
+  [formGroup]="registerForm"
+  class="register-dealer-form"
+  (ngSubmit)="onSubmit()"
+>
+  <div class="form-container">
+    <div class="form-left">
+
+      <!-- NAME -->
+      <div class="p-field">
+        <label for="name">{{ 'APP.PAGES.REGISTER.FORM.FIELDS.NAME' | translate }}</label>
+        <input
+          id="name"
+          pInputText
+          type="text"
+          [placeholder]="'APP.PAGES.REGISTER.FORM.FIELDS.NAME_PLACEHOLDER' | translate"
+          formControlName="name"
+          aria-describedby="name-help"
+        />
+        <small *ngIf="name?.invalid && (name?.touched || submitted)" id="name-help">
+          <ng-container *ngIf="name?.errors?.['required']">
+            {{ 'APP.ERRORS.REQUIRED' | translate }}
+          </ng-container>
+          <ng-container *ngIf="name?.errors?.['pattern']">
+            {{ 'APP.ERRORS.NAME_FORMAT' | translate }}
+          </ng-container>
+          <ng-container *ngIf="name?.errors?.['api']">
+            {{ name?.errors?.['api'] }}
+          </ng-container>
+        </small>
+      </div>
+
+      <!-- SURNAME -->
+      <div class="p-field">
+        <label for="surname">{{ 'APP.PAGES.REGISTER.FORM.FIELDS.SURNAME' | translate }}</label>
+        <input
+          id="surname"
+          pInputText
+          type="text"
+          [placeholder]="'APP.PAGES.REGISTER.FORM.FIELDS.SURNAME_PLACEHOLDER' | translate"
+          formControlName="surname"
+          aria-describedby="surname-help"
+        />
+        <small *ngIf="surname?.invalid && (surname?.touched || submitted)" id="surname-help">
+          <ng-container *ngIf="surname?.errors?.['required']">
+            {{ 'APP.ERRORS.REQUIRED' | translate }}
+          </ng-container>
+          <ng-container *ngIf="surname?.errors?.['pattern']">
+            {{ 'APP.ERRORS.SURNAME_FORMAT' | translate }}
+          </ng-container>
+          <ng-container *ngIf="surname?.errors?.['api']">
+            {{ surname?.errors?.['api'] }}
+          </ng-container>
+        </small>
+      </div>
+
+      <!-- PHONE -->
+      <div class="p-field">
+        <label for="phone">{{ 'APP.PAGES.REGISTER.FORM.FIELDS.PHONE' | translate }}</label>
+        <input
+          id="phone"
+          pInputText
+          type="tel"
+          [placeholder]="'APP.PAGES.REGISTER.FORM.FIELDS.PHONE_PLACEHOLDER' | translate"
+          formControlName="phone"
+          aria-describedby="phone-help"
+        />
+        <small *ngIf="phone?.invalid && (phone?.touched || submitted)" id="phone-help">
+          <ng-container *ngIf="phone?.errors?.['required']">
+            {{ 'APP.ERRORS.REQUIRED' | translate }}
+          </ng-container>
+          <ng-container *ngIf="phone?.errors?.['pattern']">
+            {{ 'APP.ERRORS.PHONE_FORMAT' | translate }}
+          </ng-container>
+          <ng-container *ngIf="phone?.errors?.['api']">
+            {{ phone?.errors?.['api'] }}
+          </ng-container>
+        </small>
+      </div>
+
+      <!-- EMAIL -->
+      <div class="p-field">
+        <label for="email">{{ 'APP.PAGES.REGISTER.FORM.FIELDS.EMAIL' | translate }}</label>
+        <input
+          id="email"
+          pInputText
+          type="email"
+          [placeholder]="'APP.PAGES.REGISTER.FORM.FIELDS.EMAIL_PLACEHOLDER' | translate"
+          formControlName="email"
+          aria-describedby="email-help"
+        />
+        <small *ngIf="email?.invalid && (email?.touched || submitted)" id="email-help">
+          <ng-container *ngIf="email?.errors?.['required']">
+            {{ 'APP.ERRORS.REQUIRED' | translate }}
+          </ng-container>
+          <ng-container *ngIf="email?.errors?.['email']">
+            {{ 'APP.ERRORS.EMAIL_FORMAT' | translate }}
+          </ng-container>
+          <ng-container *ngIf="email?.errors?.['api']">
+            {{ email?.errors?.['api'] }}
+          </ng-container>
+        </small>
+      </div>
+    </div>
+
+    <div class="form-right">
+
+      <!-- CITY -->
+      <div class="p-field">
+        <label for="city">{{ 'APP.PAGES.REGISTER.FORM.FIELDS.CITY' | translate }}</label>
+        <p-select
+          id="city"
+          styleClass="form-control"
+          [options]="cities"
+          formControlName="city"
+          optionLabel="name"
+          optionValue="name"
+          [filter]="true"
+          filterBy="name"
+          [showClear]="true"
+          [placeholder]="'APP.PAGES.REGISTER.FORM.FIELDS.CITY_PLACEHOLDER' | translate"
+          aria-describedby="city-help"
+        >
+          <ng-template pTemplate="selectedItem">
+            <div class="country-item country-item-value" *ngIf="city?.value">
+              <div>{{ city?.value }}</div>
+            </div>
+          </ng-template>
+          <ng-template let-city pTemplate="item">
+            <div class="city-item">
+              <div>{{ city.name }}</div>
+            </div>
+          </ng-template>
+        </p-select>
+        <small *ngIf="city?.invalid && (city?.touched || submitted)" id="city-help">
+          <ng-container *ngIf="city?.errors?.['required']">
+            {{ 'APP.ERRORS.REQUIRED' | translate }}
+          </ng-container>
+          <ng-container *ngIf="city?.errors?.['api']">
+            {{ city?.errors?.['api'] }}
+          </ng-container>
+        </small>
+      </div>
+
+      <!-- BRANDS -->
+      <div class="p-field brands-field">
+        <label for="dealerBrands">{{ 'APP.PAGES.REGISTER.FORM.FIELDS.DEALER_BRANDS' | translate }}</label>
+        <p-multiselect
+          formControlName="dealerBrands"
+          [options]="brands"
+          optionLabel="name"
+          optionValue="name"
+          display="chip"
+          [placeholder]="'APP.PAGES.REGISTER.FORM.FIELDS.DEALER_BRANDS_PLACEHOLDER' | translate"
+          aria-describedby="dealerBrands-help"
+        ></p-multiselect>
+        <small *ngIf="dealerBrands?.invalid && (dealerBrands?.touched || submitted)" id="dealerBrands-help">
+          <ng-container *ngIf="dealerBrands?.errors?.['required'] || dealerBrands?.errors?.['minSelected']">
+            {{ 'APP.ERRORS.MIN_ONE' | translate }}
+          </ng-container>
+          <ng-container *ngIf="dealerBrands?.errors?.['api']">
+            {{ dealerBrands?.errors?.['api'] }}
+          </ng-container>
+        </small>
+      </div>
+
+      <!-- PASSWORD -->
+      <div class="p-field">
+        <label for="password">{{ 'APP.PAGES.REGISTER.FORM.FIELDS.PASSWORD' | translate }}</label>
+        <p-password
+          id="password"
+          formControlName="password"
+          [toggleMask]="true"
+          [placeholder]="'APP.PAGES.REGISTER.FORM.FIELDS.PASSWORD_PLACEHOLDER' | translate"
+          aria-describedby="password-help"
+          [feedback]="true"
+        ></p-password>
+        <small *ngIf="password?.invalid && (password?.touched || submitted)" id="password-help">
+          <ng-container *ngIf="password?.errors?.['required']">
+            {{ 'APP.ERRORS.REQUIRED' | translate }}
+          </ng-container>
+          <ng-container *ngIf="password?.errors?.['weakPassword']">
+            {{ 'APP.ERRORS.PASSWORD_WEAK' | translate }}
+          </ng-container>
+          <ng-container *ngIf="password?.errors?.['api']">
+            {{ password?.errors?.['api'] }}
+          </ng-container>
+        </small>
+      </div>
+
+      <!-- PASSWORD2 -->
+      <div class="p-field">
+        <label for="password2">{{ 'APP.PAGES.REGISTER.FORM.FIELDS.PASSWORD2' | translate }}</label>
+        <p-password
+          id="password2"
+          formControlName="password2"
+          [toggleMask]="true"
+          type="password"
+          [placeholder]="'APP.PAGES.REGISTER.FORM.FIELDS.PASSWORD2_PLACEHOLDER' | translate"
+          aria-describedby="password2-help"
+        ></p-password>
+        <small *ngIf="password2?.invalid && (password2?.touched || submitted)" id="password2-help">
+          <ng-container *ngIf="password2?.errors?.['required']">
+            {{ 'APP.ERRORS.REQUIRED' | translate }}
+          </ng-container>
+          <ng-container *ngIf="password2?.errors?.['mustMatch']">
+            {{ 'APP.PAGES.REGISTER.FORM.FIELDS.PASSWORD_MATCH_ERROR' | translate }}
+          </ng-container>
+          <ng-container *ngIf="password2?.errors?.['api']">
+            {{ password2?.errors?.['api'] }}
+          </ng-container>
+        </small>
+      </div>
+    </div>
+  </div>
+
+  <!-- TERMS -->
+  <div class="info-terms">
+    <p-checkbox formControlName="termsAndConditions" binary="true" required></p-checkbox>
+    <label for="binary">{{ 'APP.PAGES.REGISTER.FORM.INFO' | translate }}</label>
+    <small *ngIf="termsAndConditions?.invalid && (termsAndConditions?.touched || submitted)" id="termsAndConditions-help">
+      {{ 'APP.PAGES.REGISTER.FORM.FIELDS.TERMS_AND_CONDITIONS' | translate }}
+    </small>
+  </div>
+
+  <div class="form-actions">
+    <button
+      pButton
+      pRipple
+      class="register-button"
+      type="submit"
+      [label]="'APP.PAGES.REGISTER.FORM.SUBMIT_BUTTON' | translate"
+    ></button>
+  </div>
+</form>
+
+<p-dialog
+  [header]="'APP.PAGES.REGISTER.REGISTER_SUCCESS_TITLE' | translate"
+  (onHide)="goToLogin()"
+  [(visible)]="display"
+>
+  {{ 'APP.PAGES.REGISTER.REGISTER_SUCCESS_MESSAGE' | translate }}
+</p-dialog>

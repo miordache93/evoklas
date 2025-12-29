@@ -1,0 +1,62 @@
+@import '../../../../../styles/responsive.mixin.scss';
+@import '../../../../../styles/variables.scss';
+
+.register-dealer-form {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+}
+
+form {
+    .form-container {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px;
+        justify-content: space-between;
+    }
+
+    .form-left,
+    .form-right {
+        flex: 1 1 48%;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        @include screen('tablet') {
+            flex-basis: 100%;
+        }
+    }
+
+    .form-actions {
+        width: 60%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .p-field {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    ::ng-deep {
+        .brands-field {
+            width: 100%;
+            max-width: 348px;
+
+            .p-multiselect-filter-container {
+                min-width: 235px;
+            }
+        }
+    }
+
+    .info-terms {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+}

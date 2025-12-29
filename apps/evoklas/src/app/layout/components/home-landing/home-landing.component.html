@@ -1,0 +1,247 @@
+<div class="home-component">
+  <section class="hero hero-mobile" *ngIf="isTablet">
+    <div class="hero__text">
+      <h1>{{ 'APP.PAGES.HOME.FIRST_PANEL.BANNER_TITLE' | translate }}</h1>
+      <p class="hero__description">
+        {{ 'APP.PAGES.HOME.FIRST_PANEL.DESCRIPTION' | translate }}
+      </p>
+      <a class="search-button" (click)="navigateUser()">
+        <i
+          *ngIf="!currentUser || currentUser.role === 'CLIENT'"
+          class="fas fa-search"
+        ></i>
+        <i
+          *ngIf="currentUser && currentUser.role === 'DEALER'"
+          class="far fa-eye"
+        ></i>
+        {{
+          currentUser && currentUser.role === 'DEALER'
+            ? ('APP.PAGES.HOME.FIRST_PANEL.DEALER_BUTTON' | translate)
+            : ('APP.PAGES.HOME.FIRST_PANEL.SEARCH_BUTTON' | translate)
+        }}
+      </a>
+    </div>
+    <div class="hero__image">
+      <img [src]="mobileImagePath" alt="Hero" />
+    </div>
+  </section>
+
+  <section class="hero hero-tablet" *ngIf="isTabletLandscape">
+    <div class="hero__text">
+      <h1>{{ 'APP.PAGES.HOME.FIRST_PANEL.BANNER_TITLE' | translate }}</h1>
+      <p class="hero__description">
+        {{ 'APP.PAGES.HOME.FIRST_PANEL.DESCRIPTION' | translate }}
+      </p>
+      <a class="search-button" (click)="navigateUser()">
+        <i
+          *ngIf="!currentUser || currentUser.role === 'CLIENT'"
+          class="fas fa-search"
+        ></i>
+        <i
+          *ngIf="currentUser && currentUser.role === 'DEALER'"
+          class="far fa-eye"
+        ></i>
+        {{
+          currentUser && currentUser.role === 'DEALER'
+            ? ('APP.PAGES.HOME.FIRST_PANEL.DEALER_BUTTON' | translate)
+            : ('APP.PAGES.HOME.FIRST_PANEL.SEARCH_BUTTON' | translate)
+        }}
+      </a>
+    </div>
+    <div class="hero__image">
+      <img [src]="mobileImagePath" alt="Hero" />
+    </div>
+  </section>
+
+  <section class="hero hero-desktop" *ngIf="!isTablet && !isTabletLandscape">
+    <div class="hero__text">
+      <h1>{{ 'APP.PAGES.HOME.FIRST_PANEL.BANNER_TITLE' | translate }}</h1>
+      <p class="hero__description">
+        {{ 'APP.PAGES.HOME.FIRST_PANEL.DESCRIPTION' | translate }}
+      </p>
+      <a class="search-button" (click)="navigateUser()">
+        <i
+          *ngIf="!currentUser || currentUser.role === 'CLIENT'"
+          class="fas fa-search"
+        ></i>
+        <i
+          *ngIf="currentUser && currentUser.role === 'DEALER'"
+          class="far fa-eye"
+        ></i>
+        {{
+          currentUser && currentUser.role === 'DEALER'
+            ? ('APP.PAGES.HOME.FIRST_PANEL.DEALER_BUTTON' | translate)
+            : ('APP.PAGES.HOME.FIRST_PANEL.SEARCH_BUTTON' | translate)
+        }}
+      </a>
+    </div>
+    <div class="hero__image">
+      <img [src]="mobileImagePath" alt="Hero" />
+    </div>
+  </section>
+
+  <section class="benefits">
+    <h1>{{ 'APP.PAGES.HOME.SECOND_PANEL.TITLE' | translate }}</h1>
+    <div class="benefits__grid">
+      <article class="benefit">
+        <img src="./assets/images/benefits/benefit_1.png" alt="Benefit 1" />
+        <p class="benefit__title">
+          {{
+            'APP.PAGES.HOME.SECOND_PANEL.BENEFITS.FIRST_BENEFIT.TITLE'
+              | translate
+          }}
+        </p>
+        <p class="benefit__description">
+          {{
+            'APP.PAGES.HOME.SECOND_PANEL.BENEFITS.FIRST_BENEFIT.DESCRIPTION'
+              | translate
+          }}
+        </p>
+      </article>
+
+      <article class="benefit">
+        <img src="./assets/images/benefits/benefit_2.png" alt="Benefit 2" />
+        <p class="benefit__title">
+          {{
+            'APP.PAGES.HOME.SECOND_PANEL.BENEFITS.SECOND_BENEFIT.TITLE'
+              | translate
+          }}
+        </p>
+        <p class="benefit__description">
+          {{
+            'APP.PAGES.HOME.SECOND_PANEL.BENEFITS.SECOND_BENEFIT.DESCRIPTION'
+              | translate
+          }}
+        </p>
+      </article>
+
+      <article class="benefit">
+        <img src="./assets/images/benefits/benefit_3.png" alt="Benefit 3" />
+        <p class="benefit__title">
+          {{
+            'APP.PAGES.HOME.SECOND_PANEL.BENEFITS.THIRD_BENEFIT.TITLE'
+              | translate
+          }}
+        </p>
+        <p class="benefit__description">
+          {{
+            'APP.PAGES.HOME.SECOND_PANEL.BENEFITS.THIRD_BENEFIT.DESCRIPTION'
+              | translate
+          }}
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="faq__image">
+      <img src="./assets/images/faq_list_question_mark.png" alt="FAQ" />
+    </div>
+    <div class="faq__content">
+      <h1>{{ 'APP.PAGES.HOME.THIRD_PANEL.FAQ_LIST.TITLE' | translate }}</h1>
+      <div class="faq__list" #faqList>
+        <div class="faq__item">
+          <a class="accordion" (click)="toggleFaqList(0)">
+            <p>
+              {{
+                'APP.PAGES.HOME.THIRD_PANEL.FAQ_LIST.ITEMS.ITEM1.TITLE'
+                  | translate
+              }}
+            </p>
+            <i class="fas fa-chevron-down"></i>
+          </a>
+          <div class="panel">
+            {{
+              'APP.PAGES.HOME.THIRD_PANEL.FAQ_LIST.ITEMS.ITEM1.DESCRIPTION'
+                | translate
+            }}
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <a class="accordion" (click)="toggleFaqList(1)">
+            <p>
+              {{
+                'APP.PAGES.HOME.THIRD_PANEL.FAQ_LIST.ITEMS.ITEM2.TITLE'
+                  | translate
+              }}
+            </p>
+            <i class="fas fa-chevron-down"></i>
+          </a>
+          <div class="panel">
+            {{
+              'APP.PAGES.HOME.THIRD_PANEL.FAQ_LIST.ITEMS.ITEM2.DESCRIPTION'
+                | translate
+            }}
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <a class="accordion" (click)="toggleFaqList(2)">
+            <p>
+              {{
+                'APP.PAGES.HOME.THIRD_PANEL.FAQ_LIST.ITEMS.ITEM3.TITLE'
+                  | translate
+              }}
+            </p>
+            <i class="fas fa-chevron-down"></i>
+          </a>
+          <div class="panel">
+            {{
+              'APP.PAGES.HOME.THIRD_PANEL.FAQ_LIST.ITEMS.ITEM3.DESCRIPTION'
+                | translate
+            }}
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <a class="accordion" (click)="toggleFaqList(3)">
+            <p>
+              {{
+                'APP.PAGES.HOME.THIRD_PANEL.FAQ_LIST.ITEMS.ITEM4.TITLE'
+                  | translate
+              }}
+            </p>
+            <i class="fas fa-chevron-down"></i>
+          </a>
+          <div class="panel">
+            {{
+              'APP.PAGES.HOME.THIRD_PANEL.FAQ_LIST.ITEMS.ITEM4.DESCRIPTION'
+                | translate
+            }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="feedback-section">
+    <div class="feedback__header">
+      <h1>{{ 'APP.PAGES.HOME.FOURTH_PANEL.TITLE' | translate }}</h1>
+    </div>
+    <div class="feedback__list">
+      <div class="feedback" *ngFor="let feedback of feedbacks">
+        <img
+          class="quotes"
+          src="./assets/images/feedback/starting_quotes_mark.png"
+          alt="Quotes"
+        />
+        <div class="feedback__content">
+          <p class="feedback__text">{{ feedback.text }}</p>
+          <div class="feedback__author">
+            <img [src]="feedback.authorAvatarPath" alt="Author" />
+            <div>
+              <p class="author-name">{{ feedback.authorName }}</p>
+              <p class="date">{{ feedback.postedAt }}</p>
+            </div>
+          </div>
+        </div>
+        <img
+          class="quotes"
+          src="./assets/images/feedback/ending_quotes_mark.png"
+          alt="Quotes"
+        />
+      </div>
+    </div>
+  </section>
+</div>
