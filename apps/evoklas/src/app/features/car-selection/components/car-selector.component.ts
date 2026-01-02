@@ -33,6 +33,8 @@ import { AuthService } from '../../../core/auth/services/auth.service';
 import { FileService } from '../../../core/http/services/file.service';
 import { CAR_COLORS } from '../../../core/config/car-colors';
 import { CurrencySeparatorFormatterPipe } from '../../../core/pipes/currency-separator-formatter.pipe';
+import { MessageService } from 'primeng/api';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-car-selector',
@@ -109,7 +111,9 @@ export class CarSelectorComponent implements OnInit, OnDestroy, OnChanges {
     private router: Router,
     private fileService: FileService,
     private authService: AuthService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private messageService: MessageService,
+    private translate: TranslateService
   ) {}
 
   ngOnInit(): void {
@@ -433,11 +437,25 @@ export class CarSelectorComponent implements OnInit, OnDestroy, OnChanges {
               color: '',
             };
             this.httpClientDataService.updateProgressBarValue(false);
+            this.messageService.add({
+              severity: 'success',
+              summary:
+                this.translate.instant('APP.SUCCESS.REQUEST_SENT') ||
+                'Cererea a fost trimisă',
+            });
             this.router.navigate(['/request-success']);
           },
           (err) => {
             this.httpClientDataService.updateProgressBarValue(false);
-            console.log(err);
+            this.messageService.add({
+              severity: 'error',
+              summary:
+                this.translate.instant('APP.ERRORS.0.title') || 'Eroare',
+              detail:
+                err?.error?.message ||
+                this.translate.instant('APP.ERRORS.0.message') ||
+                'A apărut o eroare la trimiterea cererii.',
+            });
           }
         );
     }

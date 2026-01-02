@@ -10,6 +10,7 @@ import {
 import { FooterComponent } from '../footer/footer.component';
 import { HeaderComponent } from '../header/header.component';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { ToastModule } from 'primeng/toast';
 
 @Component({
   selector: 'app-main-layout',
@@ -18,6 +19,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
     RouterOutlet,
     FooterComponent,
     HeaderComponent,
+    ToastModule,
   ],
   templateUrl: './main-layout.component.html',
   styleUrl: './main-layout.component.scss',

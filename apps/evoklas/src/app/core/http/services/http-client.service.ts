@@ -171,10 +171,6 @@ export class HttpClientService {
     return this.http.put('/api/users', userData);
   }
 
-  getTransactions(): Observable<any> {
-    return this.http.get('/api/transactions');
-  }
-
   deleteUser(): Observable<any> {
     return this.http.delete('/api/users');
   }

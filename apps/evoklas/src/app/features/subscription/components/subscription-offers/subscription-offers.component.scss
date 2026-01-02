@@ -1,0 +1,120 @@
+@import '../../../../../styles/variables.scss';
+@import '../../../../../styles/responsive.mixin.scss';
+
+.subscriptions-page {
+  padding: 48px 10%;
+  min-height: calc(100vh - 120px);
+
+  @include screen('desktop') {
+    padding: 32px 6%;
+  }
+
+  @include screen('tablet') {
+    padding: 32px 24px;
+  }
+
+  .subscriptions-page-billing-info {
+    margin-bottom: 24px;
+    padding: 16px;
+    border-radius: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+
+    a {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+
+  .offers-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    align-items: stretch;
+
+    .offer-card {
+      background: #ffffff;
+      border: 1px solid #e5eaee;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      color: $dark-blue;
+      position: relative;
+      overflow: hidden;
+
+      &:hover {
+        box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+        transform: translateY(-2px);
+        transition: all 0.2s ease;
+      }
+
+      .card-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+
+        h1 {
+          margin: 0;
+          font-size: 20px;
+          font-weight: 800;
+          color: $dark-blue;
+          flex: 1;
+        }
+
+        .price-chip {
+          background: $dark-blue;
+          color: #fff;
+          padding: 6px 10px;
+          border-radius: 999px;
+          font-weight: 700;
+          font-size: 13px;
+          white-space: nowrap;
+        }
+      }
+
+      .card-body {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        .price {
+          font-weight: 700;
+          font-size: 22px;
+          margin: 0;
+        }
+
+        .maxRequests {
+          font-weight: 600;
+          margin: 0;
+        }
+
+        .details {
+          margin: 0;
+          color: #4a5561;
+          line-height: 1.4;
+        }
+      }
+
+      .p-card-footer,
+      .p-card-header {
+        padding: 0;
+      }
+
+      .buy-offer {
+        margin-top: auto;
+        width: 100%;
+        cursor: pointer;
+
+        &.disabled {
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+}

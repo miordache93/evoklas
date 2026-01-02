@@ -64,6 +64,12 @@
 
 .notifications {
   position: relative;
+  i {
+    margin-right: 0;
+  }
+  .notifications-container {
+    display: inline-block;
+  }
 }
 
 .notifications-container {

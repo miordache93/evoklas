@@ -1,6 +1,5 @@
 import { Route } from '@angular/router';
 import { MainLayoutComponent } from './components/main-layout/main-layout.component';
-import { CarSelectorComponent } from '../features/car-selection/components/car-selector.component';
 import { ProducersResolver } from '../features/car-selection/resolvers/car-producers.resolver';
 
 const loadTerms = () =>
@@ -56,6 +55,16 @@ const loadRequests = () =>
     (m) => m.RequestsComponent
   );
 
+const loadUserProfile = () =>
+  import(
+    '../features/user-management/components/user-profile/user-profile.component'
+  ).then((m) => m.UserProfileComponent);
+
+const loadSubscriptions = () =>
+  import(
+    '../features/subscription/components/subscription-offers/subscription-offers.component'
+  ).then((m) => m.SubscriptionOffersComponent);
+
 export const layoutRoutes: Route[] = [
   {
     path: '',
@@ -79,6 +88,14 @@ export const layoutRoutes: Route[] = [
       {
         path: 'requests',
         loadComponent: loadRequests,
+      },
+      {
+        path: 'user-profile',
+        loadComponent: loadUserProfile,
+      },
+      {
+        path: 'subscriptions',
+        loadComponent: loadSubscriptions,
       },
       { path: 'terms-and-conditions', loadComponent: loadTerms },
       { path: 'privacy-and-policy', loadComponent: loadPrivacy },

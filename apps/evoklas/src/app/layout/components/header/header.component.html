@@ -39,25 +39,24 @@
             : notifyMenu.hide()
         "
       >
-        <i [ngClass]="{ 'fas fa-bell bell': notificationItems.length > 0 }"></i>
         <i
-          style="margin-right: 16px"
-          *ngIf="notificationItems.length === 0"
-          [ngClass]="{ 'far fa-bell': notificationItems.length === 0 }"
+          [ngClass]="
+            notificationItems.length > 0 ? 'fas fa-bell bell' : 'far fa-bell'
+          "
         ></i>
-        <span class="notifications-container">
+        <span class="notifications-container" *ngIf="notificationItems.length > 0">
           <div
             class="circle"
             [ngClass]="{
               'notification-received': notificationItems.length > 0
             }"
-            *ngIf="notificationItems.length > 0"
           >
             <span class="circle__content"> {{ notifications.length }} </span>
           </div>
         </span>
       </a>
       <p-menu #notifyMenu [popup]="true" [model]="notificationItems"></p-menu>
+      <!-- <p-menu #notifyMenu [popup]="true" [model]="notificationItems"></p-menu> -->
 
       <!-- Main menu trigger -->
       <a

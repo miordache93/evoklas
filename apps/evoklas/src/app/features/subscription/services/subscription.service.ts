@@ -78,6 +78,10 @@ class SubscriptionService {
       });
   }
 
+  getTransactions(): Observable<any> {
+    return this.http.get('/api/transactions');
+  }
+
   readNotification(notificationId: any): Observable<any> {
     return this.http.put(`/api/notifications/${notificationId}`, {});
   }

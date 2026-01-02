@@ -1,0 +1,337 @@
+@import '../../../../../styles/responsive.mixin.scss';
+@import '../../../../../styles/variables.scss';
+
+.user-profile-component {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  padding: 32px;
+  flex-wrap: wrap;
+  background: linear-gradient(180deg, #f5fbff 0%, #eef5f8 100%);
+
+  @include screen('tablet') {
+    padding: 20px;
+  }
+
+  .user-profile-menu {
+    flex: 0 0 280px;
+    max-width: 320px;
+    width: 100%;
+    background: linear-gradient(145deg, #ffffff 0%, #f6fbff 100%);
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(7, 36, 64, 0.08);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+
+    .user-avatar {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      color: $dark-blue;
+
+      i {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 14px;
+
+        span {
+          font-weight: 600;
+          letter-spacing: 0.3px;
+        }
+      }
+
+      .credits-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: #e9f3fb;
+        color: $dark-blue;
+        font-weight: 700;
+        font-size: 13px;
+      }
+    }
+
+    .user-menu-items {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      .menu-item {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 10px;
+        padding: 14px 16px;
+        border-radius: 14px;
+        color: $dark-blue;
+        text-decoration: none;
+        background: #f7fafc;
+        border: 1px solid #e1ebf3;
+        transition: all 0.2s ease;
+        cursor: pointer;
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: 600;
+        font-size: 15px;
+        letter-spacing: 0.2px;
+
+        i {
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          font-size: 17px;
+
+          span {
+            font-size: 16px;
+            line-height: 1.2;
+            font-family: 'Times New Roman', Times, serif;
+          }
+        }
+
+        &:hover {
+          background: #e9f3fb;
+          border-color: #c9d8e2;
+          color: $dark-blue;
+          transform: translateY(-1px);
+          box-shadow: 0 8px 18px rgba(7, 36, 64, 0.08);
+        }
+      }
+    }
+  }
+
+  .dealer-profile-form {
+    flex: 1 1 520px;
+    min-width: 0;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(7, 36, 64, 0.08);
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .p-tabview-nav {
+      border-bottom: 1px solid #e3ecf1;
+    }
+
+    /* Tabs styling */
+    ::ng-deep .p-tabs {
+      .p-tablist {
+        border-bottom: 1px solid #e3ecf1;
+        padding: 0 8px;
+        gap: 8px;
+        display: flex;
+      }
+
+      .p-tab {
+        color: $dark-blue;
+        font-weight: 600;
+        border-radius: 12px 12px 0 0;
+        padding: 10px 14px;
+        transition: all 0.2s ease;
+
+        &.p-tab-active {
+          background: #f5fbff;
+          color: $dark-blue;
+          border: 1px solid #e3ecf1;
+          border-bottom-color: transparent;
+          font-weight: 700;
+        }
+
+        &:not(.p-tab-active):hover {
+          background: #f8fafc;
+          color: $dark-blue;
+        }
+
+        .p-tab-label {
+          color: inherit;
+        }
+      }
+
+      .p-tabpanels {
+        padding-top: 12px;
+      }
+    }
+
+    .user-profile-form,
+    .user-billing-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .billing-placeholder {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      padding: 12px 14px;
+      background: #f6f9fb;
+      border: 1px dashed #c9d8e2;
+      border-radius: 10px;
+      color: $dark-blue;
+
+      i {
+        font-size: 18px;
+      }
+
+      .title {
+        font-weight: 700;
+        font-size: 14px;
+      }
+
+      .subtitle {
+        font-size: 13px;
+        color: darken($dark-blue, 5%);
+      }
+    }
+
+    .form-fields {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+
+      @include screen('tablet') {
+        flex-direction: column;
+      }
+
+      .left-panel,
+      .right-panel {
+        flex: 1 1 0;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+    }
+
+    .p-field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+
+      label {
+        font-weight: 600;
+        color: $dark-blue;
+        text-transform: none;
+      }
+
+      input,
+      .p-inputtext,
+      .p-dropdown {
+        width: 100%;
+      }
+
+      .disabled {
+        background: #f4f6f8;
+        cursor: not-allowed;
+      }
+    }
+
+    .city-field {
+      .p-select {
+        width: 100%;
+      }
+
+      /* Keep dropdown options readable on hover/active */
+      .p-select-panel,
+      .p-select-overlay {
+        .p-select-option {
+          color: $dark-blue;
+
+          &:hover,
+          &.p-select-option-active,
+          &.p-select-option-selected {
+            background: #e8f2f8;
+            color: $dark-blue;
+          }
+
+          .p-select-option-label {
+            color: inherit;
+          }
+        }
+      }
+    }
+
+    .form-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 4px;
+
+      a {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 16px;
+        border-radius: 10px;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid transparent;
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+        i {
+          font-size: 14px;
+        }
+      }
+
+      .edit-button {
+        background: $dark-blue;
+        color: #ffffff;
+
+        &:hover {
+          background: darken($dark-blue, 5%);
+        }
+      }
+
+      .save-button {
+        background: $green;
+        color: #ffffff;
+        border-color: $green;
+
+        &:hover {
+          background: darken($green, 5%);
+          border-color: darken($green, 5%);
+        }
+      }
+    }
+  }
+
+  .dealer-orders {
+    flex: 1 1 520px;
+    min-width: 0;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(7, 36, 64, 0.08);
+    padding: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .orders-placeholder {
+      text-align: center;
+      color: $dark-blue;
+      display: grid;
+      gap: 10px;
+
+      i {
+        font-size: 22px;
+      }
+
+      .title {
+        font-weight: 700;
+        font-size: 16px;
+      }
+
+      .subtitle {
+        font-size: 14px;
+        color: darken($dark-blue, 5%);
+      }
+    }
+  }
+}

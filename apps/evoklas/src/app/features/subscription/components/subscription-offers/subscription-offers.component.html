@@ -1,0 +1,40 @@
+<div class="subscriptions-page">
+  <div *ngIf="!hasBillingInfo" class="subscriptions-page-billing-info">
+    <div>
+      <span> {{ 'APP.PAGES.PACKAGES.BILLING_INFO.DESCRIPTION' | translate}} </span>
+      <a (click)="navigateToUserProfile()" > {{ 'APP.PAGES.PACKAGES.BILLING_INFO.LINK' | translate }} </a>
+    </div>
+  </div>
+
+  <div class="offers-container">
+    <p-card
+      class="offer-card"
+      [ngClass]="{'main-offer': i === 1}"
+      *ngFor="let package of packages; let i = index">
+
+      <ng-template pTemplate="header">
+        <div class="card-top">
+          <h1>{{ package.title }}</h1>
+          <span class="price-chip">{{ package.price }} RON</span>
+        </div>
+      </ng-template>
+
+      <div class="card-body">
+        <p class="maxRequests">
+          Pentru {{ package.nr_requests }} de cereri
+        </p>
+        <p class="details"> {{package.description}}</p>
+      </div>
+
+      <ng-template pTemplate="footer">
+        <button
+          pButton
+          class="buy-offer"
+          [disabled]="!hasBillingInfo"
+          (click)="selectPackage(package)"
+          [label]="'APP.PAGES.PACKAGES.ACTION_BUTTONS.BUY_NOW' | translate">
+        </button>
+      </ng-template>
+    </p-card>
+  </div>
+</div>
