@@ -167,7 +167,7 @@ export class CarSelectorComponent implements OnInit, OnDestroy, OnChanges {
                 this.advanceStep();
                 if (fuelType) {
                   this.clientRequest.fuel = this.fuels.find(
-                    (f: any) => f.name === fuelType
+                    (f: any) => f.id === fuelType
                   ).id;
                   this.getEnginesByCarAndFuelType().subscribe(() => {
                     this.advanceStep();

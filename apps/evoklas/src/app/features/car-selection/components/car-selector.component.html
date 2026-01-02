@@ -1,107 +1,222 @@
 <div class="car-selector-component">
   <div *ngIf="stepIndex < 8" class="stepper-actions hide-xl">
     <button
-      [label]="clientRequest?.producer ? clientRequest?.producer?.name : ('APP.PAGES.CAR_SELECTOR.ACTIONS.STEP_1' | translate)"
-      pButton pRipple class="p-button-outlined" (click)="stepIndex=1"
-      [ngClass]="{'active': stepIndex === 1 && !clientRequest?.producer, 'completed': stepIndex > 1 || clientRequest?.producer}">
-    </button>
-    <hr>
-    <button pButton
-      [label]=" clientRequest?.carModel ? clientRequest?.carModel?.name :('APP.PAGES.CAR_SELECTOR.ACTIONS.STEP_2' | translate )"
-      pRipple (click)="stepIndex=2" class="p-button-outlined"
-      [ngClass]="{'active': stepIndex === 2 && !clientRequest?.carModel, 'completed': stepIndex > 2 || clientRequest?.carModel}">
-
-    </button>
-    <hr>
-    <button pButton pRipple
-      [label]="clientRequest?.version ? clientRequest?.version?.name : ('APP.PAGES.CAR_SELECTOR.ACTIONS.STEP_3' | translate)"
-      (click)="stepIndex=3" class="p-button-outlined"
-      [ngClass]="{'active': stepIndex === 3 && !clientRequest?.version, 'completed': stepIndex > 3 || clientRequest?.version}">
-    </button>
-    <hr>
-    <button pButton
-      [label]="clientRequest?.fuel ? clientRequest?.fuel : ('APP.PAGES.CAR_SELECTOR.ACTIONS.STEP_4' | translate)"
-      pRipple (click)="stepIndex=4" class="p-button-outlined"
-      [ngClass]="{'active': stepIndex === 4 && !clientRequest?.fuel, 'completed': stepIndex > 4 || clientRequest?.fuel }">
-    </button>
-    <hr>
-    <button pButton pRipple
-      [label]="clientRequest?.engine ? clientRequest?.engine?.name : ('APP.PAGES.CAR_SELECTOR.ACTIONS.STEP_5' | translate) "
-      (click)="stepIndex=5" class="p-button-outlined"
-      [ngClass]="{'active': stepIndex === 5 && !clientRequest?.engine, 'completed': stepIndex > 5 || clientRequest?.engine}">
-
-    </button>
-    <hr>
-    <button pButton pRipple
-      [label]="clientRequest?.color ?  clientRequest?.color : ('APP.PAGES.CAR_SELECTOR.ACTIONS.STEP_6' | translate) "
-      (click)="stepIndex=6" class="p-button-outlined"
-      [ngClass]="{'active': stepIndex === 6 && !clientRequest?.color, 'completed': stepIndex > 6 || clientRequest?.color}">
-    </button>
-    <hr>
+      [label]="
+        clientRequest?.producer
+          ? clientRequest?.producer?.name
+          : ('APP.PAGES.CAR_SELECTOR.ACTIONS.STEP_1' | translate)
+      "
+      pButton
+      pRipple
+      class="p-button-outlined"
+      (click)="stepIndex = 1"
+      [ngClass]="{
+        active: stepIndex === 1 && !clientRequest?.producer,
+        completed: stepIndex > 1 || clientRequest?.producer
+      }"
+    ></button>
+    <hr />
     <button
-      [label]="clientRequest?.region ? clientRequest?.region?.name : ('APP.PAGES.CAR_SELECTOR.ACTIONS.STEP_7' | translate)"
-      pButton pRipple class="p-button-outlined" (click)="stepIndex=7"
-      [ngClass]="{'active': stepIndex === 7 && !clientRequest?.region, 'completed': stepIndex > 7 || clientRequest?.region}">
-    </button>
-    <hr>
-    <button pButton [label]="'APP.PAGES.CAR_SELECTOR.ACTIONS.STEP_8' | translate" pRipple class="p-button-outlined"
-      [ngClass]="{'active': stepIndex === 8, 'completed': stepIndex > 8 }">
-
-    </button>
+      pButton
+      [label]="
+        clientRequest?.carModel
+          ? clientRequest?.carModel?.name
+          : ('APP.PAGES.CAR_SELECTOR.ACTIONS.STEP_2' | translate)
+      "
+      pRipple
+      (click)="stepIndex = 2"
+      class="p-button-outlined"
+      [ngClass]="{
+        active: stepIndex === 2 && !clientRequest?.carModel,
+        completed: stepIndex > 2 || clientRequest?.carModel
+      }"
+    ></button>
+    <hr />
+    <button
+      pButton
+      pRipple
+      [label]="
+        clientRequest?.version
+          ? clientRequest?.version?.name
+          : ('APP.PAGES.CAR_SELECTOR.ACTIONS.STEP_3' | translate)
+      "
+      (click)="stepIndex = 3"
+      class="p-button-outlined"
+      [ngClass]="{
+        active: stepIndex === 3 && !clientRequest?.version,
+        completed: stepIndex > 3 || clientRequest?.version
+      }"
+    ></button>
+    <hr />
+    <button
+      pButton
+      [label]="
+        clientRequest?.fuel
+          ? clientRequest?.fuel
+          : ('APP.PAGES.CAR_SELECTOR.ACTIONS.STEP_4' | translate)
+      "
+      pRipple
+      (click)="stepIndex = 4"
+      class="p-button-outlined"
+      [ngClass]="{
+        active: stepIndex === 4 && !clientRequest?.fuel,
+        completed: stepIndex > 4 || clientRequest?.fuel
+      }"
+    ></button>
+    <hr />
+    <button
+      pButton
+      pRipple
+      [label]="
+        clientRequest?.engine
+          ? clientRequest?.engine?.name
+          : ('APP.PAGES.CAR_SELECTOR.ACTIONS.STEP_5' | translate)
+      "
+      (click)="stepIndex = 5"
+      class="p-button-outlined"
+      [ngClass]="{
+        active: stepIndex === 5 && !clientRequest?.engine,
+        completed: stepIndex > 5 || clientRequest?.engine
+      }"
+    ></button>
+    <hr />
+    <button
+      pButton
+      pRipple
+      [label]="
+        clientRequest?.color
+          ? clientRequest?.color
+          : ('APP.PAGES.CAR_SELECTOR.ACTIONS.STEP_6' | translate)
+      "
+      (click)="stepIndex = 6"
+      class="p-button-outlined"
+      [ngClass]="{
+        active: stepIndex === 6 && !clientRequest?.color,
+        completed: stepIndex > 6 || clientRequest?.color
+      }"
+    ></button>
+    <hr />
+    <button
+      [label]="
+        clientRequest?.region
+          ? clientRequest?.region?.name
+          : ('APP.PAGES.CAR_SELECTOR.ACTIONS.STEP_7' | translate)
+      "
+      pButton
+      pRipple
+      class="p-button-outlined"
+      (click)="stepIndex = 7"
+      [ngClass]="{
+        active: stepIndex === 7 && !clientRequest?.region,
+        completed: stepIndex > 7 || clientRequest?.region
+      }"
+    ></button>
+    <hr />
+    <button
+      pButton
+      [label]="'APP.PAGES.CAR_SELECTOR.ACTIONS.STEP_8' | translate"
+      pRipple
+      class="p-button-outlined"
+      [ngClass]="{ active: stepIndex === 8, completed: stepIndex > 8 }"
+    ></button>
   </div>
 
-  <div class="stepper-container"
-    [ngClass]="{'fullWidth': stepIndex > 2 }">
+  <div class="stepper-container" [ngClass]="{ fullWidth: stepIndex > 2 }">
     <div [ngClass]="'info-step-' + stepIndex" class="stepper-info">
       <div class="step-details">
         <h1>
           {{ 'APP.PAGES.CAR_SELECTOR.ACTIONS.STEP_' + stepIndex | translate }}
         </h1>
-        <p> {{ 'APP.PAGES.CAR_SELECTOR.STEPPER.INFO' | translate }}</p>
+        <p>{{ 'APP.PAGES.CAR_SELECTOR.STEPPER.INFO' | translate }}</p>
       </div>
       <div class="step-count">
-        <i *ngIf="stepIndex > 1" class="pi pi-chevron-left" (click)="stepIndex = stepIndex - 1"></i>
-        <button [label]="stepIndex + ' / 8'" pButton pRipple class="p-button-outlined">
-        </button>
-        <i *ngIf="stepIndex < 8" class="pi pi-chevron-right" (click)="stepIndex = stepIndex + 1"></i>
+        <i
+          *ngIf="stepIndex > 1"
+          class="pi pi-chevron-left"
+          (click)="stepIndex = stepIndex - 1"
+        ></i>
+        <button
+          [label]="stepIndex + ' / 8'"
+          pButton
+          pRipple
+          class="p-button-outlined"
+        ></button>
+        <i
+          *ngIf="stepIndex < 8"
+          class="pi pi-chevron-right"
+          (click)="stepIndex = stepIndex + 1"
+        ></i>
       </div>
     </div>
 
     <div class="stepper-content">
-      <p-listbox *ngIf="stepIndex === 1 && producers.length > 0" [options]="producers" [(ngModel)]="selectedProducer"
-        name="selectedProducer" [metaKeySelection]="false" [checkbox]="false" [filter]="true" 
-        [filterPlaceHolder]="'APP.PAGES.CAR_SELECTOR.STEP1.SEARCH_PLACEHOLDER' | translate" class="producers-list"
-        (onClick)="nextStep($event.option)" optionDisabled="inactive"
-        optionLabel="name" [listStyle]="{'max-height':'427px', 'width':'100%', 'max-width':'500px'}">
+      <p-listbox
+        *ngIf="stepIndex === 1 && producers.length > 0"
+        [options]="producers"
+        [(ngModel)]="selectedProducer"
+        name="selectedProducer"
+        [metaKeySelection]="false"
+        [checkbox]="false"
+        [filter]="true"
+        [filterPlaceHolder]="
+          'APP.PAGES.CAR_SELECTOR.STEP1.SEARCH_PLACEHOLDER' | translate
+        "
+        class="producers-list"
+        (onClick)="nextStep($event.option)"
+        optionDisabled="inactive"
+        optionLabel="name"
+        [listStyle]="{
+          'max-height': '427px',
+          width: '100%',
+          'max-width': '500px'
+        }"
+      >
         <ng-template let-producer pTemplate="item">
           <div class="producer-item">
             <img [src]="producer.icon" [attr.alt]="producer.name" />
-            <div>{{producer.name}}</div>
+            <div>{{ producer.name }}</div>
           </div>
         </ng-template>
       </p-listbox>
 
-      <div *ngIf="stepIndex === 1 && !producers.length" class="not-found-falback">
+      <div
+        *ngIf="stepIndex === 1 && !producers.length"
+        class="not-found-falback"
+      >
         <div class="not-found-falback-failed-container">
           <i class="fas fa-times"></i>
           <p>{{ 'APP.PAGES.CAR_SELECTOR.NOT_FOUND.PRODUCER' | translate }}</p>
         </div>
       </div>
 
-      <p-listbox *ngIf="stepIndex === 2 && cars.length" [options]="cars" [(ngModel)]="selectedCarModel"
-        name="selectedCarModel" [metaKeySelection]="false" [checkbox]="false" [filter]="true" class="models-list"
-        (onClick)="nextStep($event.option)" optionLabel="name" [listStyle]="{'max-height':'380px'}">
+      <p-listbox
+        *ngIf="stepIndex === 2 && cars.length"
+        [options]="cars"
+        [(ngModel)]="selectedCarModel"
+        name="selectedCarModel"
+        [metaKeySelection]="false"
+        [checkbox]="false"
+        [filter]="true"
+        class="models-list"
+        (onClick)="nextStep($event.option)"
+        optionLabel="name"
+        [listStyle]="{ 'max-height': '380px' }"
+      >
         <ng-template let-car pTemplate="item">
           <div class="car-item">
             <div class="car-item-details">
               <p class="car-model-name">
-                {{car.name}}
+                {{ car.name }}
               </p>
               <p class="car-model-description">
                 {{ car.description }}
               </p>
             </div>
-            <img class="car-model-image" [src]="car.icon" [attr.alt]="car.name" />
+            <img
+              class="car-model-image"
+              [src]="car.icon"
+              [attr.alt]="car.name"
+            />
           </div>
         </ng-template>
       </p-listbox>
@@ -113,11 +228,21 @@
         </div>
       </div>
 
-      <div *ngIf="stepIndex === 3 && versions.length" class="car-versions-cards">
+      <div
+        *ngIf="stepIndex === 3 && versions.length"
+        class="car-versions-cards"
+      >
         <div *ngFor="let version of versions" class="version-card-wrapper">
-          <div class="version-card" [ngClass]="{'selected': version.id === clientRequest?.version?.id }">
-            <img class="car-version-image" [src]="version.icon" [attr.alt]="version.name" />
-            <p class="version-name">{{version.name}}</p>
+          <div
+            class="version-card"
+            [ngClass]="{ selected: version.id === clientRequest?.version?.id }"
+          >
+            <img
+              class="car-version-image"
+              [src]="version.icon"
+              [attr.alt]="version.name"
+            />
+            <p class="version-name">{{ version.name }}</p>
             <!-- <p class="version-startingPrice">
                     {{ 'APP.PAGES.CAR_SELECTOR.STEP3_CARDS.STARTING_PRICE' | translate }}  
                     {{version.startingPrice}}
@@ -125,17 +250,28 @@
             <a class="version-equipments">
               <i class="fas fa-paperclip"></i>
               <span>
-                {{ 'APP.PAGES.CAR_SELECTOR.STEP3_CARDS.EQUIPMENTS_BTN' | translate }}
+                {{
+                  'APP.PAGES.CAR_SELECTOR.STEP3_CARDS.EQUIPMENTS_BTN'
+                    | translate
+                }}
               </span>
             </a>
-            <p-button [label]="'APP.PAGES.CAR_SELECTOR.STEP3_CARDS.SELECT_BTN' | translate" class="select-btn"
-              (click)="nextStep(version)">
+            <p-button
+              [label]="
+                'APP.PAGES.CAR_SELECTOR.STEP3_CARDS.SELECT_BTN' | translate
+              "
+              class="select-btn"
+              (click)="nextStep(version)"
+            >
             </p-button>
           </div>
         </div>
       </div>
 
-      <div *ngIf="stepIndex === 3 && !versions.length" class="not-found-falback">
+      <div
+        *ngIf="stepIndex === 3 && !versions.length"
+        class="not-found-falback"
+      >
         <div class="not-found-falback-failed-container">
           <i class="fas fa-times"></i>
           <p>{{ 'APP.PAGES.CAR_SELECTOR.NOT_FOUND.VERSIONS' | translate }}</p>
@@ -143,14 +279,24 @@
       </div>
 
       <div *ngIf="stepIndex === 4 && fuels.length" class="fuel-types">
-        <div class="fuel-card" *ngFor="let fuel of fuels" (click)="nextStep(fuel.name)">
-          <div class="fuel-details" [ngClass]="{'selected': fuel.name === clientRequest.fuel }">
-            <img class="fuel-icon" [src]="fuel.icon" [attr.alt]="fuel.name">
-            <p class="fuel-name">{{fuel.displayValue}}</p>
+        <div
+          class="fuel-card"
+          *ngFor="let fuel of fuels"
+          (click)="nextStep(fuel.id)"
+        >
+          <div
+            class="fuel-details"
+            [ngClass]="{
+              selected:
+                fuel.name === clientRequest.fuel ||
+                fuel.id === clientRequest.fuel
+            }"
+          >
+            <img class="fuel-icon" [src]="fuel.icon" [attr.alt]="fuel.name" />
+            <p class="fuel-name">{{ fuel.displayValue }}</p>
           </div>
         </div>
       </div>
-
 
       <div *ngIf="stepIndex === 4 && !fuels.length" class="not-found-falback">
         <div class="not-found-falback-failed-container">
@@ -159,22 +305,33 @@
         </div>
       </div>
 
-      <div *ngIf="stepIndex === 5 && enginesData.engines.length" class="car-engines-cards">
-        <div *ngFor="let engine of enginesData.engines" class="engine-card-wrapper">
-          <div [ngClass]="{'selected': engine.id === clientRequest?.engine?.id }" class="engine-card">
+      <div
+        *ngIf="stepIndex === 5 && enginesData.engines.length"
+        class="car-engines-cards"
+      >
+        <div
+          *ngFor="let engine of enginesData.engines"
+          class="engine-card-wrapper"
+        >
+          <div
+            [ngClass]="{ selected: engine.id === clientRequest?.engine?.id }"
+            class="engine-card"
+          >
             <div class="engine-header-name">
               <p>
-                {{ enginesData.producerName }} {{ enginesData.carModelName}}
+                {{ enginesData.producerName }} {{ enginesData.carModelName }}
                 <b> {{ engine.name }}</b>
               </p>
             </div>
 
             <div class="engine-specs">
-
               <div class="engine-power engine-row">
                 <div class="spec-icon-and-name">
                   <img src="./assets/images/engines/power.svg" alt="power" />
-                  <p class="spec-name"> {{ 'APP.PAGES.CAR_SELECTOR.STEP5_CARDS.POWER' | translate }} : </p>
+                  <p class="spec-name">
+                    {{ 'APP.PAGES.CAR_SELECTOR.STEP5_CARDS.POWER' | translate }}
+                    :
+                  </p>
                 </div>
                 <div class="spec-value-wrap">
                   <p class="spec-value">{{ engine.power }}</p>
@@ -184,7 +341,10 @@
               <div class="engine-fuel engine-row">
                 <div class="spec-icon-and-name">
                   <img src="./assets/images/engines/fuel.svg" alt="fuel" />
-                  <p class="spec-name"> {{ 'APP.PAGES.CAR_SELECTOR.STEP5_CARDS.FUEL' | translate }} : </p>
+                  <p class="spec-name">
+                    {{ 'APP.PAGES.CAR_SELECTOR.STEP5_CARDS.FUEL' | translate }}
+                    :
+                  </p>
                 </div>
                 <div class="spec-value-wrap">
                   <p class="spec-value">{{ engine.fuel }}</p>
@@ -193,8 +353,17 @@
 
               <div class="engine-transmision engine-row">
                 <div class="spec-icon-and-name">
-                  <img src="./assets/images/engines/transmision.svg" alt="transmision" />
-                  <p class="spec-name"> {{ 'APP.PAGES.CAR_SELECTOR.STEP5_CARDS.TRANSMISION' | translate }} : </p>
+                  <img
+                    src="./assets/images/engines/transmision.svg"
+                    alt="transmision"
+                  />
+                  <p class="spec-name">
+                    {{
+                      'APP.PAGES.CAR_SELECTOR.STEP5_CARDS.TRANSMISION'
+                        | translate
+                    }}
+                    :
+                  </p>
                 </div>
                 <div class="spec-value-wrap">
                   <p class="spec-value">{{ engine.transmision }}</p>
@@ -203,8 +372,17 @@
 
               <div class="engine-driveType engine-row">
                 <div class="spec-icon-and-name">
-                  <img src="./assets/images/engines/driveType.svg" alt="Drive Type" />
-                  <p class="spec-name"> {{ 'APP.PAGES.CAR_SELECTOR.STEP5_CARDS.DRIVE_TYPE' | translate }} : </p>
+                  <img
+                    src="./assets/images/engines/driveType.svg"
+                    alt="Drive Type"
+                  />
+                  <p class="spec-name">
+                    {{
+                      'APP.PAGES.CAR_SELECTOR.STEP5_CARDS.DRIVE_TYPE'
+                        | translate
+                    }}
+                    :
+                  </p>
                 </div>
                 <div class="spec-value-wrap">
                   <p class="spec-value">{{ engine.driveType }}</p>
@@ -214,25 +392,41 @@
               <div *ngIf="engine.price" class="engine-price engine-row">
                 <div class="spec-icon-and-name">
                   <img src="./assets/images/engines/price.svg" alt="price" />
-                  <p class="spec-name"> {{ 'APP.PAGES.CAR_SELECTOR.STEP5_CARDS.PRICE' | translate }} : </p>
+                  <p class="spec-name">
+                    {{ 'APP.PAGES.CAR_SELECTOR.STEP5_CARDS.PRICE' | translate }}
+                    :
+                  </p>
                 </div>
                 <div class="spec-value-wrap">
-
                   <p class="spec-value">
-                    {{ (engine.price | currency: 'EUR': 'symbol': (engine.price % 1 == 0) ? '3.0': '1.0-0') | currencySeparatorFormatter}}
+                    {{
+                      engine.price
+                        | currency
+                          : 'EUR'
+                          : 'symbol'
+                          : (engine.price % 1 == 0 ? '3.0' : '1.0-0')
+                        | currencySeparatorFormatter
+                    }}
                   </p>
                 </div>
               </div>
-
             </div>
-            <p-button [label]="'APP.PAGES.CAR_SELECTOR.STEP5_CARDS.SELECT_BTN' | translate" class="select-btn"
-              (click)="nextStep(engine)">
+            <p-button
+              [label]="
+                'APP.PAGES.CAR_SELECTOR.STEP5_CARDS.SELECT_BTN' | translate
+              "
+              class="select-btn"
+              (click)="nextStep(engine)"
+            >
             </p-button>
           </div>
         </div>
       </div>
 
-      <div *ngIf="stepIndex === 5 && !enginesData.engines.length" class="not-found-falback">
+      <div
+        *ngIf="stepIndex === 5 && !enginesData.engines.length"
+        class="not-found-falback"
+      >
         <div class="not-found-falback-failed-container">
           <i class="fas fa-times"></i>
           <p>{{ 'APP.PAGES.CAR_SELECTOR.NOT_FOUND.ENGINE' | translate }}</p>
@@ -240,10 +434,16 @@
       </div>
 
       <div class="car-color-select" *ngIf="stepIndex === 6">
-        <div class="color-selector" *ngFor="let color of colors" (click)="nextStep(color.name)">
-          <div class="color-container" [ngClass]="{'selected': color.name === clientRequest.color }"
-            [ngStyle]="{'background-color': color.id}">
-          </div>
+        <div
+          class="color-selector"
+          *ngFor="let color of colors"
+          (click)="nextStep(color.name)"
+        >
+          <div
+            class="color-container"
+            [ngClass]="{ selected: color.name === clientRequest.color }"
+            [ngStyle]="{ 'background-color': color.id }"
+          ></div>
           <p class="color-name">
             {{ color.name }}
           </p>
@@ -251,17 +451,31 @@
       </div>
 
       <div class="regions-list" *ngIf="stepIndex === 7">
-        <p-listbox [options]="cities" [(ngModel)]="selectedCities" name="selectedCities" [metaKeySelection]="false" [checkbox]="true"
-          [filter]="true" [multiple]="true" optionLabel="name"
-          [filterPlaceHolder]="'APP.PAGES.CAR_SELECTOR.STEP7.REGION' | translate" [listStyle]="{'max-height':'250px'}">
+        <p-listbox
+          [options]="cities"
+          [(ngModel)]="selectedCities"
+          name="selectedCities"
+          [metaKeySelection]="false"
+          [checkbox]="true"
+          [filter]="true"
+          [multiple]="true"
+          optionLabel="name"
+          [filterPlaceHolder]="
+            'APP.PAGES.CAR_SELECTOR.STEP7.REGION' | translate
+          "
+          [listStyle]="{ 'max-height': '250px' }"
+        >
           <ng-template let-region pTemplate="item">
             <div class="region-item">
-              <div>{{region.name}}</div>
+              <div>{{ region.name }}</div>
             </div>
           </ng-template>
         </p-listbox>
-        <p-button [label]="'APP.PAGES.CAR_SELECTOR.STEP7.REGION_BTN' | translate" class="next-btn"
-          (click)="nextStep(selectedCities)">
+        <p-button
+          [label]="'APP.PAGES.CAR_SELECTOR.STEP7.REGION_BTN' | translate"
+          class="next-btn"
+          (click)="nextStep(selectedCities)"
+        >
         </p-button>
       </div>
 
@@ -271,9 +485,10 @@
             <!-- <p class="detail-description">{{ 'APP.PAGES.CAR_SELECTOR.STEP8.REQUEST_DETAILS.CAR' | translate }}</p> -->
             <div class="name-logo-row">
               <p class="detail-value">
-                {{ clientRequest?.producer?.name }} {{ clientRequest?.carModel?.name }}
+                {{ clientRequest?.producer?.name }}
+                {{ clientRequest?.carModel?.name }}
               </p>
-              <img [src]="clientRequest?.producer?.icon " alt="producer-logo">
+              <img [src]="clientRequest?.producer?.icon" alt="producer-logo" />
             </div>
           </div>
           <!-- <div fxFlex fxLayout="column" fxLayoutAlign="space-between start" class="detail">
@@ -284,77 +499,133 @@
           </div> -->
           <div class="request-details-additional-info">
             <!-- LEFT -->
-              <div class="request-details-left-panel">
-                <div class="detail">
-                  <p class="detail-description">{{ 'APP.PAGES.CAR_SELECTOR.STEP8.REQUEST_DETAILS.VERSION' | translate }}</p>
-                  <p class="detail-value">
-                    {{ clientRequest?.version?.name }}
-                  </p>
-                </div>
-                <!-- <div fxFlex fxLayout="column" fxLayoutAlign="space-between start" class="detail">
+            <div class="request-details-left-panel">
+              <div class="detail">
+                <p class="detail-description">
+                  {{
+                    'APP.PAGES.CAR_SELECTOR.STEP8.REQUEST_DETAILS.VERSION'
+                      | translate
+                  }}
+                </p>
+                <p class="detail-value">
+                  {{ clientRequest?.version?.name }}
+                </p>
+              </div>
+              <!-- <div fxFlex fxLayout="column" fxLayoutAlign="space-between start" class="detail">
                   <p class="detail-description">{{ 'APP.PAGES.CAR_SELECTOR.STEP8.REQUEST_DETAILS.FUEL' | translate }}</p>
                   <p class="detail-value">
                     {{ clientRequest?.fuel }}
                   </p>
                 </div> -->
-                <div class="detail">
-                  <p class="detail-description">{{ 'APP.PAGES.CAR_SELECTOR.STEP8.REQUEST_DETAILS.ENGINE' | translate }}</p>
-                  <p class="detail-value">
-                    {{ clientRequest?.engine?.name }}
-                  </p>
-                </div>
-                <div class="detail">
-                  <p class="detail-description">{{ 'APP.PAGES.CAR_SELECTOR.STEP8.REQUEST_DETAILS.COLOR' | translate }}</p>
-                  <p class="detail-value">
-                    {{ clientRequest?.color }}
-                  </p>
-                </div>
-                <div class="region">
-                  <p class="detail-description">{{ 'APP.PAGES.CAR_SELECTOR.STEP8.REQUEST_DETAILS.REGION' | translate }}</p>
-                  <p class="detail-value">
-                    {{ clientRequest?.regions }}
-                  </p>
-                </div>
+              <div class="detail">
+                <p class="detail-description">
+                  {{
+                    'APP.PAGES.CAR_SELECTOR.STEP8.REQUEST_DETAILS.ENGINE'
+                      | translate
+                  }}
+                </p>
+                <p class="detail-value">
+                  {{ clientRequest?.engine?.name }}
+                </p>
               </div>
-              <!-- RIGHT -->
-              <div class="request-details-right-panel">
-                <div class="detail">
-                  <p class="detail-description">{{ 'APP.PAGES.CAR_SELECTOR.STEP8.REQUEST_DETAILS.POWER' | translate }}</p>
-                  <p class="detail-value">
-                    {{ clientRequest?.engine?.power }}
-                  </p>
-                </div>
-                <div class="detail">
-                  <p class="detail-description">{{ 'APP.PAGES.CAR_SELECTOR.STEP8.REQUEST_DETAILS.FUEL' | translate }}</p>
-                  <p class="detail-value">
-                    {{ fuelMap(clientRequest?.fuel) }}
-                  </p>
-                </div>
-                <div class="detail">
-                  <p class="detail-description">{{ 'APP.PAGES.CAR_SELECTOR.STEP8.REQUEST_DETAILS.TRANSMISION' | translate }}</p>
-                  <p class="detail-value">
-                    {{ clientRequest?.engine?.transmision }}
-                  </p>
-                </div>
-                <div class="detail">
-                  <p class="detail-description">{{ 'APP.PAGES.CAR_SELECTOR.STEP8.REQUEST_DETAILS.DRIVE_TYPE' | translate }}</p>
-                  <p class="detail-value">
-                    {{ clientRequest?.engine?.driveType }}
-                  </p>
-                </div>
-                <div class="detail">
-                  <p class="detail-description">{{ 'APP.PAGES.CAR_SELECTOR.STEP8.REQUEST_DETAILS.PRICE' | translate }}</p>
-                  <p class="detail-value">
-                    {{ (clientRequest?.engine?.price | currency: 'EUR': 'symbol': (clientRequest?.engine?.price % 1 == 0) ? '3.0': '1.0-0') | currencySeparatorFormatter}}
-                  </p>
-                </div>
-                <!-- <div fxFlex fxLayout="column" fxLayoutAlign="space-between start" class="region">
+              <div class="detail">
+                <p class="detail-description">
+                  {{
+                    'APP.PAGES.CAR_SELECTOR.STEP8.REQUEST_DETAILS.COLOR'
+                      | translate
+                  }}
+                </p>
+                <p class="detail-value">
+                  {{ clientRequest?.color }}
+                </p>
+              </div>
+              <div class="region">
+                <p class="detail-description">
+                  {{
+                    'APP.PAGES.CAR_SELECTOR.STEP8.REQUEST_DETAILS.REGION'
+                      | translate
+                  }}
+                </p>
+                <p class="detail-value">
+                  {{ clientRequest?.regions }}
+                </p>
+              </div>
+            </div>
+            <!-- RIGHT -->
+            <div class="request-details-right-panel">
+              <div class="detail">
+                <p class="detail-description">
+                  {{
+                    'APP.PAGES.CAR_SELECTOR.STEP8.REQUEST_DETAILS.POWER'
+                      | translate
+                  }}
+                </p>
+                <p class="detail-value">
+                  {{ clientRequest?.engine?.power }}
+                </p>
+              </div>
+              <div class="detail">
+                <p class="detail-description">
+                  {{
+                    'APP.PAGES.CAR_SELECTOR.STEP8.REQUEST_DETAILS.FUEL'
+                      | translate
+                  }}
+                </p>
+                <p class="detail-value">
+                  {{ fuelMap(clientRequest?.fuel) }}
+                </p>
+              </div>
+              <div class="detail">
+                <p class="detail-description">
+                  {{
+                    'APP.PAGES.CAR_SELECTOR.STEP8.REQUEST_DETAILS.TRANSMISION'
+                      | translate
+                  }}
+                </p>
+                <p class="detail-value">
+                  {{ clientRequest?.engine?.transmision }}
+                </p>
+              </div>
+              <div class="detail">
+                <p class="detail-description">
+                  {{
+                    'APP.PAGES.CAR_SELECTOR.STEP8.REQUEST_DETAILS.DRIVE_TYPE'
+                      | translate
+                  }}
+                </p>
+                <p class="detail-value">
+                  {{ clientRequest?.engine?.driveType }}
+                </p>
+              </div>
+              <div class="detail">
+                <p class="detail-description">
+                  {{
+                    'APP.PAGES.CAR_SELECTOR.STEP8.REQUEST_DETAILS.PRICE'
+                      | translate
+                  }}
+                </p>
+                <p class="detail-value">
+                  {{
+                    clientRequest?.engine?.price
+                      ? (clientRequest?.engine?.price
+                          | currency
+                            : 'EUR'
+                            : 'symbol'
+                            : (clientRequest?.engine?.price % 1 == 0
+                                ? '3.0'
+                                : '1.0-0')
+                          | currencySeparatorFormatter)
+                      : '-'
+                  }}
+                </p>
+              </div>
+              <!-- <div fxFlex fxLayout="column" fxLayoutAlign="space-between start" class="region">
                   <p class="region-description">{{ 'APP.PAGES.CAR_SELECTOR.STEP8.REQUEST_DETAILS.REGION' | translate }}</p>
                   <p class="detail-value">
                     {{ clientRequest?.regions }}
                   </p>
                 </div> -->
-              </div>
+            </div>
           </div>
 
           <!-- <div fxFlex fxLayout="column" fxLayoutAlign="space-between start" class="detail">
@@ -390,26 +661,38 @@
         </div>
 
         <div class="stoc-option">
-          <p-checkbox [(ngModel)]="stocOption" name="stocOption" required binary="true"></p-checkbox>
-          <label for="binary">{{ 'APP.PAGES.CAR_SELECTOR.STEP8.STOC_OPTION' | translate}}</label>
+          <p-checkbox
+            [(ngModel)]="stocOption"
+            name="stocOption"
+            required
+            binary="true"
+          ></p-checkbox>
+          <label for="binary">{{
+            'APP.PAGES.CAR_SELECTOR.STEP8.STOC_OPTION' | translate
+          }}</label>
         </div>
-        
+
         <div *ngIf="stepIndex" class="send-request">
-          <p-button [label]="'APP.PAGES.CAR_SELECTOR.STEP8.REQUEST_BTN' | translate" class="select-btn"
-            (click)="sendRequest()">
+          <p-button
+            [label]="'APP.PAGES.CAR_SELECTOR.STEP8.REQUEST_BTN' | translate"
+            class="select-btn"
+            (click)="sendRequest()"
+          >
           </p-button>
         </div>
       </div>
     </div>
-
   </div>
 </div>
 
 <p-dialog
-   [header]="'APP.PAGES.CAR_SELECTOR.INFO.UNAVAILABLE_PRODUCER' | translate"
-   styleClass="unavailable-producer-dialog"
-   (onHide)="onDialogHide()"
-   contentStyleClass="content-message"
-   [(visible)]="unavailableProducer">
-   <p> {{ 'APP.PAGES.CAR_SELECTOR.INFO.THANKS_FOR_UNDERSTANDING' | translate }}</p>
+  [header]="'APP.PAGES.CAR_SELECTOR.INFO.UNAVAILABLE_PRODUCER' | translate"
+  styleClass="unavailable-producer-dialog"
+  (onHide)="onDialogHide()"
+  contentStyleClass="content-message"
+  [(visible)]="unavailableProducer"
+>
+  <p>
+    {{ 'APP.PAGES.CAR_SELECTOR.INFO.THANKS_FOR_UNDERSTANDING' | translate }}
+  </p>
 </p-dialog>

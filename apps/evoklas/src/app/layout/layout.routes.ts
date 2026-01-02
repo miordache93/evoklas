@@ -41,11 +41,19 @@ const loadPlaceholder = () =>
     (m) => m.PlaceholderPageComponent
   );
 
-// import { ProducersResolver } from '../features/car-selection/resolvers/producers.resolver';
-
 const loadCarSelector = () =>
   import('../features/car-selection/components/car-selector.component').then(
     (m) => m.CarSelectorComponent
+  );
+
+const loadMessages = () =>
+  import(
+    '../features/messaging/components/messages-page/messages-page.component'
+  ).then((m) => m.MessagesPageComponent);
+
+const loadRequests = () =>
+  import('../features/requests/components/requests.component').then(
+    (m) => m.RequestsComponent
   );
 
 export const layoutRoutes: Route[] = [
@@ -61,8 +69,16 @@ export const layoutRoutes: Route[] = [
       },
       {
         path: 'car-selector',
-        component: CarSelectorComponent,
+        loadComponent: loadCarSelector,
         resolve: { carSelectorData: ProducersResolver },
+      },
+      {
+        path: 'messages',
+        loadComponent: loadMessages,
+      },
+      {
+        path: 'requests',
+        loadComponent: loadRequests,
       },
       { path: 'terms-and-conditions', loadComponent: loadTerms },
       { path: 'privacy-and-policy', loadComponent: loadPrivacy },

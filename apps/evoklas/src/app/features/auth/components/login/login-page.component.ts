@@ -106,7 +106,6 @@ export class LoginPageComponent implements OnInit {
       return;
     }
 
-    const siteKey = this.env.recaptchaSiteKey;
     const creds = this.loginForm.getRawValue();
 
     const login = (token?: string) => {
@@ -135,17 +134,29 @@ export class LoginPageComponent implements OnInit {
         });
     };
 
-    if (siteKey) {
-      this.recaptcha.execute('login').subscribe({
-        next: (token) => login(token),
-        error: () => {
-          this.submitting = false;
-        },
+    const siteKey = this.env.recaptchaSiteKey;
+    if (!siteKey) {
+      this.submitting = false;
+      this.messageService.add({
+        severity: 'error',
+        summary: this.translate.instant('APP.ERRORS.0.title'),
+        detail: this.translate.instant('APP.ERRORS.0.message'),
       });
       return;
     }
 
-    login('dev');
+    this.recaptcha.execute('login').subscribe({
+      next: (token) => login(token),
+      error: (error) => {
+        console.error('Recaptcha error:', error);
+        this.submitting = false;
+        this.messageService.add({
+          severity: 'error',
+          summary: this.translate.instant('APP.ERRORS.0.title'),
+          detail: this.translate.instant('APP.ERRORS.0.message'),
+        });
+      },
+    });
   }
 
   openResetPasswordDialog(): void {
@@ -159,7 +170,6 @@ export class LoginPageComponent implements OnInit {
       return;
     }
 
-    const siteKey = this.env.recaptchaSiteKey;
     const { emailReset } = this.resetForm.getRawValue();
     const email = emailReset ?? '';
 
@@ -190,16 +200,28 @@ export class LoginPageComponent implements OnInit {
         });
     };
 
-    if (siteKey) {
-      this.recaptcha.execute('resetPassword').subscribe({
-        next: (token) => requestReset(token),
-        error: () => {
-          this.resetting = false;
-        },
+    const siteKey = this.env.recaptchaSiteKey;
+    if (!siteKey) {
+      this.resetting = false;
+      this.messageService.add({
+        severity: 'error',
+        summary: this.translate.instant('APP.ERRORS.0.title'),
+        detail: this.translate.instant('APP.ERRORS.0.message'),
       });
       return;
     }
 
-    requestReset('dev');
+    this.recaptcha.execute('resetPassword').subscribe({
+      next: (token) => requestReset(token),
+      error: (err) => {
+        console.error('Recaptcha error:', err);
+        this.resetting = false;
+        this.messageService.add({
+          severity: 'error',
+          summary: this.translate.instant('APP.ERRORS.0.title'),
+          detail: this.translate.instant('APP.ERRORS.0.message'),
+        });
+      },
+    });
   }
 }

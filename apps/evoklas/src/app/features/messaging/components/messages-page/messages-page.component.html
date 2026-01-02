@@ -1,0 +1,322 @@
+<p-confirmdialog
+  [style]="{ width: '50vw' }"
+  [acceptLabel]="'APP.PAGES.MESSAGES.CONFIRMATION_DIALOG.ACCEPT' | translate"
+  [rejectLabel]="'APP.PAGES.MESSAGES.CONFIRMATION_DIALOG.REJECT' | translate"
+  acceptButtonStyleClass="accept-btn"
+  rejectButtonStyleClass="reject-btn"
+  [baseZIndex]="10000"
+></p-confirmdialog>
+
+<div class="messages-page">
+  <a
+    class="back-btn"
+    *ngIf="selectedRequest && isMobile && showConversation"
+    (click)="goBackToRequestList()"
+  >
+    <i class="fas fa-chevron-left"></i>
+    {{ 'APP.PAGES.MESSAGES.REQUEST_TITLE' | translate }}
+  </a>
+
+  <div class="messages-page-container">
+    <!-- Requests list -->
+    <div class="requests-list-container">
+      <div class="requests-search">
+        <div class="p-field requests-search-field">
+          <label for="search-request">
+            {{ 'APP.PAGES.MESSAGES.REQUESTS.SEARCH_INPUT.LABEL' | translate }}
+          </label>
+          <span class="p-input-icon-right input-search">
+            <i class="pi pi-search"></i>
+            <input
+              id="search-request"
+              type="text"
+              [placeholder]="
+                'APP.PAGES.MESSAGES.REQUESTS.SEARCH_INPUT.PLACEHOLDER'
+                  | translate
+              "
+              pInputText
+              [(ngModel)]="searchText"
+              (ngModelChange)="searchByRequestName($event)"
+            />
+          </span>
+        </div>
+      </div>
+
+      <div class="requests-list">
+        <div
+          class="skeleton-list"
+          *ngIf="requestsLoading && virtualRequests.length === 0"
+        >
+          <div class="skeleton-item" *ngFor="let item of [1, 2, 3, 4, 5, 6]">
+            <p-skeleton
+              shape="circle"
+              styleClass="skeleton-avatar"
+            ></p-skeleton>
+            <div class="skeleton-lines">
+              <p-skeleton width="60%"></p-skeleton>
+              <p-skeleton width="80%"></p-skeleton>
+            </div>
+          </div>
+        </div>
+
+        <div class="requests-scroll" *ngIf="virtualRequests.length > 0">
+          <div
+            class="request-item"
+            *ngFor="let request of virtualRequests; trackBy: trackByFunction"
+            [ngClass]="{ selected: request.id === selectedRequest?.id }"
+            (click)="selectRequest(request)"
+          >
+            <p-avatar
+              class="request-avatar"
+              image="./assets/images/default-avatar.png"
+              styleClass="p-mr-2"
+              size="large"
+              shape="circle"
+            >
+            </p-avatar>
+            <div class="request-item-info">
+              <p class="request-user">
+                {{ request.user?.name }} {{ request.user?.surname }}
+              </p>
+              <p class="request-name">
+                {{ request.producer }} {{ request.carModel }}
+                {{ request.color }}
+              </p>
+            </div>
+            <div class="request-actions">
+              <p-badge
+                *ngIf="request.messages > 0"
+                class="request-badge"
+                [value]="request.messages"
+              >
+              </p-badge>
+              <p-button
+                styleClass="request-open-btn p-button-text"
+                icon="pi pi-envelope"
+                (click)="selectRequest(request); $event.stopPropagation()"
+                [disabled]="requestsLoading"
+                ariaLabel="Deschide mesaje"
+              ></p-button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Messages view: desktop inline -->
+    <div
+      *ngIf="!isMobile && selectedRequest"
+      class="messages-container"
+      [ngClass]="{
+        clientView: currentUser?.role !== 'DEALER'
+      }"
+    >
+      <ng-container *ngTemplateOutlet="conversationTemplate"></ng-container>
+    </div>
+  </div>
+
+  <!-- Mobile overlay conversation -->
+  <div
+    class="conversation-overlay"
+    *ngIf="isMobile && showConversation && selectedRequest"
+  >
+    <div class="overlay-header">
+      <p-button
+        link
+        (click)="goBackToRequestList()"
+        styleClass="back-btn p-button-text"
+      >
+        <i class="fas fa-chevron-left"></i>
+        {{ 'APP.PAGES.MESSAGES.REQUEST_TITLE' | translate }}
+      </p-button>
+      <div class="overlay-title">
+        {{ selectedRequest.producer }} {{ selectedRequest.carModel }}
+      </div>
+    </div>
+    <div class="overlay-body">
+      <ng-container *ngTemplateOutlet="conversationTemplate"></ng-container>
+    </div>
+  </div>
+</div>
+
+<ng-template #conversationTemplate>
+  <div #requestContainer class="request-container">
+    <div *ngIf="currentUser?.role === 'DEALER'" class="request-details">
+      <p-panel [toggleable]="true" toggler="header">
+        <ng-template pTemplate="header">
+          {{ selectedRequest.producer }} {{ selectedRequest.carModel }}
+          {{ selectedRequest.color }}
+        </ng-template>
+        <app-request-details [request]="selectedRequest"> </app-request-details>
+      </p-panel>
+    </div>
+
+    <div
+      class="credit-btn-container centered-container"
+      (click)="useCredit(selectedRequest)"
+      *ngIf="
+        selectedRequest &&
+        !selectedRequest.readable &&
+        currentUser?.requestsLimit > 0 &&
+        currentUser?.role !== 'CLIENT'
+      "
+    >
+      <a class="use-credit-btn">
+        <i class="fas fa-coins"></i>
+        <b>
+          {{ 'APP.PAGES.MESSAGES.ACTION_BUTTONS.USE_CREDIT' | translate }}
+        </b>
+        ( {{ currentUser.requestsLimit }}
+        {{ 'APP.PAGES.MESSAGES.REQUESTS_LEFT' | translate }} )
+      </a>
+    </div>
+
+    <div
+      *ngIf="currentUser?.role === 'CLIENT' && virtualMessages?.length === 0"
+    >
+      <p>Cererea nu a fost procesata inca de catre un dealer.</p>
+    </div>
+
+    <div
+      *ngIf="messagesLoading || virtualMessages.length > 0"
+      class="messages-thread"
+    >
+      <div *ngIf="messagesLoading && virtualMessages.length === 0" class="messages-skeleton">
+        <p-skeleton height="70px"></p-skeleton>
+        <p-skeleton height="70px"></p-skeleton>
+      </div>
+      <div *ngIf="virtualMessages.length > 0" class="messages-list">
+        <div
+          class="message-container"
+          *ngFor="let message of virtualMessages; trackBy: trackByFunction"
+          [ngClass]="{
+            sender: message.senderId === currentUser?.id,
+            receiver: message.senderId !== currentUser?.id
+          }"
+        >
+          <p class="message">{{ message.text }}</p>
+          <div *ngIf="message.filePath" class="attachment-container">
+            <span
+              class="attachment-link"
+              (click)="onAttachmentClicked(message.filePath)"
+            >
+              <i class="fas fa-paperclip"></i>
+              <p>View or download the attached offer</p>
+            </span>
+          </div>
+          <div class="avatar-container">
+            <div class="avatar-meta">
+              <p>
+                {{
+                  message.senderId === currentUser?.id
+                    ? (currentUser?.name + ' ' + currentUser?.surname)
+                    : (selectedRequest.user?.name +
+                        ' ' +
+                        selectedRequest.user?.surname)
+                }}
+              </p>
+              <p>{{ message.createdAt | date : 'short' }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      *ngIf="messagesLoading || virtualMessages.length > 0"
+      class="messages-list messages-list-meta"
+      [style.justifyContent]="messageListAlignment"
+    ></div>
+  </div>
+
+  <div class="messages-chat">
+    <div
+      class="skeleton-chat-input"
+      *ngIf="messagesLoading && virtualMessages.length === 0"
+    >
+      <p-skeleton height="120px"></p-skeleton>
+      <div class="skeleton-chat-actions">
+        <p-skeleton width="160px" height="40px"></p-skeleton>
+        <p-skeleton width="160px" height="40px"></p-skeleton>
+      </div>
+    </div>
+
+    <div
+      class="chat-container"
+      *ngIf="!(messagesLoading && virtualMessages.length === 0)"
+    >
+      <span class="p-float-label chat-input">
+        <textarea
+          id="float-input"
+          name="textMessage"
+          #textbox
+          [ngClass]="{
+            'not-allowed':
+              (!selectedRequest.readable && currentUser.role === 'DEALER') ||
+              (currentUser.role === 'CLIENT' && virtualMessages?.length === 0)
+          }"
+          (change)="textMessage = textbox.value"
+          [(ngModel)]="textMessage"
+          [disabled]="
+            (!selectedRequest.readable && currentUser.role === 'DEALER') ||
+            (currentUser.role === 'CLIENT' && virtualMessages?.length === 0)
+          "
+          rows="2"
+          cols="30"
+          pInputTextarea
+        ></textarea>
+        <label for="float-input">Scrie un mesaj...</label>
+      </span>
+      <div *ngIf="messageAttachment" class="message-attachment">
+        <a class="attachment-row">
+          <p (click)="onFileClicked()" class="attachment-name">
+            <b> Attachment: </b>{{ messageAttachment }}
+          </p>
+          <i
+            class="fas fa-times attachment-remove"
+            (click)="removeAttachment()"
+          ></i>
+        </a>
+      </div>
+    </div>
+    <div
+      class="chat-input-actions"
+      *ngIf="!(messagesLoading && virtualMessages.length === 0)"
+    >
+      <label
+        *ngIf="currentUser.role === 'DEALER'"
+        class="custom-file-upload"
+        [ngClass]="{ 'not-allowed': !selectedRequest.readable }"
+      >
+        <i class="fas fa-paperclip"></i>
+        <input
+          [disabled]="!selectedRequest.readable"
+          class="offer-input"
+          type="file"
+          (change)="onFileUpload($event)"
+        />
+        {{ 'APP.PAGES.MESSAGES.ACTION_BUTTONS.ADD_ATTACHMENT' | translate }}
+      </label>
+      <a
+        [ngClass]="{
+          'not-allowed':
+            (!selectedRequest.readable && currentUser.role === 'DEALER') ||
+            (currentUser.role === 'CLIENT' && virtualMessages?.length === 0)
+        }"
+        [attr.aria-disabled]="
+          (!selectedRequest.readable && currentUser.role === 'DEALER') ||
+          (currentUser.role === 'CLIENT' && virtualMessages?.length === 0)
+        "
+        (click)="
+          (!selectedRequest.readable && currentUser.role === 'DEALER') ||
+          (currentUser.role === 'CLIENT' && virtualMessages?.length === 0)
+            ? null
+            : sendMessage(textMessage)
+        "
+      >
+        <i class="far fa-paper-plane"></i>
+        {{ 'APP.PAGES.MESSAGES.ACTION_BUTTONS.SEND_MESSAGE' | translate }}
+      </a>
+    </div>
+  </div>
+</ng-template>

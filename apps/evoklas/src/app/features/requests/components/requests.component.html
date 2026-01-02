@@ -1,0 +1,41 @@
+<div class="requests-component">
+  <div class="requests-content" *ngIf="!isLoading">
+    <app-requests-list
+      class="requests-panel"
+      [blocked]="true"
+      [requests]="blockedRequests"
+      (clicked)="selectRequests($event)"
+    >
+    </app-requests-list>
+    <app-requests-list
+      class="requests-panel"
+      [blocked]="false"
+      [requests]="unblockedRequests"
+      (clicked)="selectRequests($event)"
+    >
+    </app-requests-list>
+  </div>
+  <div class="requests-skeleton" *ngIf="isLoading">
+    <div class="skeleton-panel">
+      <p-skeleton height="24px" width="40%" styleClass="skeleton-title"></p-skeleton>
+      <div class="skeleton-items">
+        <p-skeleton height="90px" *ngFor="let item of [1,2,3,4,5]"></p-skeleton>
+      </div>
+    </div>
+    <div class="skeleton-panel">
+      <p-skeleton height="24px" width="40%" styleClass="skeleton-title"></p-skeleton>
+      <div class="skeleton-items">
+        <p-skeleton height="90px" *ngFor="let item of [1,2,3,4,5]"></p-skeleton>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p-confirmdialog
+  [style]="{ width: '50vw' }"
+  [acceptLabel]="'APP.PAGES.MESSAGES.CONFIRMATION_DIALOG.ACCEPT' | translate"
+  [rejectLabel]="'APP.PAGES.MESSAGES.CONFIRMATION_DIALOG.REJECT' | translate"
+  acceptButtonStyleClass="accept-btn"
+  rejectButtonStyleClass="reject-btn"
+  [baseZIndex]="10000"
+></p-confirmdialog>

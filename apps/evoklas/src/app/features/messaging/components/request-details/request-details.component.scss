@@ -1,0 +1,95 @@
+@import '../../../../../styles/responsive.mixin.scss';
+@import '../../../../../styles/variables';
+
+p {
+    color: $dark-blue;
+    font-family: Roboto;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 24px;
+    margin: 0;
+
+    &.detail-value {
+        font-weight: bold;
+
+        @include screen('phone-landscape'){
+            text-align: right;
+        }
+
+    }
+}
+
+.request-details-root {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 2px;
+}
+
+.detail-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.detail-row-single {
+    justify-content: flex-start;
+}
+
+.not-readable {
+    filter: blur(4px);
+}
+
+.user-request-details {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+
+    @include screen('phone') {
+        justify-content: space-between;
+    }
+
+    p {
+        width: 100%;
+    }
+}
+
+.user-request-avatar {
+    flex: 0 0 auto;
+
+    @include screen('tablet') {
+        flex-basis: 20%;
+    }
+}
+
+.user-request-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex: 0 1 30%;
+
+    @include screen('desktop-large') {
+        flex-basis: 40%;
+    }
+
+    @include screen('phone') {
+        flex-basis: 55%;
+    }
+}
+
+
+::ng-deep {
+    p-divider{
+       margin: 5px 0 !important;
+    }
+
+    .p-divider.p-divider-horizontal {
+        margin: 0;
+        padding: 0;
+    }
+}

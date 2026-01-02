@@ -98,15 +98,15 @@ export class RegisterClientFormComponent implements OnInit {
           });
       };
 
-      if (this.env.recaptchaSiteKey) {
-        this.reCaptchaService.execute('register').subscribe({
-          next: (token: string) => doRegister(token),
-          error: () => doRegister(),
-        });
+      if (!this.env.recaptchaSiteKey) {
+        console.error('Missing reCAPTCHA site key');
         return;
       }
 
-      doRegister('dev');
+      this.reCaptchaService.execute('register').subscribe({
+        next: (token: string) => doRegister(token),
+        error: (error) => console.error('Invalid captchaV3', error),
+      });
     }
   }
 

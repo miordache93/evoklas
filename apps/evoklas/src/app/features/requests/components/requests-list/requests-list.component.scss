@@ -1,0 +1,95 @@
+@import '../../../../../styles/variables';
+
+.requests-list-component {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 5px;
+  padding: 5px;
+
+  .list-header {
+    font-weight: 600;
+    padding: 8px 10px 12px;
+  }
+
+  /* Empty state cu aceeași “greutate” vizuală ca lista */
+  .empty-state {
+    /* potrivim înălțimea cu scroll-ul listei */
+    min-height: 600px;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    gap: 8px;
+    border-radius: 5px;
+    box-shadow: rgba(100, 100, 111, 0.12) 0px 7px 29px 0px;
+    background: var(--surface-card, #fff);
+    padding: 16px;
+
+    .pi {
+      font-size: 2rem;
+      opacity: 0.65;
+    }
+
+    h3 {
+      margin: 4px 0 0;
+      font-weight: 600;
+    }
+
+    .muted {
+      margin: 0;
+      opacity: 0.75;
+    }
+
+    &.blocked {
+      border-left: 7px solid $logo;  /* la fel ca item-ele blocked */
+    }
+
+    &.unblocked {
+      border-left: 7px solid $green; /* la fel ca item-ele unblocked */
+    }
+  }
+
+  ::ng-deep {
+    .p-virtualscroller-item  {
+      &:hover {
+        border: 4px solid $darker-blue;
+        border-radius: 5px;
+      }
+    }
+
+    .request-content {
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      padding: 10px;
+      cursor: pointer;
+      font-family: 'Roboto';
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+
+      &:hover {
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      }
+
+      &.blocked {
+        border-left: 7px solid $logo;
+      }
+
+      &.unblocked {
+        border-left: 7px solid $green;
+      }
+
+      p {
+        padding: 5px;
+        margin: 0;
+      }
+    }
+
+    .virtual-requests-list {
+      background-color: $white;
+      .p-virtualscroller-item {
+        margin-bottom: 10px;
+      }
+    }
+  }
+}

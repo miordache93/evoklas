@@ -133,14 +133,15 @@ export class RegisterDealerFormComponent implements OnInit {
       });
     };
 
-    if (this.env.recaptchaSiteKey) {
-      this.reCaptchaService.execute('register').subscribe({
-        next: (token) => register(token),
-        error: (error) => console.error('Invalid captchaV3', error),
-      });
-    } else {
-      register('dev');
+    if (!this.env.recaptchaSiteKey) {
+      console.error('Missing reCAPTCHA site key');
+      return;
     }
+
+    this.reCaptchaService.execute('register').subscribe({
+      next: (token) => register(token),
+      error: (error) => console.error('Invalid captchaV3', error),
+    });
   }
 
   private markAllAsTouchedAndFocusFirstInvalid(): void {

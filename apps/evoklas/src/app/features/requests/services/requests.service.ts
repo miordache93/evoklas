@@ -20,4 +20,24 @@ export class RequestsDataService {
       return this.http.get('/api/requests/client');
     }
   }
+
+  getRequestsV2(queryParams?: any): Observable<any> {
+    let requestsUrl = `/api/requests/v2`;
+    if (
+      queryParams &&
+      queryParams.hasOwnProperty('size') &&
+      queryParams.hasOwnProperty('page')
+    ) {
+      const { name, size, page, readable, preselectedRequestId } = queryParams;
+      requestsUrl += `?size=${size}&page=${page}&readable=${readable}`;
+      if (name) {
+        requestsUrl += `&name=${name}`;
+      }
+      if (preselectedRequestId) {
+        requestsUrl += `&reqId=${preselectedRequestId}`;
+      }
+    }
+
+    return this.http.get(requestsUrl);
+  }
 }

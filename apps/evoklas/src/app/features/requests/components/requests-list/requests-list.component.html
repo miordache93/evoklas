@@ -1,0 +1,65 @@
+<div class="requests-list-component">
+  <!-- Header desktop (afișat și când lista e goală) -->
+  <div class="list-header">
+    {{
+      blocked
+        ? ('APP.PAGES.REQUESTS.BLOCKED' | translate)
+        : ('APP.PAGES.REQUESTS.UNBLOCKED' | translate)
+    }}
+  </div>
+
+  <!-- Când există date -> VirtualScroller -->
+  <ng-container *ngIf="requests && requests.length > 0; else emptyTpl">
+    <p-virtualScroller
+      styleClass="virtual-requests-list"
+      [items]="requests"
+      minBufferPx="600"
+      maxBufferPx="600"
+      scrollHeight="600px"
+      [itemSize]="150"
+    >
+      <ng-template pTemplate="item" let-request>
+        <div
+          class="request-content"
+          [ngClass]="blocked ? 'blocked' : 'unblocked'"
+          (click)="selectRequest(request)"
+        >
+          <h4>{{ request.user.name }} {{ request.user.surname }}</h4>
+          <p>{{ request.createdAt | date : 'dd/MM/yyyy' }}</p>
+          <p *ngIf="!blocked">{{ request.producer }} {{ request.carModel }}</p>
+          <p *ngIf="blocked">{{ request.producer }}</p>
+        </div>
+      </ng-template>
+    </p-virtualScroller>
+  </ng-container>
+
+  <!-- Empty state -->
+  <ng-template #emptyTpl>
+    <div
+      class="empty-state"
+      [ngClass]="blocked ? 'blocked' : 'unblocked'"
+      role="status"
+      aria-live="polite"
+    >
+      <i
+        class="pi"
+        [ngClass]="blocked ? 'pi-ban' : 'pi-inbox'"
+        aria-hidden="true"
+      ></i>
+      <h3>
+        {{
+          blocked
+            ? ('APP.PAGES.REQUESTS.EMPTY_BLOCKED_TITLE' | translate)
+            : ('APP.PAGES.REQUESTS.EMPTY_UNBLOCKED_TITLE' | translate)
+        }}
+      </h3>
+      <p class="muted">
+        {{
+          blocked
+            ? ('APP.PAGES.REQUESTS.EMPTY_BLOCKED_SUBTITLE' | translate)
+            : ('APP.PAGES.REQUESTS.EMPTY_UNBLOCKED_SUBTITLE' | translate)
+        }}
+      </p>
+    </div>
+  </ng-template>
+</div>

@@ -2,12 +2,21 @@ import { Injectable, inject } from '@angular/core';
 import { Observable, defer } from 'rxjs';
 import { APP_ENV } from '../config/environment.tokens';
 
-type Grecaptcha = {
+type GrecaptchaExecutor = {
   ready: (callback: () => void) => void;
   execute: (
     siteKey: string,
     options: { action: string }
   ) => Promise<string>;
+};
+
+type Grecaptcha = {
+  ready?: (callback: () => void) => void;
+  execute?: (
+    siteKey: string,
+    options: { action: string }
+  ) => Promise<string>;
+  enterprise?: GrecaptchaExecutor;
 };
 
 declare global {
@@ -74,9 +83,21 @@ export class RecaptchaService {
       return Promise.reject(new Error('reCAPTCHA is not available'));
     }
 
+    const executor = grecaptcha.enterprise?.ready
+      ? grecaptcha.enterprise
+      : grecaptcha.ready && grecaptcha.execute
+        ? (grecaptcha as GrecaptchaExecutor)
+        : undefined;
+
+    if (!executor) {
+      return Promise.reject(
+        new Error('reCAPTCHA is not available for this key')
+      );
+    }
+
     return new Promise((resolve, reject) => {
-      grecaptcha.ready(() => {
-        grecaptcha.execute(siteKey, { action }).then(resolve).catch(reject);
+      executor.ready(() => {
+        executor.execute(siteKey, { action }).then(resolve).catch(reject);
       });
     });
   }

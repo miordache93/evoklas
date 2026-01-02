@@ -8,14 +8,10 @@ import { AuthService } from '../../auth/services/auth.service';
   providedIn: 'root',
 })
 export class HttpClientService {
-  messagesSubject = new BehaviorSubject([]);
-  messagesObs$ = this.messagesSubject.asObservable();
   conversationsSubject = new BehaviorSubject([]);
   conversationsObs$ = this.conversationsSubject.asObservable();
   notificationsSubject = new BehaviorSubject([]);
   notificationsObs$ = this.notificationsSubject.asObservable();
-  selectedRequestSubject = new BehaviorSubject('');
-  selectedRequestObs$ = this.selectedRequestSubject.asObservable();
   loadingSubject = new BehaviorSubject(false);
   loadingObs$ = this.loadingSubject.asObservable();
   creditsSubject = new BehaviorSubject(0);
@@ -122,34 +118,6 @@ export class HttpClientService {
     }
 
     return this.http.get(requestsUrl);
-  }
-
-  getMessagesV2(requestId: any, queryParams?: any): Observable<any> {
-    let requestsUrl = `/api/messages/v2/${requestId}/`;
-    if (
-      queryParams &&
-      queryParams.hasOwnProperty('size') &&
-      queryParams.hasOwnProperty('page')
-    ) {
-      const { size, page } = queryParams;
-      requestsUrl += `?size=${size}&page=${page}`;
-    }
-
-    return this.http.get(requestsUrl);
-  }
-
-  getLastMessages(requestId: any): Observable<any> {
-    return this.http.get(`/api/messages/last/${requestId}`);
-  }
-
-  sendMessaage({ text, receiverId, attachment, reqId }: any): Observable<any> {
-    const formData = new FormData();
-    formData.append('text', text);
-    formData.append('receiverId', receiverId);
-    formData.append('reqId', reqId);
-    formData.append('file', attachment);
-
-    return this.http.post('/api/messages', formData);
   }
 
   downloadFileAttachment(data: any): Observable<any> {

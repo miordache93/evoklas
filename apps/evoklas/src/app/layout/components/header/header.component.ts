@@ -7,8 +7,6 @@ import { MenuModule } from 'primeng/menu';
 import { ButtonModule } from 'primeng/button';
 
 import { MenuItem } from 'primeng/api';
-// import { LayoutService } from '@services/helpers/layout.service';
-// import { LANGUAGES } from 'src/app/constants/languages';
 import { TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
 import { User } from '../../../core/auth/models/user.model';

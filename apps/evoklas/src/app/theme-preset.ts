@@ -258,6 +258,64 @@ const CustomPreset = definePreset(Material, {
         focusBackground: '{autoGray.50}',
       },
     },
+    dialog: {
+      root: {
+        background: '#ffffff',
+        borderColor: '{autoGray.200}',
+        color: '{autoGray.900}',
+        borderRadius: '12px',
+        shadow: '0 18px 32px rgba(11, 39, 65, 0.18)',
+      },
+      header: {
+        padding: '1.25rem 1.5rem',
+        gap: '0.75rem',
+      },
+      title: {
+        fontSize: '1.1rem',
+        fontWeight: '700',
+      },
+      content: {
+        padding: '1rem 1.5rem 1.25rem',
+      },
+      footer: {
+        padding: '0 1.5rem 1.5rem',
+        gap: '0.75rem',
+      },
+    },
+    confirmdialog: {
+      icon: {
+        size: '1.5rem',
+        color: '{autoBlue.700}',
+      },
+      content: {
+        gap: '1rem',
+      },
+    },
+    menu: {
+      root: {
+        background: '#ffffff',
+        borderColor: '{autoGray.200}',
+        color: '{autoGray.900}',
+        borderRadius: '8px',
+        shadow: '0 12px 24px rgba(11, 39, 65, 0.12)',
+      },
+      list: {
+        padding: '0.5rem',
+        gap: '0.25rem',
+      },
+      item: {
+        color: '{autoGray.900}',
+        focusColor: '{autoGray.900}',
+        focusBackground: '{autoGray.50}',
+        padding: '0.5rem 0.75rem',
+        borderRadius: '6px',
+        gap: '0.5rem',
+        icon: {
+          color: '{autoGray.700}',
+          focusColor: '{autoGray.900}',
+        },
+      },
+    },
   },
 });
 

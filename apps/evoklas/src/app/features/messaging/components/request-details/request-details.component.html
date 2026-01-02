@@ -1,0 +1,64 @@
+<div class="request-details-root">
+  <div class="detail-row">
+    <p class="detail-name">
+      {{ 'APP.PAGES.MESSAGES.REQUEST_DETAILS.PRODUCER' | translate }}
+    </p>
+    <p class="detail-value">{{ request.producer }}</p>
+  </div>
+  <p-divider styleClass="detail-divider"></p-divider>
+  <div [ngClass]="{ 'not-readable': !request.readable }" class="detail-row">
+    <p class="detail-name">
+      {{ 'APP.PAGES.MESSAGES.REQUEST_DETAILS.MODEL' | translate }}
+    </p>
+    <p class="detail-value">{{ request.carModel }}</p>
+  </div>
+  <p-divider styleClass="detail-divider"></p-divider>
+  <div [ngClass]="{ 'not-readable': !request.readable }" class="detail-row">
+    <p class="detail-name">
+      {{ 'APP.PAGES.MESSAGES.REQUEST_DETAILS.VERSION' | translate }}
+    </p>
+    <p class="detail-value">{{ request.version }}</p>
+  </div>
+  <p-divider styleClass="detail-divider"></p-divider>
+  <div [ngClass]="{ 'not-readable': !request.readable }" class="detail-row">
+    <p class="detail-name">
+      {{ 'APP.PAGES.MESSAGES.REQUEST_DETAILS.FUEL' | translate }}
+    </p>
+    <p class="detail-value">{{ request.fuel }}</p>
+  </div>
+  <p-divider styleClass="detail-divider"></p-divider>
+  <div [ngClass]="{ 'not-readable': !request.readable }" class="detail-row">
+    <p class="detail-name">
+      {{ 'APP.PAGES.MESSAGES.REQUEST_DETAILS.ENGINE' | translate }}
+    </p>
+    <p class="detail-value">{{ request.engine }}</p>
+  </div>
+  <p-divider styleClass="detail-divider"></p-divider>
+  <div [ngClass]="{ 'not-readable': !request.readable }" class="detail-row">
+    <p class="detail-name">
+      {{ 'APP.PAGES.MESSAGES.REQUEST_DETAILS.COLOR' | translate }}
+    </p>
+    <p class="detail-value">{{ request.color }}</p>
+  </div>
+  <p-divider *ngIf="request.stocOption" styleClass="detail-divider"></p-divider>
+  <div *ngIf="request.stocOption" class="detail-row detail-row-single">
+    <p class="detail-value">
+      {{ 'APP.PAGES.MESSAGES.REQUEST_DETAILS.STOC_OPTION' | translate }}
+    </p>
+  </div>
+  <p-divider styleClass="detail-divider"></p-divider>
+  <div class="user-request-details">
+    <p-avatar
+      class="user-request-avatar"
+      image="./assets/images/default-avatar.png"
+      styleClass="p-mr-2"
+      size="large"
+      shape="circle"
+    >
+    </p-avatar>
+    <div class="user-request-meta">
+      <p>{{ request.user.name }} {{ request.user.surname }}</p>
+      <p>{{ request.date }}</p>
+    </div>
+  </div>
+</div>

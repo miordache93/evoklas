@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, DestroyRef, inject, signal } from '@angular/core';
+import { Component, DestroyRef, inject, signal } from '@angular/core';
 import {
   NavigationCancel,
   NavigationEnd,
@@ -19,7 +19,6 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
     FooterComponent,
     HeaderComponent,
   ],
-  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './main-layout.component.html',
   styleUrl: './main-layout.component.scss',
 })
