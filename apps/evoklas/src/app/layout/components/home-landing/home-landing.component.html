@@ -133,6 +133,31 @@
     </div>
   </section>
 
+  <section class="packages-preview" *ngIf="packages.length > 0">
+    <div class="packages-preview__header">
+      <div>
+        <h1>{{ 'APP.PAGES.HOME.PACKAGES_PREVIEW.TITLE' | translate }}</h1>
+        <p>{{ 'APP.PAGES.HOME.PACKAGES_PREVIEW.SUBTITLE' | translate }}</p>
+      </div>
+      <a class="packages-preview__cta" routerLink="/subscriptions">
+        {{ 'APP.PAGES.HOME.PACKAGES_PREVIEW.CTA' | translate }}
+      </a>
+    </div>
+
+    <div class="packages-preview__grid">
+      <article class="package-card" *ngFor="let package of packages | slice:0:3">
+        <div class="package-card__top">
+          <h2>{{ package.title }}</h2>
+          <span class="package-card__price">{{ package.price }} RON</span>
+        </div>
+        <p class="package-card__meta">
+          {{ 'APP.PAGES.HOME.PACKAGES_PREVIEW.REQUESTS' | translate:{ count: package.nr_requests } }}
+        </p>
+        <p class="package-card__desc">{{ package.description }}</p>
+      </article>
+    </div>
+  </section>
+
   <section class="faq-section">
     <div class="faq__image">
       <img src="./assets/images/faq_list_question_mark.png" alt="FAQ" />

@@ -11,20 +11,21 @@ import { TranslateModule } from '@ngx-translate/core';
 import { fromEvent, startWith } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { AuthService } from '../../../core/auth/services/auth.service';
+import { HttpClientService } from '../../../core/http/services/http-client.service';
 
 export const CLIENTS_FEEDBACK = [
   {
     id: 0,
-    text: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
-    authorName: 'Author Name',
-    postedAt: '12 APRIL 2021',
+    text: 'Am trimis o singura cerere si am primit mai multe oferte in aceeasi zi. Comparatia a fost rapida, iar pretul final a fost sub ce gaseam direct la dealer.',
+    authorName: 'Andrei Popescu',
+    postedAt: '12 APRILIE 2024',
     authorAvatarPath: './assets/images/feedback/avatar1.png',
   },
   {
     id: 1,
-    text: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
-    authorName: 'Author Name',
-    postedAt: '05 MARCH 2021',
+    text: 'Proces simplu si fara drumuri. Am ales configuratia, am trimis cererea si am primit raspunsuri clare de la mai multi dealeri.',
+    authorName: 'Ioana Dumitru',
+    postedAt: '05 MARTIE 2024',
     authorAvatarPath: './assets/images/feedback/avatar2.png',
   },
 ];
@@ -45,11 +46,13 @@ export class HomeLandingComponent implements OnInit {
   mobileImagePath = '';
   feedbacks: any;
   currentUser: any = null;
+  packages: any[] = [];
 
   constructor(
     private authService: AuthService,
     private router: Router,
-    private destroyRef: DestroyRef
+    private destroyRef: DestroyRef,
+    private httpClientDataService: HttpClientService
   ) {}
 
   ngOnInit(): void {
@@ -61,6 +64,10 @@ export class HomeLandingComponent implements OnInit {
 
     this.authService.currentUser.subscribe((data: any) => {
       this.currentUser = data;
+    });
+
+    this.httpClientDataService.getPackages().subscribe((res: any) => {
+      this.packages = Array.isArray(res) ? res : [];
     });
   }
 

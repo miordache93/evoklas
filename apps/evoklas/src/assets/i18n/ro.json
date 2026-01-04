@@ -26,6 +26,12 @@
                         }
                     }
                 },
+                "PACKAGES_PREVIEW": {
+                    "TITLE": "Pachete disponibile",
+                    "SUBTITLE": "Descoperă pachetul potrivit pentru numărul tău de cereri",
+                    "CTA": "Vezi toate pachetele",
+                    "REQUESTS": "Pentru {{count}} cereri"
+                },
                 "THIRD_PANEL": {
                     "FAQ_LIST": {
                         "TITLE": "Lista F.A.Q                        ",
@@ -220,11 +226,17 @@
                 },
                 "ACTION_BUTTONS": {
                     "ADD_ATTACHMENT": "Încărcați oferta",
+                    "MESSAGE_PLACEHOLDER": "Scrie un mesaj...",
                     "SEND_MESSAGE": "Trimite mesaj",
                     "USE_CREDIT": "Foloseste 1 Credit",
                     "RENEW_CREDITS": "Adauga credite"
                 },
                 "REQUESTS_LEFT": "Ramase",
+                "NO_DEALER_RESPONSE": "Cererea nu a fost procesată încă de către un dealer.",
+                "ATTACHMENT": {
+                    "VIEW": "Vezi sau descarcă oferta atașată",
+                    "LABEL": "Atașament:"
+                },
                 "CONFIRMATION_DIALOG": {
                     "ACCEPT": "APROBA",
                     "REJECT": "RESPINGE"
@@ -241,6 +253,12 @@
                         "LABEL": "Cauta conversatia"
                     }
                 }
+            },
+            "PLACEHOLDER": {
+                "PILL": "Structura layout",
+                "HEADLINE": "{{title}} este in lucru.",
+                "BODY": "Rutele sunt conectate la layout, astfel incat poti adauga componente fara sa modifici navigatia.",
+                "CTA": "Mergi la dashboard"
             },
             "PACKAGES": {
                 "ACTION_BUTTONS": {
@@ -266,19 +284,19 @@
                 "BLOCKED": "Cereri blocate",
                 "UNBLOCKED": "Cereri deblocate",
                 "NOT_ENOUGH_CREDIT": {
-                    "TITLE": "Not enough credits",
-                    "MESSAGE": "You're redirected to subscriptions page."
+                    "TITLE": "Nu ai suficiente credite",
+                    "MESSAGE": "Vei fi redirecționat către pagina de abonamente."
                 },
                 "USE_CREDIT": {
                     "TEXT": "Esti sigur/a ca vrei sa folosesti creditul?",
-                    "HEADER": "Confirmation",
+                    "HEADER": "Confirmare",
                     "ACCEPT": {
-                        "SUMMARY": "Confirmed",
-                        "DETAIL": "You have accepted"
+                        "SUMMARY": "Confirmat",
+                        "DETAIL": "Ai confirmat"
                     },
                     "REJECT": {
-                        "SUMMARY": "Rejected",
-                        "DETAIL": "You have rejected"
+                        "SUMMARY": "Respins",
+                        "DETAIL": "Ai respins"
                     }
                 }
             },
@@ -333,18 +351,18 @@
                     "TEXT": "Esti sigur/a ca vrei sa continui?",
                     "HEADER": "Confirmare",
                     "ACCEPT": {
-                        "SUMMARY": "Confirmed",
-                        "DETAIL": "You have accepted"
+                        "SUMMARY": "Confirmat",
+                        "DETAIL": "Ai confirmat"
                     },
                     "REJECT": {
-                        "SUMMARY": "Rejected",
-                        "DETAIL": "You have rejected"
+                        "SUMMARY": "Respins",
+                        "DETAIL": "Ai respins"
                     }
                 },
                 "RESET_PASSWORD": {
                     "TITLE": "Resetare parola",
                     "SUBMIT_BUTTON": "Trimite",
-                    "SUCCESS_RESET_TITLE": "Success",
+                    "SUCCESS_RESET_TITLE": "Succes",
                     "SUCCESS_RESET": "Parola dvs. a fost resetata. Redirectionare catre login..."
                 }
             }
@@ -418,7 +436,11 @@
             "SUBSCRIPTION_PURCHASED": "Pachetul a fost procesat cu succes",
             "DELETE_ACCOUNT": "Contul a fost șters"
         },
+        "SIDEBAR": {
+            "NAVIGATION": "Navigare"
+        },
         "FOOTER": {
+            "COPYRIGHT": "@ Copyright 2021",
             "LINKS": {
                 "CONTACT_US": "Contact",
                 "PRIVACY_AND_POLICY": "Politica de confidentialitate",

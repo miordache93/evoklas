@@ -174,7 +174,7 @@
     <div
       *ngIf="currentUser?.role === 'CLIENT' && virtualMessages?.length === 0"
     >
-      <p>Cererea nu a fost procesata inca de catre un dealer.</p>
+      <p>{{ 'APP.PAGES.MESSAGES.NO_DEALER_RESPONSE' | translate }}</p>
     </div>
 
     <div
@@ -201,7 +201,7 @@
               (click)="onAttachmentClicked(message.filePath)"
             >
               <i class="fas fa-paperclip"></i>
-              <p>View or download the attached offer</p>
+              <p>{{ 'APP.PAGES.MESSAGES.ATTACHMENT.VIEW' | translate }}</p>
             </span>
           </div>
           <div class="avatar-container">
@@ -265,12 +265,15 @@
           cols="30"
           pInputTextarea
         ></textarea>
-        <label for="float-input">Scrie un mesaj...</label>
+        <label for="float-input">
+          {{ 'APP.PAGES.MESSAGES.ACTION_BUTTONS.MESSAGE_PLACEHOLDER' | translate }}
+        </label>
       </span>
       <div *ngIf="messageAttachment" class="message-attachment">
         <a class="attachment-row">
           <p (click)="onFileClicked()" class="attachment-name">
-            <b> Attachment: </b>{{ messageAttachment }}
+            <b>{{ 'APP.PAGES.MESSAGES.ATTACHMENT.LABEL' | translate }}</b>
+            {{ messageAttachment }}
           </p>
           <i
             class="fas fa-times attachment-remove"

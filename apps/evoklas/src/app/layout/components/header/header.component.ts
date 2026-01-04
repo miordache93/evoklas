@@ -287,6 +287,16 @@ export class HeaderComponent implements OnInit {
     this.requestsItem.label = this.translate.instant('APP.HEADER.REQUESTS');
     this.subscriptionItem.label = this.translate.instant('APP.HEADER.OFFERS');
     this.userProfileItem.label = this.translate.instant('APP.HEADER.PROFILE');
+    this.messagesItem.label = this.translate.instant('APP.HEADER.INBOX');
+    this.messagesItem.title = this.translate.instant('APP.HEADER.INBOX');
+    this.logoutItem.label = this.translate.instant('APP.HEADER.LOGOUT');
+    this.logoutItem.title = this.translate.instant('APP.HEADER.LOGOUT');
+    this.subscriptionItem.title = this.translate.instant('APP.HEADER.OFFERS');
+    this.requestsItem.title = this.translate.instant('APP.HEADER.REQUESTS');
+    this.userProfileItem.title = this.translate.instant('APP.HEADER.PROFILE');
+    this.notificationsItem.label = this.translate.instant(
+      'APP.HEADER.NOTIFICATIONS.MESSAGES.TEXT2'
+    );
   }
 
   switchLanguage(languageId: string): void {

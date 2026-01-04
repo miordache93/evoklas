@@ -1,7 +1,9 @@
 <aside class="app-sidebar" [ngClass]="sidebarClasses()">
   <div class="app-sidebar__scroll">
     <div class="app-sidebar__section">
-      <span class="app-sidebar__section-title">Navigation</span>
+      <span class="app-sidebar__section-title">
+        {{ 'APP.SIDEBAR.NAVIGATION' | translate }}
+      </span>
       <app-navigation [items]="items()" (navigate)="navigate.emit($event)" />
     </div>
   </div>

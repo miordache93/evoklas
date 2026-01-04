@@ -1,6 +1,8 @@
 import { Route } from '@angular/router';
 import { MainLayoutComponent } from './components/main-layout/main-layout.component';
 import { ProducersResolver } from '../features/car-selection/resolvers/car-producers.resolver';
+import { AuthGuard } from '../core/auth/guards/auth.guard';
+import { DealerGuard } from '../core/auth/guards/dealer.guard';
 
 const loadTerms = () =>
   import(
@@ -84,18 +86,22 @@ export const layoutRoutes: Route[] = [
       {
         path: 'messages',
         loadComponent: loadMessages,
+        canActivate: [AuthGuard],
       },
       {
         path: 'requests',
         loadComponent: loadRequests,
+        canActivate: [AuthGuard, DealerGuard],
       },
       {
         path: 'user-profile',
         loadComponent: loadUserProfile,
+        canActivate: [AuthGuard],
       },
       {
         path: 'subscriptions',
         loadComponent: loadSubscriptions,
+        canActivate: [AuthGuard, DealerGuard],
       },
       { path: 'terms-and-conditions', loadComponent: loadTerms },
       { path: 'privacy-and-policy', loadComponent: loadPrivacy },

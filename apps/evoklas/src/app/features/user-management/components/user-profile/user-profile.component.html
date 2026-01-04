@@ -97,9 +97,12 @@
               <div class="right-panel">
                 <div *ngIf="currentUser && currentUser.role === 'DEALER' && userData.dealerBrands" class="p-field">
                   <label for="dealerBrands">{{ 'APP.PAGES.REGISTER.FORM.FIELDS.DEALER_BRANDS' | translate | titlecase}}</label>
-                  <p-multiselect [ngClass]="{'disabled': !editMode}" [options]="brands" formControlName="dealerBrands"
-                    defaultLabel="Select your car brands"
-                    [placeholder]="'APP.PAGES.REGISTER.FORM.FIELDS.DEALER_BRANDS_PLACEHOLDER' | translate" optionLabel="name"
+                  <p-multiselect
+                    [ngClass]="{'disabled': !editMode}"
+                    [options]="brands"
+                    formControlName="dealerBrands"
+                    [placeholder]="'APP.PAGES.REGISTER.FORM.FIELDS.DEALER_BRANDS_PLACEHOLDER' | translate"
+                    optionLabel="name"
                     optionValue="name" aria-describedby="dealerBrands-help" display="chip"></p-multiselect>
                   <small *ngIf="dealerBrands?.errors && (dealerBrands?.touched || dealerBrands?.dirty)" id="dealerBrands-help">
                     {{ 'APP.PAGES.REGISTER.FORM.FIELDS.DEALER_BRANDS_ERROR' | translate}}
@@ -108,8 +111,17 @@
 
                 <div class="p-field city-field">
                   <label for="city">{{ 'APP.PAGES.REGISTER.FORM.FIELDS.CITY' | translate | titlecase}}</label>
-                  <p-select id="city" styleClass="form-control" [options]="cities" formControlName="city" optionLabel="name"
-                    [filter]="true" filterBy="name" [showClear]="true" placeholder="Select a city" optionValue="name"
+                  <p-select
+                    id="city"
+                    styleClass="form-control"
+                    [options]="cities"
+                    formControlName="city"
+                    optionLabel="name"
+                    [filter]="true"
+                    filterBy="name"
+                    [showClear]="true"
+                    [placeholder]="'APP.PAGES.REGISTER.FORM.FIELDS.CITY_PLACEHOLDER' | translate"
+                    optionValue="name"
                     aria-describedby="city-help">
                     <ng-template pTemplate="selectedItem">
                       <div class="country-item country-item-value" *ngIf="city.value">

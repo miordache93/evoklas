@@ -8,11 +8,12 @@ import {
 import { NgClass } from '@angular/common';
 import { NavigationComponent } from '../navigation/navigation.component';
 import { NavigationItem } from '../../models/navigation-item';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-sidebar',
   standalone: true,
-  imports: [NavigationComponent, NgClass],
+  imports: [NavigationComponent, NgClass, TranslateModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss',

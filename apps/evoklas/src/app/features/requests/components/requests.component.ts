@@ -127,6 +127,14 @@ export class RequestsComponent implements OnInit {
     this.confirmationService.confirm({
       message: confirmationMessage.text,
       header: confirmationMessage.header,
+      acceptLabel: this.translate.instant(
+        'APP.PAGES.MESSAGES.CONFIRMATION_DIALOG.ACCEPT'
+      ),
+      rejectLabel: this.translate.instant(
+        'APP.PAGES.MESSAGES.CONFIRMATION_DIALOG.REJECT'
+      ),
+      acceptButtonStyleClass: 'p-button-primary',
+      rejectButtonStyleClass: 'p-button-outlined p-button-secondary',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
         this.msgs = [
@@ -138,12 +146,32 @@ export class RequestsComponent implements OnInit {
         ];
         this.httpClientService
           .useCredit(request.id)
-          .subscribe((requests: any) => {
-            this.httpClientService.getUserRequestsLimit().subscribe((res) => {
-              this.authService.updateUser(res.userLimit);
-              this.getRequests();
-            });
-          });
+          .subscribe(
+            () => {
+              this.messageService.add({
+                severity: 'success',
+                summary: this.translate.instant(
+                  'APP.PAGES.REQUESTS.USE_CREDIT.ACCEPT.SUMMARY'
+                ),
+              });
+              this.httpClientService
+                .getUserRequestsLimit()
+                .subscribe((res) => {
+                  this.authService.updateUser(res.userLimit);
+                  this.getRequests();
+                });
+            },
+            (error) => {
+              this.messageService.add({
+                severity: 'error',
+                summary: this.translate.instant('APP.ERRORS.0.title') || 'Eroare',
+                detail:
+                  error?.error?.message ||
+                  this.translate.instant('APP.ERRORS.0.message') ||
+                  'Nu am putut folosi creditul.',
+              });
+            }
+          );
       },
       reject: () => {
         this.msgs = [

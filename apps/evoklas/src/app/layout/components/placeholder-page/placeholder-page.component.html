@@ -1,15 +1,18 @@
 <p-card [header]="title()">
   <div class="placeholder">
-    <div class="placeholder__pill">Layout scaffold</div>
-    <p class="placeholder__headline">{{ title() }} is coming soon.</p>
+    <div class="placeholder__pill">
+      {{ 'APP.PAGES.PLACEHOLDER.PILL' | translate }}
+    </div>
+    <p class="placeholder__headline">
+      {{ 'APP.PAGES.PLACEHOLDER.HEADLINE' | translate:{ title: title() } }}
+    </p>
     <p class="placeholder__body">
-      Routes are wired to the layout shell so you can start dropping in feature
-      components without changing the navigation.
+      {{ 'APP.PAGES.PLACEHOLDER.BODY' | translate }}
     </p>
     <p-button
       routerLink="/dashboard"
       icon="pi pi-arrow-right"
-      label="Go to dashboard"
+      label="{{ 'APP.PAGES.PLACEHOLDER.CTA' | translate }}"
       [text]="true"
     ></p-button>
   </div>

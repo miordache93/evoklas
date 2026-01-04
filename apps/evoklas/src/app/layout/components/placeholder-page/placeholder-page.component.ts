@@ -2,11 +2,12 @@ import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/c
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-placeholder-page',
   standalone: true,
-  imports: [CardModule, ButtonModule, RouterLink],
+  imports: [CardModule, ButtonModule, RouterLink, TranslateModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './placeholder-page.component.html',
   styleUrl: './placeholder-page.component.scss',
