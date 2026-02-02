@@ -144,34 +144,30 @@ export class RequestsComponent implements OnInit {
             detail: confirmationMessage.accept.detail,
           },
         ];
-        this.httpClientService
-          .useCredit(request.id)
-          .subscribe(
-            () => {
-              this.messageService.add({
-                severity: 'success',
-                summary: this.translate.instant(
-                  'APP.PAGES.REQUESTS.USE_CREDIT.ACCEPT.SUMMARY'
-                ),
-              });
-              this.httpClientService
-                .getUserRequestsLimit()
-                .subscribe((res) => {
-                  this.authService.updateUser(res.userLimit);
-                  this.getRequests();
-                });
-            },
-            (error) => {
-              this.messageService.add({
-                severity: 'error',
-                summary: this.translate.instant('APP.ERRORS.0.title') || 'Eroare',
-                detail:
-                  error?.error?.message ||
-                  this.translate.instant('APP.ERRORS.0.message') ||
-                  'Nu am putut folosi creditul.',
-              });
-            }
-          );
+        this.httpClientService.useCredit(request.id).subscribe(
+          () => {
+            this.messageService.add({
+              severity: 'success',
+              summary: this.translate.instant(
+                'APP.PAGES.REQUESTS.USE_CREDIT.ACCEPT.SUMMARY'
+              ),
+            });
+            this.httpClientService.getUserRequestsLimit().subscribe((res) => {
+              this.authService.updateUser(res.userLimit);
+              this.getRequests();
+            });
+          },
+          (error) => {
+            this.messageService.add({
+              severity: 'error',
+              summary: this.translate.instant('APP.ERRORS.0.title') || 'Eroare',
+              detail:
+                error?.error?.message ||
+                this.translate.instant('APP.ERRORS.0.message') ||
+                'Nu am putut folosi creditul.',
+            });
+          }
+        );
       },
       reject: () => {
         this.msgs = [

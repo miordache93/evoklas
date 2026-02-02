@@ -4,354 +4,384 @@
         "PAGES": {
             "HOME": {
                 "FIRST_PANEL": {
-                    "BANNER_TITLE": "Finding your new car will become an easy task from now on.",
-                    "DESCRIPTION": "Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.",
-                    "SEARCH_BUTTON": "Start your search",
-                    "DEALER_BUTTON": "Check your requests"
+                    "BANNER_TITLE": "Primul agregator de reprezentanțe auto din România",
+                    "DESCRIPTION": "Vrei să-ți cumperi o mașină nouă? Gata cu drumurile, mailu-urile sau telefoanele la reprezentanțe auto pentru a identifica cea mai bună ofertă. Selectezi modelul și configurația dorită, trimiți cererea către toți dealerii de pe platformă si aceștia îți vor trimite ofertele personalizate.",
+                    "SEARCH_BUTTON": "Start căutare",
+                    "DEALER_BUTTON": "Verificare cereri ofertă"
                 },
                 "SECOND_PANEL": {
-                    "TITLE": "Reasons to use our services",
+                    "TITLE": "De ce sa folosești EVOKLAS",
                     "BENEFITS": {
                         "FIRST_BENEFIT": {
-                            "TITLE": "#1 - All In One Place",
-                            "DESCRIPTION": "We know how hard and time consuming is to find a new car, that's why we made this process an easy task."
+                            "TITLE": "#1 - Totul într-un sigur loc",
+                            "DESCRIPTION": "Pe EVOKLAS poti gasi dealeri reprezentand diferite brand-uri auto (sau acelasi brand auto) din toata tara. Poti obtine oferte personalizate de la mai multi dealeri al aceluiasi brand si sa alegi oferta cea mai buna, oferta care sa se incadreze in bugetul tau."
                         },
                         "SECOND_BENEFIT": {
-                            "TITLE": "#2 - Improved Process",
-                            "DESCRIPTION": "We know how hard and time consuming is to find a new car, that's why we made this process an easy task."
+                            "TITLE": "#2 - Proces simplificat",
+                            "DESCRIPTION": "Știm cât de dificil și obositor este să identifici cea mai buna ofertă. Gata cu drumurile la reprezentanță, telefoane sau mailurile transmise catre dealeri. Am creat EVOKLAS pentru a ușura si simplifica procesul achizitiei unui autoturism nou prin identificarea celei mai bune oferte."
                         },
                         "THIRD_BENEFIT": {
-                            "TITLE": "#3 - Quick Replies",
-                            "DESCRIPTION": "We know how hard and time consuming is to find a new car, that's why we made this process an easy task."
+                            "TITLE": "#3 - Răspunsuri rapide",
+                            "DESCRIPTION": "In momentul in care transmiti cererea de oferta, dupa selectarea configuratiei, dealer-ii de pe platforma EVOKLAS vor primi instant cererea ta si iti vor transmite oferta personalizata. Niciodata nu a fost mai simplu! Cu un click vei putea contacta in acelasi timp dealer-i din toata tara sau dealerii din orasul tau."
                         }
                     }
                 },
+                "PACKAGES_PREVIEW": {
+                    "TITLE": "Pachete disponibile",
+                    "SUBTITLE": "Descoperă pachetul potrivit pentru numărul tău de cereri",
+                    "CTA": "Vezi toate pachetele",
+                    "REQUESTS": "Pentru {{count}} cereri"
+                },
                 "THIRD_PANEL": {
                     "FAQ_LIST": {
-                        "TITLE": "F.A.Q List",
+                        "TITLE": "Lista F.A.Q                        ",
                         "ITEMS": {
                             "ITEM1": {
-                                "TITLE": "What is PlatformaAuto?",
-                                "DESCRIPTION": "Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy."
+                                "TITLE": "Ce este EVOKLAS?",
+                                "DESCRIPTION": "EVOKLAS este un agregator de reprezentante auto, locul unde dealer-i din toata tara, reprezentand brand-uri variate ce pot fi contactati in acelasi timp doar printr-un click."
                             },
                             "ITEM2": {
-                                "TITLE": "Why do we use it?",
-                                "DESCRIPTION": "Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy."
+                                "TITLE": "De ce EVOKLAS?",
+                                "DESCRIPTION": "EVOKLAS te scutește de drumurile la reprezentanță, telefoanele și mailurile pe care le transmiți către dealeri pentru a identifica cea mai bună ofertă. Totul doar printr-un click"
                             },
                             "ITEM3": {
-                                "TITLE": "Where does it come from?",
-                                "DESCRIPTION": "Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy."
+                                "TITLE": "Ce ne diferentiaza?",
+                                "DESCRIPTION": "EVOKLAS aduna in acelasi loc dealeri de la diferite reprezentante dintr-o gama variata de brand-uri. Pe EVOKLAS Vei putea gasi dealeri care reprezinta acelasi brand auto si astfel vei putea compara si alege cea mai buna oferta pentru autoturismul dorit. Niciodata nu a fost mai simplu!"
                             },
-                            "LAST_ITEM": {
-                                "TITLE": "Where can I get some?",
-                                "DESCRIPTION": "Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy."
+                            "ITEM4": {
+                                "TITLE": "De unde pot obtine?",
+                                "DESCRIPTION": "Multe pachete de editare desktop și editori de pagini web folosesc acum Lorem Ipsum ca model de text implicit, iar o căutare pentru „lorem ipsum” va descoperi multe site-uri web încă la început."
                             }
                         }
                     }
                 },
                 "FOURTH_PANEL": {
-                    "TITLE": "Clients feedback"
+                    "TITLE": "Feedback-ul clienților"
                 }
             },
             "REGISTER": {
                 "TITLE": "Platforma Auto",
-                "REGISTER_DEALER": "Register as DEALER",
-                "REGISTER_CLIENT": "Register as CLIENT",
-                "REGISTER_SUCCESS_TITLE": "Congratulations!",
-                "REGISTER_SUCCESS_MESSAGE": "Now you can receiver cars requests!",
+                "REGISTER_DEALER": "DEALER",
+                "REGISTER_CLIENT": "CLIENT",
+                "REGISTER_SUCCESS_TITLE": "Felicitari!",
+                "REGISTER_SUCCESS_MESSAGE": "Acum puteti primi cereri de oferta!",
                 "FORM": {
-                    "TITLE": "Register",
-                    "TITLE1": "Register as CLIENT",
-                    "TITLE2": "Register as DEALER",
-                    "CREDIT_INFO": "5 free credits",
-                    "REGISTER-BUTTON": "Register",
-                    "INFO": "By clicking the button you agree to our T&C and confirm you have read our Privacy policy.",
+                    "TITLE": "Înregistrare",
+                    "TITLE1": "CLIENT",
+                    "TITLE2": "DEALER",
+                    "CREDIT_INFO": "5 credite gratuite",
+                    "REGISTER_SUCCESS_TITLE": "Felicitari!",
+                    "REGISTER_SUCCESS_MESSAGE": "De acum puteti primi cereri de oferte!",
+                    "REGISTER-BUTTON": "Înregistrați-vă",
+                    "INFO": "Dând click pe buton, sunteți de acord cu Termenii si Conditiile și confirmați că ați citit politica noastră de confidențialitate.",
                     "FIELDS": {
-                        "NAME": "NAME",
-                        "NAME_PLACEHOLDER": "Your name",
-                        "NAME_ERROR": "Please check your name",
-                        "SURNAME": "SURNAME",
-                        "SURNAME_PLACEHOLDER": "Your surname",
-                        "SURNAME_ERROR": "Please check your surname",
-                        "PHONE": "PHONE",
-                        "PHONE_PLACEHOLDER": "Your mobile number",
-                        "PHONE_ERROR": "Please check your number",
-                        "ADDRESS": "ADDRESS",
-                        "ADDRESS_PLACEHOLDER": "Your address",
-                        "ADDRESS_ERROR": "Please check your address",
-                        "CUI": "Tax ID number",
-                        "CUI_PLACEHOLDER": "Tax identification number",
-                        "CUI_ERROR": "Please check your Tax ID",
-                        "CITY": "CITY",
-                        "CITY_PLACEHOLDER": "Your current city",
-                        "CITY_ERROR": "Please check your city",
-                        "COMPANY": "COMPANY",
-                        "COMPANY_PLACEHOLDER": "Your company",
-                        "COMPANY_ERROR": "Please check your company",
-                        "DEALER_BRANDS": "BRANDS",
-                        "DEALER_BRANDS_PLACEHOLDER": "Your brands",
-                        "DEALER_BRANDS_ERROR": "Please check your brands",
-                        "EMAIL": "EMAIL ADDRESS",
-                        "EMAIL_PLACEHOLDER": "Your email address",
-                        "EMAIL_ERROR": "Please check your email address",
-                        "EMAIL_TAKEN": "Email already taken",
-                        "PASSWORD": "PASSWORD",
-                        "PASSWORD_PLACEHOLDER": "Setup your password",
-                        "PASSWORD_ERROR": "Please check your password",
-                        "PASSWORD2": "RE-TYPE PASSWORD",
-                        "PASSWORD2_PLACEHOLDER": "Re-type your password",
-                        "PASSWORD2_ERROR": "Please check your password",
-                        "PASSWORD_MATCH_ERROR": "Passwords don't match",
-                        "TERMS_AND_CONDITIONS": "Fill terms and conditions"
+                        "NAME": "NUME",
+                        "NAME_PLACEHOLDER": "Nume",
+                        "NAME_ERROR": "Vă rugăm să verificați numele",
+                        "SURNAME": "Prenume",
+                        "SURNAME_PLACEHOLDER": "Prenume",
+                        "SURNAME_ERROR": "Vă rugăm să verificați prenumele",
+                        "PHONE": "Telefon",
+                        "PHONE_PLACEHOLDER": "Numar Telefon",
+                        "PHONE_ERROR": "Vă rugăm să verificați numarul de telefon",
+                        "ADDRESS": "Adresa",
+                        "ADDRESS_PLACEHOLDER": "Adresa dumneavoastra",
+                        "ADDRESS_ERROR": "Vă rugăm să verificați adresa",
+                        "CUI": "Cod Fiscal (CUI/CIF)",
+                        "CUI_PLACEHOLDER": "Cod fiscal (CUI/CIF)",
+                        "CUI_ERROR": "Va rugam sa verificati codul fiscal (CUI/CIF)",
+                        "CITY": "Oras",
+                        "CITY_PLACEHOLDER": "Orasul curent",
+                        "CITY_ERROR": "Vă rugăm să verificați numele orasului",
+                        "COMPANY": "Compania",
+                        "COMPANY_PLACEHOLDER": "Compania",
+                        "COMPANY_ERROR": "Vă rugăm să verificați numele companiei",
+                        "DEALER_BRANDS": "Marca Auto",
+                        "DEALER_BRANDS_PLACEHOLDER": "Marca auto",
+                        "DEALER_BRANDS_ERROR": "Vă rugăm să verificați marca/marcile auto reprezentata",
+                        "EMAIL": "Adresa email",
+                        "EMAIL_PLACEHOLDER": "Adresa email",
+                        "EMAIL_ERROR": "Vă rugăm să verificați adresa de email",
+                        "EMAIL_TAKEN": "Email deja folosit",
+                        "PASSWORD": "Parola",
+                        "PASSWORD_PLACEHOLDER": "Configurați parola",
+                        "PASSWORD_ERROR": "Vă rugăm să verificați parola",
+                        "PASSWORD2": "Rescrie Parola",
+                        "PASSWORD2_PLACEHOLDER": "Rescrie parola",
+                        "PASSWORD2_ERROR": "Vă rugăm să verificați parola",
+                        "PASSWORD_MATCH_ERROR": "Parolele nu se potrivesc",
+                        "TERMS_AND_CONDITIONS": "Verifica termenii si conditiile"
                     },
-                    "SUBMIT_BUTTON": "Register",
+                    "SUBMIT_BUTTON": "Inregistreaza-te",
                     "SOCIAL_MEDIA_ACTIONS": {
-                        "GMAIL_BUTTON": "Continue with Google",
-                        "FACEBOOK_BUTTON": "Continue with Facebook"
+                        "GMAIL_BUTTON": "Inregistreaza-te cu Google",
+                        "FACEBOOK_BUTTON": "Inregistreaza-te cu Facebook"
+                    },
+                    "RESET_FORM": {
+                        "TITLE": "Please enter your email addres to reset your password",
+                        "SUBMIT_BUTTON": "Submit",
+                        "CANCEL_BUTTON": "Cancel"
                     }
                 }
             },
             "LOGIN": {
-                "TITLE": "Platforma Auto",
-                "INFO": "Don't you have an account?",
-                "REGISTER_LINK": "Register now!",
-                "FORGOT_PASSWORD": "Forgot your password?",
+                "TITLE": "EVOKLAS",
+                "INFO": "Nu ai inca un cont?",
+                "REGISTER_LINK": "Inregistreaza-te acum!",
+                "FORGOT_PASSWORD": "Ti-ai uitat parola?",
                 "FORM": {
                     "FIELDS": {
-                        "EMAIL": "EMAIL ADDRESS",
-                        "EMAIL_PLACEHOLDER": "Your email address",
-                        "EMAIL_ERROR": "Please check your email address",
-                        "PASSWORD": "PASSWORD",
-                        "PASSWORD_PLACEHOLDER": "Your password",
-                        "PASSWORD_ERROR": "Please check your password"
+                        "EMAIL": "ADRESA EMAIL",
+                        "EMAIL_PLACEHOLDER": "Adresa email",
+                        "EMAIL_ERROR": "Vă rugăm să verificați adresa de mail",
+                        "PASSWORD": "PAROLA",
+                        "PASSWORD_PLACEHOLDER": "Parola",
+                        "PASSWORD_ERROR": "Vă rugăm să verificați parola"
                     },
-                    "TITLE": "Login",
-                    "SUBMIT_BUTTON": "Login",
+                    "TITLE": "Autentificare",
+                    "SUBMIT_BUTTON": "Autentificare",
                     "SOCIAL_MEDIA_ACTIONS": {
-                        "GMAIL_BUTTON": "Continue with Google",
-                        "FACEBOOK_BUTTON": "Continue with Facebook"
+                        "GMAIL_BUTTON": "Continuă cu Google",
+                        "FACEBOOK_BUTTON": "Continuă cu Facebook"
                     }
-                },
-                "RESET_FORM": {
-                    "TITLE": "Please enter your email addres to reset your password",
-                    "SUBMIT_BUTTON": "Submit",
-                    "CANCEL_BUTTON": "Cancel"
                 }
             },
             "CAR_SELECTOR": {
                 "ACTIONS": {
-                    "STEP_1": "Choose Car",
-                    "STEP_2": "Choose Model",
-                    "STEP_3": "Choose Version",
-                    "STEP_4": "Choose Fuel",
-                    "STEP_5": "Choose Engine",
-                    "STEP_6": "Choose Color",
-                    "STEP_7": "Choose Region",
-                    "STEP_8": "Send Request"
+                    "STEP_1": "Alege Marca",
+                    "STEP_2": "Alege Modelul",
+                    "STEP_3": "Alege Versiunea",
+                    "STEP_4": "Alege Tipul de combustibil",
+                    "STEP_5": "Alege Motorul",
+                    "STEP_6": "Alege Culoarea",
+                    "STEP_7": "Alege Judetul",
+                    "STEP_8": "Trimite cererea"
                 },
                 "STEPPER": {
-                    "INFO": "* after that you'll be redirected automatically to the next step"
+                    "INFO": "* după aceea veți fi redirecționat automat la pasul următor"
                 },
                 "STEP1": {
-                    "SEARCH_PLACEHOLDER": "Search brands..."
+                    "SEARCH_PLACEHOLDER": "Căutați mărci..."
                 },
                 "STEP3_CARDS": {
-                    "EQUIPMENTS_BTN": "SEE ALL EQUIPMENTS",
-                    "SELECT_BTN": "Select",
-                    "STARTING_PRICE": "STARTING PRICE"
+                    "EQUIPMENTS_BTN": "VEZI TOATE ECHIPAMENTELE",
+                    "SELECT_BTN": "Selectați",
+                    "STARTING_PRICE": "PREȚUL DE PORNIRE"
                 },
                 "STEP5_CARDS": {
-                    "SELECT_BTN": "Select",
-                    "POWER": "POWER",
-                    "PRICE": "PRICE",
-                    "FUEL": "FUEL",
-                    "TRANSMISION": "TRANSMISION",
-                    "DRIVE_TYPE": "DRIVE TYPE"
+                    "SELECT_BTN": "Selectați",
+                    "POWER": "PUTERE",
+                    "PRICE": "PRET",
+                    "FUEL": "COMBUSTIBIL",
+                    "TRANSMISION": "CUTIE VITEZE",
+                    "DRIVE_TYPE": "TRANSMISIE"
                 },
                 "STEP7": {
-                    "REGION": "Select region",
-                    "REGION_BTN": "Next step"
+                    "REGION": "Selecteaza",
+                    "REGION_BTN": "Pasul urmator"
                 },
                 "STEP8": {
-                    "REQUEST_BTN": "Send Request",
+                    "REQUEST_BTN": "Trimite cererea",
                     "REQUEST_DETAILS": {
-                        "CAR": "CAR",
-                        "MODEL": "MODEL",
-                        "VERSION": "VERSION",
-                        "FUEL": "FUEL",
-                        "ENGINE": "ENGINE",
-                        "COLOR": "COLOR",
-                        "REGION": "REGION",
-                        "POWER": "POWER",
-                        "PRICE": "PRICE",
-                        "TRANSMISION": "TRANSMISION",
-                        "DRIVE_TYPE": "DRIVE TYPE"
+                        "CAR": "Marca",
+                        "MODEL": "Model",
+                        "VERSION": "Versiune",
+                        "FUEL": "Combustibil",
+                        "ENGINE": "Motor",
+                        "COLOR": "Culoare",
+                        "REGION": "Regiune",
+                        "POWER": "Putere",
+                        "PRICE": "Pret",
+                        "TRANSMISION": "Transmisie",
+                        "DRIVE_TYPE": "Tractiune"
                     },
                     "STOC_OPTION": "Accept masini din stoc"
                 },
                 "NOT_FOUND": {
-                    "CARS": "No cars found",
-                    "VERSIONS": "No versions found for this model",
-                    "FUELS": "No fuel types found for this engine",
-                    "ENGINE": "No engine types fond for this fuel type",
-                    "PRODUCER": "No car makers found"
+                    "CARS": "Nu a fost gasita marca selectata",
+                    "MODEL": "Nu a fost gasit model pentru marca selectata",
+                    "VERSIONS": "Nu a fost gasita o versiune pentru acest model",
+                    "FUELS": "Nu a fost gasit tipul de combustibil selectat pentru acest model",
+                    "ENGINE": "Nu au fost gasite motorizari pentru acest tip de combustibil",
+                    "PRODUCER": "Nu a fost gasita marca selectata"
                 },
                 "INFO": {
-                    "UNAVAILABLE_PRODUCER": "Currently there is no dealer that's listing this car manufacturer.",
-                    "THANKS_FOR_UNDERSTANDING": "Thanks for understanding!"
+                    "UNAVAILABLE_PRODUCER": "Momentan nu sunt dealeri disponibili pentru aceasta marca auto",
+                    "THANKS_FOR_UNDERSTANDING": "Multumim pentru intelegere!"
                 }
             },
             "MESSAGES": {
-                "REQUEST_TITLE": "ALL YOUR REQUESTS",
+                "REQUEST_TITLE": "TOATE CERERILE DVS.",
                 "REQUEST_DETAILS": {
-                    "PRODUCER": "Car",
+                    "PRODUCER": "Marca",
                     "MODEL": "Model",
-                    "VERSION": "Version",
-                    "FUEL": "Fuel",
-                    "ENGINE": "Engine",
-                    "COLOR": "Color",
+                    "VERSION": "Versiune",
+                    "FUEL": "Tip combustibil",
+                    "ENGINE": "Motorizare",
+                    "COLOR": "Culoare",
                     "STOC_OPTION": "Acest client accepta masini din stoc"
                 },
                 "REQUEST_MESSAGE": {
-                    "GET_CAR_ERROR": "Failed to retrieve cars!"
+                    "GET_CAR_ERROR": "Nu s-au putut prelua marca!"
                 },
                 "ACTION_BUTTONS": {
-                    "ADD_ATTACHMENT": "Upload Offer",
-                    "SEND_MESSAGE": "Send Message",
-                    "USE_CREDIT": "Use 1 Credit",
-                    "RENEW_CREDITS": "Renew your credits"
+                    "ADD_ATTACHMENT": "Încărcați oferta",
+                    "MESSAGE_PLACEHOLDER": "Scrie un mesaj...",
+                    "SEND_MESSAGE": "Trimite mesaj",
+                    "USE_CREDIT": "Foloseste 1 Credit",
+                    "RENEW_CREDITS": "Adauga credite"
                 },
-                "REQUESTS_LEFT": "Left",
+                "REQUESTS_LEFT": "Ramase",
+                "NO_DEALER_RESPONSE": "Cererea nu a fost procesată încă de către un dealer.",
+                "ATTACHMENT": {
+                    "VIEW": "Vezi sau descarcă oferta atașată",
+                    "LABEL": "Atașament:"
+                },
                 "CONFIRMATION_DIALOG": {
-                    "ACCEPT": "CONFIRM",
-                    "REJECT": "CANCEL"
+                    "ACCEPT": "APROBA",
+                    "REJECT": "RESPINGE"
                 },
                 "REQUESTS": {
                     "SEARCH_INPUT": {
-                        "PLACEHOLDER": "Search",
-                        "LABEL": "Search your request"
+                        "PLACEHOLDER": "Cauta cererea",
+                        "LABEL": "Cererile dvs."
                     }
                 },
                 "CONVERSATIONS": {
                     "SEARCH_INPUT": {
-                        "PLACEHOLDER": "Search",
-                        "LABEL": "Search your conversation"
+                        "PLACEHOLDER": "Cauta conversatia",
+                        "LABEL": "Cauta conversatia"
                     }
                 }
             },
+            "PLACEHOLDER": {
+                "PILL": "Structura layout",
+                "HEADLINE": "{{title}} este in lucru.",
+                "BODY": "Rutele sunt conectate la layout, astfel incat poti adauga componente fara sa modifici navigatia.",
+                "CTA": "Mergi la dashboard"
+            },
             "PACKAGES": {
                 "ACTION_BUTTONS": {
-                    "BUY_NOW": "Buy Now",
-                    "GET_FOR_FREE": "Try Now"
+                    "BUY_NOW": "Cumpara",
+                    "GET_FOR_FREE": "Incearca"
                 },
                 "BILLING_INFO": {
-                    "DESCRIPTION": "In order to make a purchase you need to complete your billing info from ",
-                    "LINK": "here."
+                    "DESCRIPTION": "Pentru a achizitiona credite, trebuie sa completati datele de facturare",
+                    "LINK": "aici."
                 }
             },
-            "CONTACT_US": {
-                "TITLE": "Contact.",
-                "DESCRIPTION1": "Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search.",
-                "DESCRIPTION2": "For any issues, please consider to send us a message.",
-                "NAME": "Name",
-                "EMAIL": "Email",
-                "MESSAGE": "Message",
-                "SUBMIT_BUTTON": "Send message"
-            },
             "REQUESTS": {
-                "BLOCKED": "Blocked requests",
+                "EMPTY_BLOCKED_TITLE": "Nicio solicitare blocată",
+                "EMPTY_BLOCKED_SUBTITLE": "Aici vor apărea solicitările pe care le blochezi.",
+                "EMPTY_BLOCKED_CTA": "Deschide filtrele",
+                "EMPTY_UNBLOCKED_TITLE": "Nicio solicitare nouă",
+                "EMPTY_UNBLOCKED_SUBTITLE": "Când apar solicitări, le vei vedea aici.",
+                "EMPTY_UNBLOCKED_CTA": "Creează solicitare",
+                "EMPTY_ALL_TITLE": "Nu există solicitări încă",
+                "EMPTY_ALL_SUBTITLE": "Creează una nouă sau ajustează filtrele pentru a începe.",
+                "EMPTY_ALL_CTA_PRIMARY": "Creează solicitare",
+                "EMPTY_ALL_CTA_SECONDARY": "Deschide filtrele",
+                "BLOCKED": "Cereri blocate",
+                "UNBLOCKED": "Cereri deblocate",
                 "NOT_ENOUGH_CREDIT": {
-                    "TITLE": "Not enough credits",
-                    "MESSAGE": "You're redirected to subscriptions page."
+                    "TITLE": "Nu ai suficiente credite",
+                    "MESSAGE": "Vei fi redirecționat către pagina de abonamente."
                 },
-                "UNBLOCKED": "Unblocked requests",
                 "USE_CREDIT": {
-                    "TEXT": "Are you sure you that you want to proceed?",
-                    "HEADER": "Confirmation",
+                    "TEXT": "Esti sigur/a ca vrei sa folosesti creditul?",
+                    "HEADER": "Confirmare",
                     "ACCEPT": {
-                        "SUMMARY": "Confirmed",
-                        "DETAIL": "You have accepted"
+                        "SUMMARY": "Confirmat",
+                        "DETAIL": "Ai confirmat"
                     },
                     "REJECT": {
-                        "SUMMARY": "Rejected",
-                        "DETAIL": "You have rejected"
+                        "SUMMARY": "Respins",
+                        "DETAIL": "Ai respins"
                     }
                 }
             },
             "USER_PROFILE": {
-                "SAVE_BTN": "Save",
-                "EDIT_BTN": "Edit",
-                "CANCEL_EDIT_BTN": "Cancel edit mode",
-                "BACK_TO_FORM": "Back to profile",
-                "CREDITS": "Credits",
-                "TABLE_DESCRIPTION": "Description",
-                "TABLE_PRICE": "Price",
-                "TABLE_DATE": "Date",
-                "TABLE_REQUESTS": "No. requests",
-                "CONFIRMATION_DIALOG": {
-                    "ACCEPT": "CONFIRM",
-                    "REJECT": "CANCEL"
+                "SAVE_BTN": "Salveaza",
+                "EDIT_BTN": "Editeaza",
+                "CANCEL_EDIT_BTN": "Anuleaza modul de editare",
+                "BACK_TO_FORM": "Inapoi la profil",
+                "CREDITS": "Credite",
+                "ORDERS_HISTORY": "Istoric comenzi",
+                "DELETE_ACCOUNT_BTN": "Sterge contul",
+                "LOGOUT_BTN": "Logout",
+                "BILLING_INFO_PLACEHOLDER": {
+                    "TITLE": "Nu ai setat încă datele de facturare",
+                    "SUBTITLE": "Completează formularul de mai jos pentru a salva informațiile."
                 },
-                "PERSONAL_DETAILS": "Personal details",
-                "BILLING_INFO": "Billing Info",
+                "NO_ORDERS_PLACEHOLDER": "Momentan nu ai comenzi de afișat.",
+                "TABLE_DESCRIPTION": "Descriere",
+                "TABLE_PRICE": "Pret",
+                "TABLE_DATE": "Data",
+                "TABLE_REQUESTS": "Numar cereri",
+                "CONFIRMATION_DIALOG": {
+                    "ACCEPT": "Confirmă",
+                    "REJECT": "Anulează"
+                },
+                "PERSONAL_DETAILS": "Date personale",
+                "BILLING_INFO": "Date de facturare",
                 "BILLING_FORM": {
                     "FIELDS": {
-                        "COMPANY": "Company name",
-                        "COMPANY_PLACEHOLDER": "Company name",
+                        "COMPANY": "Nume companie/reprezentanta",
+                        "COMPANY_PLACEHOLDER": "Nume companie/reprezentanta",
                         "COMPANY_ERROR": "",
-                        "ADDRESS": "Address",
-                        "ADDRESS_PLACEHOLDER": "Address",
-                        "ADDRESS_ERROR": "Address",
-                        "FISCAL_CODE": "Fiscal code (CUI / CIF)",
-                        "FISCAL_CODE_PLACEHOLDER": "Fiscal code (CUI / CIF)",
-                        "FISCAL_CODE_ERROR": "Fiscal code (CUI / CIF)",
-                        "REG_NUMBER": "Registration number",
-                        "REG_NUMBER_PLACEHOLDER": "Registration number",
-                        "REG_NUMBER_ERROR": "Registration number",
+                        "ADDRESS": "Adresa",
+                        "ADDRESS_PLACEHOLDER": "Adresa",
+                        "ADDRESS_ERROR": "Adresa",
+                        "FISCAL_CODE": "Cod fiscal (CUI / CIF)",
+                        "FISCAL_CODE_PLACEHOLDER": "Cod fiscal (CUI / CIF)",
+                        "FISCAL_CODE_ERROR": "Cod fiscal (CUI / CIF)",
+                        "REG_NUMBER": "Numar de inregistrare",
+                        "REG_NUMBER_PLACEHOLDER": "Numar de inregistrare",
+                        "REG_NUMBER_ERROR": "Numar de inregistrare",
                         "IBAN": "IBAN",
                         "IBAN_PLACEHOLDER": "RO49AAAA1B31007593840000",
                         "IBAN_ERROR": "IBAN",
-                        "BANK_NAME": "Bank name",
-                        "BANK_NAME_PLACEHOLDER": "Bank name",
-                        "BANK_NAME_ERROR": "Bank name"
+                        "BANK_NAME": "Nume banca",
+                        "BANK_NAME_PLACEHOLDER": "Nume banca",
+                        "BANK_NAME_ERROR": "Nume banca"
                     }
                 },
-                "DESCRIPTION": "Note: In order to edit your billing info please use contact us form.",
+                "DESCRIPTION": "Note: Pentru a edita datele de facturare va rugam sa utilizati formularul de contact.",
                 "DELETE_ACCOUNT": {
-                    "TEXT": "Are you sure you that you want to proceed?",
-                    "HEADER": "Confirmation",
+                    "TEXT": "Esti sigur/a ca vrei sa continui?",
+                    "HEADER": "Confirmare",
                     "ACCEPT": {
-                        "SUMMARY": "Confirmed",
-                        "DETAIL": "You have accepted"
+                        "SUMMARY": "Confirmat",
+                        "DETAIL": "Ai confirmat"
                     },
                     "REJECT": {
-                        "SUMMARY": "Rejected",
-                        "DETAIL": "You have rejected"
+                        "SUMMARY": "Respins",
+                        "DETAIL": "Ai respins"
                     }
+                },
+                "RESET_PASSWORD": {
+                    "TITLE": "Resetare parola",
+                    "SUBMIT_BUTTON": "Trimite",
+                    "SUCCESS_RESET_TITLE": "Succes",
+                    "SUCCESS_RESET": "Parola dvs. a fost resetata. Redirectionare catre login..."
                 }
-            },
-            "RESET_PASSWORD": {
-                "TITLE": "Reset password",
-                "SUBMIT_BUTTON": "SUBMIT",
-                "SUCCESS_RESET_TITLE": "Success",
-                "SUCCESS_RESET": "Your password has been reset. Redirecting to login..."
             }
         },
         "HEADER": {
-            "OFFERS": "Add Credits",
-            "HOME": "Home",
-            "INBOX": "Inbox",
-            "REQUESTS": "Requests",
-            "PROFILE": "Profile",
+            "OFFERS": "Adauga Credite",
+            "HOME": "Acasa",
+            "INBOX": "Mesaje",
+            "REQUESTS": "Cereri",
+            "PROFILE": "Profil",
             "LOGOUT": "Logout",
             "NOTIFICATIONS": {
                 "MESSAGES": {
-                    "TEXT1": "You have",
-                    "TEXT2": "new messages"
+                    "TEXT1": "Aveti",
+                    "TEXT2": "mesaje noi"
                 },
                 "REQUESTS": {
-                    "TEXT1": "You have",
-                    "TEXT2": "new requests"
+                    "TEXT1": "Aveti",
+                    "TEXT2": "cereri noi"
                 }
             },
             "LOGIN_OR_REGISTER": "Login / Register"
@@ -362,46 +392,60 @@
                 "message": "Custom 400 error message"
             },
             "401": {
-                "title": "Custom 401 error title",
-                "message": "Custom 401 error message"
+                "title": "Titlu de eroare pentru 401",
+                "message": "Mesaj de eroare pentru 401"
             },
             "403": {
-                "title": "Custom 403 error title",
-                "message": "Custom 403 error message"
+                "title": "Titlu de eroare pentru 403",
+                "message": "Mesaj de eroare pentru 403"
             },
             "404": {
-                "title": "Custom 404 error title",
-                "message": "Custom 404 error message"
+                "title": "Titlu de eroare pentru 404",
+                "message": "Mesaj de eroare pentru 404"
             },
             "500": {
-                "title": "Custom 500 error title",
-                "message": "Custom 500 error message"
+                "title": "Titlu de eroare pentru 500",
+                "message": "Mesaj de eroare pentru 500"
             },
             "501": {
-                "title": "Custom 501 error title",
-                "message": "Custom 501 error message"
+                "title": "Titlu de eroare pentru 501",
+                "message": "Mesaj de eroare pentru 501"
             },
             "504": {
-                "title": "Custom 504 error title",
-                "message": "Custom 504 error message"
+                "title": "Titlu de eroare pentru 504",
+                "message": "Mesaj de eroare pentru 504"
             },
             "0": {
-                "title": "Custom default error title",
-                "message": "Custom default error message"
-            }
+                "title": "Titlu eroare generala",
+                "message": "Mesaj general de eroare"
+            },
+            "REQUIRED": "Acest câmp este obligatoriu.",
+            "EMAIL_FORMAT": "Introduceți un email valid.",
+            "PHONE_FORMAT": "Introduceți un număr de telefon valid (RO).",
+            "NAME_FORMAT": "Folosiți doar litere, spații, cratimă/apostrof, 2–50 caractere.",
+            "SURNAME_FORMAT": "Folosiți doar litere, spații, cratimă/apostrof, 2–50 caractere.",
+            "PASSWORD_WEAK": "Parola trebuie să aibă min. 8 caractere, cu literă mică, literă mare, cifră și simbol.",
+            "MIN_ONE": "Selectați cel puțin o opțiune."
         },
         "SUCCESS": {
-            "RESET_PASSWORD_TITLE": "Email send",
-            "RESET_PASSWORD": "An email for password recovery has been send to your inbox!",
-            "EDIT_USER": "Your data has been updated",
-            "EDIT_BILLING_DETAILS": "Your billing info has been updated"
+            "RESET_PASSWORD_TITLE": "Email trimis",
+            "RESET_PASSWORD": "In curand veti primii un email pentru resetarea parolei!",
+            "EDIT_USER": "Datele dvs. au fost salvate cu success",
+            "EDIT_BILLING_DETAILS": "Datele de facturare au fost salvate",
+            "REQUEST_SENT": "Cererea a fost trimisă cu succes",
+            "SUBSCRIPTION_PURCHASED": "Pachetul a fost procesat cu succes",
+            "DELETE_ACCOUNT": "Contul a fost șters"
+        },
+        "SIDEBAR": {
+            "NAVIGATION": "Navigare"
         },
         "FOOTER": {
+            "COPYRIGHT": "@ Copyright 2021",
             "LINKS": {
                 "CONTACT_US": "Contact",
-                "PRIVACY_AND_POLICY": "Privacy and Policy",
-                "COOKIES_POLICY": "Cookies Policy",
-                "TERMS_AND_CONDITIONS": "Terms and Conditions",
+                "PRIVACY_AND_POLICY": "Politica de confidentialitate",
+                "COOKIES_POLICY": "Cookies",
+                "TERMS_AND_CONDITIONS": "Termeni si Conditii",
                 "GDPR": "GDPR"
             }
         }

@@ -1,5 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import {
+  HTTP_INTERCEPTORS,
   HttpEvent,
   HttpHandler,
   HttpInterceptor,
@@ -28,3 +29,7 @@ export class HttpRequestInterceptor implements HttpInterceptor {
     return next.handle(req);
   }
 }
+
+export const httpRequestInterceptorProviders = [
+  { provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true },
+];

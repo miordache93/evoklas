@@ -18,18 +18,24 @@ import { APP_ENV, AppEnvironment } from './core/config/environment.tokens';
 import { TranslateModule } from '@ngx-translate/core';
 import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
 import { authInterceptorProviders } from './core/auth/interceptors/auth.interceptor';
+import { httpRequestInterceptorProviders } from './core/http/interceptors/http-request.interceptor';
 
-const resolvedMode = (
-  import.meta.env['NG_APP_ENV'] ??
-  import.meta.env['MODE'] ??
-  ''
-).toString();
+const metaEnv =
+  typeof import.meta !== 'undefined' && (import.meta as any).env
+    ? (import.meta as any).env
+    : {};
+
+const hardcodedApiUrl = 'https://test-pa-api.ikidevelopers.com';
+
+const resolvedMode = (metaEnv['NG_APP_ENV'] ?? metaEnv['MODE'] ?? 'production')
+  .toString()
+  .toLowerCase();
 
 const appEnvironment: AppEnvironment = {
-  apiUrl: import.meta.env['NG_APP_API_URL'] ?? '',
-  production: resolvedMode.toLowerCase() === 'production',
+  apiUrl: metaEnv['NG_APP_API_URL'] ?? hardcodedApiUrl,
+  production: resolvedMode === 'production',
   recaptchaSiteKey:
-    import.meta.env['NG_APP_RECAPTCHA_KEY'] ??
+    metaEnv['NG_APP_RECAPTCHA_KEY'] ??
     '6LcP334fAAAAACpw1Rd_eyaTQoPsL_RugbBHi0Ro',
 };
 
@@ -48,6 +54,7 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(appRoutes),
     ...authInterceptorProviders,
+    ...httpRequestInterceptorProviders,
     importProvidersFrom(
       TranslateModule.forRoot({
         defaultLanguage: 'ro',
