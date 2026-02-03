@@ -168,7 +168,6 @@
         [listStyle]="{
           'max-height': '427px',
           width: '100%',
-          'max-width': '500px'
         }"
       >
         <ng-template let-producer pTemplate="item">
@@ -608,13 +607,13 @@
                   {{
                     clientRequest?.engine?.price
                       ? (clientRequest?.engine?.price
-                          | currency
-                            : 'EUR'
-                            : 'symbol'
-                            : (clientRequest?.engine?.price % 1 == 0
-                                ? '3.0'
-                                : '1.0-0')
-                          | currencySeparatorFormatter)
+                        | currency
+                          : 'EUR'
+                          : 'symbol'
+                          : (clientRequest?.engine?.price % 1 == 0
+                              ? '3.0'
+                              : '1.0-0')
+                        | currencySeparatorFormatter)
                       : '-'
                   }}
                 </p>

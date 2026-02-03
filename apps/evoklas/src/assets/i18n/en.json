@@ -90,9 +90,9 @@
                         "CUI": "Cod Fiscal (CUI/CIF)",
                         "CUI_PLACEHOLDER": "Cod fiscal (CUI/CIF)",
                         "CUI_ERROR": "Va rugam sa verificati codul fiscal (CUI/CIF)",
-                        "CITY": "Oras",
-                        "CITY_PLACEHOLDER": "Orasul curent",
-                        "CITY_ERROR": "Vă rugăm să verificați numele orasului",
+                        "CITY": "Judetul",
+                        "CITY_PLACEHOLDER": "Judetul curent",
+                        "CITY_ERROR": "Vă rugăm să verificați numele judetului",
                         "COMPANY": "Compania",
                         "COMPANY_PLACEHOLDER": "Compania",
                         "COMPANY_ERROR": "Vă rugăm să verificați numele companiei",
@@ -272,7 +272,7 @@
             },
             "REQUESTS": {
                 "EMPTY_BLOCKED_TITLE": "Nicio solicitare blocată",
-                "EMPTY_BLOCKED_SUBTITLE": "Aici vor apărea solicitările pe care le blochezi.",
+                "EMPTY_BLOCKED_SUBTITLE": "Aici vor apărea solicitările nedeblocate.",
                 "EMPTY_BLOCKED_CTA": "Deschide filtrele",
                 "EMPTY_UNBLOCKED_TITLE": "Nicio solicitare nouă",
                 "EMPTY_UNBLOCKED_SUBTITLE": "Când apar solicitări, le vei vedea aici.",
@@ -321,6 +321,10 @@
                 "CONFIRMATION_DIALOG": {
                     "ACCEPT": "Confirmă",
                     "REJECT": "Anulează"
+                },
+                "UPDATE_CONFIRMATION": {
+                    "HEADER": "Confirmare",
+                    "TEXT": "Salvezi modificarile profilului?"
                 },
                 "PERSONAL_DETAILS": "Date personale",
                 "BILLING_INFO": "Date de facturare",

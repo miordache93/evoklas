@@ -23,8 +23,6 @@ import { ListboxModule } from 'primeng/listbox';
 
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { map } from 'rxjs/operators';
-// import { CAR_COLORS } from 'src/app/constants/car-colors';
-// import { CurrencySeparatorFormatterPipe } from '../../services/pipes/CurrencyPipe';
 import { CarDataService } from '../services/car-data.service';
 import { RequestsDataService } from '../../requests/services/requests.service';
 import { HttpClientService } from '../../../core/http/services/http-client.service';
@@ -160,14 +158,14 @@ export class CarSelectorComponent implements OnInit, OnDestroy, OnChanges {
                 return;
               }
               this.getEnginesByCarVersion().subscribe((res: any) => {
-                this.fuels = FUEL_TYPES.filter((obj1) =>
-                  res.engines
-                    .map((engine: any) => engine.fuel)
-                    .includes(obj1.id)
-                ).map((fuel: any) => {
-                  fuel.icon = `./assets/images/fuelTypes/${fuel.id}.svg`;
-                  return fuel;
-                });
+                this.fuels = FUEL_TYPES.filter((obj1) => {
+                  const fuels = res.engines.map((engine: any) => engine.fuel);
+                  return fuels.includes(obj1.id) || fuels.includes(obj1.name);
+                }).map((fuel: any) => ({
+                  ...fuel,
+                  icon: `./assets/images/fuelTypes/${fuel.id}.svg`,
+                }));
+
                 this.advanceStep();
                 if (fuelType) {
                   this.clientRequest.fuel = this.fuels.find(
@@ -241,12 +239,15 @@ export class CarSelectorComponent implements OnInit, OnDestroy, OnChanges {
         this.setClientRequest(data, 'version');
         this.storeQueryParams('version', this.clientRequest.version.name);
         this.getEnginesByCarVersion().subscribe((res: any) => {
-          this.fuels = FUEL_TYPES.filter((obj1) =>
-            res.engines.map((engine: any) => engine.fuel).includes(obj1.id)
-          ).map((fuel: any) => {
-            fuel.icon = `./assets/images/fuelTypes/${fuel.id}.svg`;
-            return fuel;
-          });
+          this.fuels = FUEL_TYPES.filter((f) =>
+            res.engines.some(
+              (engine: any) => engine.fuel === f.id || engine.fuel === f.name
+            )
+          ).map((fuel: any) => ({
+            ...fuel,
+            icon: `./assets/images/fuelTypes/${fuel.id}.svg`,
+          }));
+
           this.advanceStep();
         });
         break;
@@ -449,8 +450,7 @@ export class CarSelectorComponent implements OnInit, OnDestroy, OnChanges {
             this.httpClientDataService.updateProgressBarValue(false);
             this.messageService.add({
               severity: 'error',
-              summary:
-                this.translate.instant('APP.ERRORS.0.title') || 'Eroare',
+              summary: this.translate.instant('APP.ERRORS.0.title') || 'Eroare',
               detail:
                 err?.error?.message ||
                 this.translate.instant('APP.ERRORS.0.message') ||

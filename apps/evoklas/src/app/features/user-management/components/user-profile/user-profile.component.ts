@@ -72,8 +72,7 @@ export class UserProfileComponent implements OnInit, OnDestroy {
   userProfileForm: FormGroup = new FormGroup({});
   billingForm: FormGroup = new FormGroup({});
 
-  editMode = false;
-  saveMode = true;
+  editMode = true;
 
   currentViewIndex = 0;
   tabValue: string | number = 0;
@@ -138,12 +137,12 @@ export class UserProfileComponent implements OnInit, OnDestroy {
 
   initUserProfileForm(): void {
     this.userProfileForm = this.formBuilder.group({
-      name: [{ value: '', disabled: !this.editMode }, [Validators.required]],
-      surname: [{ value: '', disabled: !this.editMode }, Validators.required],
-      phone: [{ value: '', disabled: !this.editMode }, Validators.required],
-      city: [{ value: '', disabled: !this.editMode }, Validators.required],
+      name: [{ value: '', disabled: false }, [Validators.required]],
+      surname: [{ value: '', disabled: false }, Validators.required],
+      phone: [{ value: '', disabled: false }, Validators.required],
+      city: [{ value: '', disabled: false }, Validators.required],
       email: [
-        { value: '', disabled: !this.editMode },
+        { value: '', disabled: false },
         [Validators.email, Validators.required],
       ],
     });
@@ -202,19 +201,13 @@ export class UserProfileComponent implements OnInit, OnDestroy {
         if (valid) {
           this.billingData = res;
           this.setBillingFormFieldsData();
-          this.saveMode = false;
-          this.billingForm.disable();
           this.cdr.detectChanges();
         } else {
-          this.saveMode = true;
-          this.billingForm.enable();
           this.cdr.detectChanges();
         }
       },
       () => {
         this.hasBillingInfo = false;
-        this.saveMode = true;
-        this.billingForm.enable();
         this.messageService.add({
           severity: 'error',
           summary:
@@ -354,10 +347,7 @@ export class UserProfileComponent implements OnInit, OnDestroy {
 
       this.userProfileForm.addControl(
         'dealerBrands',
-        new FormControl(
-          { value: dealerBrands, disabled: !this.editMode },
-          Validators.required
-        )
+        new FormControl({ value: dealerBrands, disabled: false }, Validators.required)
       );
     } else {
       if (this.userProfileForm.get('dealerBrands')) {
@@ -369,9 +359,31 @@ export class UserProfileComponent implements OnInit, OnDestroy {
   }
 
   onSubmit(): void {
+    if (this.userProfileForm.pristine) {
+      return;
+    }
     if (!this.userProfileForm.valid) {
       this.setFieldErrors();
     } else {
+      this.confirmationService.confirm({
+        message: this.translate.instant(
+          'APP.PAGES.USER_PROFILE.UPDATE_CONFIRMATION.TEXT'
+        ),
+        header: this.translate.instant(
+          'APP.PAGES.USER_PROFILE.UPDATE_CONFIRMATION.HEADER'
+        ),
+        acceptLabel: this.translate.instant(
+          'APP.PAGES.USER_PROFILE.CONFIRMATION_DIALOG.ACCEPT'
+        ),
+        rejectLabel: this.translate.instant(
+          'APP.PAGES.USER_PROFILE.CONFIRMATION_DIALOG.REJECT'
+        ),
+        accept: () => this.submitProfileUpdate(),
+      });
+    }
+  }
+
+  private submitProfileUpdate(): void {
       // Format dealerBrands to insert only IDs
       const formData = this.userProfileForm.value;
 
@@ -401,7 +413,6 @@ export class UserProfileComponent implements OnInit, OnDestroy {
             severity: 'success',
             summary: this.translate.instant('APP.SUCCESS.EDIT_USER'),
           });
-          this.editMode = false;
           this.authService.updateEditedUser({
             name,
             surname,
@@ -420,10 +431,12 @@ export class UserProfileComponent implements OnInit, OnDestroy {
           });
         }
       );
-    }
   }
 
   onBillingFormSubmit(): void {
+    if (this.billingForm.pristine) {
+      return;
+    }
     if (this.billingForm.invalid) {
       this.setBillingFieldErrors();
     } else {
@@ -444,7 +457,7 @@ export class UserProfileComponent implements OnInit, OnDestroy {
                 'APP.SUCCESS.EDIT_BILLING_DETAILS'
               ),
             });
-            this.saveMode = false;
+            this.hasBillingInfo = true;
             this.cdr.detectChanges();
           },
           (error) => {
@@ -460,6 +473,7 @@ export class UserProfileComponent implements OnInit, OnDestroy {
         );
     }
   }
+
 
   setBillingFieldErrors(): void {
     if (!this.companyName.value) {
@@ -487,27 +501,6 @@ export class UserProfileComponent implements OnInit, OnDestroy {
     }
   }
 
-  setEditMode(): void {
-    this.editMode = !this.editMode;
-
-    if (this.editMode) {
-      this.enableFields();
-    } else {
-      this.disableFields();
-    }
-  }
-
-  enableFields(): void {
-    Object.keys(this.userProfileForm.controls).forEach((ctrl) => {
-      this.userProfileForm.controls[ctrl].enable();
-    });
-  }
-
-  disableFields(): void {
-    Object.keys(this.userProfileForm.controls).forEach((ctrl) => {
-      this.userProfileForm.controls[ctrl].disable();
-    });
-  }
 
   setFieldErrors(): void {
     this.userProfileForm.setErrors(Validators.required);

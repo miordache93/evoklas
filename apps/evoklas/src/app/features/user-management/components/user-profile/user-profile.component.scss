@@ -263,7 +263,8 @@
       gap: 12px;
       margin-top: 4px;
 
-      a {
+      a,
+      button {
         display: inline-flex;
         align-items: center;
         gap: 8px;
@@ -274,10 +275,18 @@
         border: 1px solid transparent;
         cursor: pointer;
         transition: all 0.2s ease;
+        background: transparent;
 
         i {
           font-size: 14px;
         }
+      }
+
+      button:disabled,
+      .save-button.disabled {
+        opacity: 0.55;
+        cursor: not-allowed;
+        box-shadow: none;
       }
 
       .edit-button {

@@ -55,7 +55,7 @@
               <div class="left-panel">
                 <div class="p-field">
                   <label for="name">{{ 'APP.PAGES.REGISTER.FORM.FIELDS.NAME' | translate | titlecase}}</label>
-                  <input [ngClass]="{'disabled': !editMode}" id="name"
+                  <input id="name"
                     [placeholder]="'APP.PAGES.REGISTER.FORM.FIELDS.NAME_PLACEHOLDER' | translate" type="text"
                     aria-describedby="name-help" pInputText formControlName="name" />
                   <small *ngIf="name?.errors && (name?.touched || name?.dirty)" id="name-help">
@@ -65,7 +65,7 @@
 
                 <div class="p-field">
                   <label for="surname">{{ 'APP.PAGES.REGISTER.FORM.FIELDS.SURNAME' | translate | titlecase}}</label>
-                  <input [ngClass]="{'disabled': !editMode}" id="surname"
+                  <input id="surname"
                     [placeholder]="'APP.PAGES.REGISTER.FORM.FIELDS.SURNAME_PLACEHOLDER' | translate" type="text"
                     aria-describedby="surname-help" pInputText formControlName="surname" />
                   <small *ngIf="surname?.errors && (surname?.touched || surname?.dirty)" id="surname-help">
@@ -75,7 +75,7 @@
 
                 <div class="p-field">
                   <label for="email">{{ 'APP.PAGES.REGISTER.FORM.FIELDS.EMAIL' | translate | titlecase}}</label>
-                  <input [ngClass]="{'disabled': !editMode}" id="email" type="email"
+                  <input id="email" type="email"
                     [placeholder]="'APP.PAGES.REGISTER.FORM.FIELDS.EMAIL_PLACEHOLDER' | translate" aria-describedby="email-help"
                     pInputText formControlName="email" />
                   <small *ngIf="email?.errors && (email?.touched || email?.dirty)" id="email-help">
@@ -85,7 +85,7 @@
 
                 <div class="p-field">
                   <label for="phone">{{ 'APP.PAGES.REGISTER.FORM.FIELDS.PHONE' | translate | titlecase}}</label>
-                  <input [ngClass]="{'disabled': !editMode}" id="phone" type="tel"
+                  <input id="phone" type="tel"
                     [placeholder]="'APP.PAGES.REGISTER.FORM.FIELDS.PHONE_PLACEHOLDER' | translate" type="text"
                     aria-describedby="phone-help" pInputText formControlName="phone" />
                   <small *ngIf="phone?.errors && (phone?.touched || phone?.dirty)" id="phone-help">
@@ -98,7 +98,6 @@
                 <div *ngIf="currentUser && currentUser.role === 'DEALER' && userData.dealerBrands" class="p-field">
                   <label for="dealerBrands">{{ 'APP.PAGES.REGISTER.FORM.FIELDS.DEALER_BRANDS' | translate | titlecase}}</label>
                   <p-multiselect
-                    [ngClass]="{'disabled': !editMode}"
                     [options]="brands"
                     formControlName="dealerBrands"
                     [placeholder]="'APP.PAGES.REGISTER.FORM.FIELDS.DEALER_BRANDS_PLACEHOLDER' | translate"
@@ -142,16 +141,15 @@
             </div>
 
             <div class="form-actions">
-              <a class="edit-button" (click)="setEditMode()">
-                <i class="fas fa-user-edit"></i>
-                <span>
-                  {{  (editMode ? 'APP.PAGES.USER_PROFILE.CANCEL_EDIT_BTN' : 'APP.PAGES.USER_PROFILE.EDIT_BTN') | translate}}
-                </span>
-              </a>
-              <a *ngIf="editMode" class="save-button" type="submit" (click)="onSubmit()">
+              <button
+                class="save-button"
+                type="submit"
+                [disabled]="userProfileForm.pristine"
+                (click)="onSubmit()"
+              >
                 <i class="far fa-save"></i>
                 <span> {{ 'APP.PAGES.USER_PROFILE.SAVE_BTN' | translate}} </span>
-              </a>
+              </button>
             </div>
           </form>
         </p-tabpanel>
@@ -177,7 +175,7 @@
               <div class="left-panel">
                 <div class="p-field">
                   <label for="companyName">{{ 'APP.PAGES.USER_PROFILE.BILLING_FORM.FIELDS.COMPANY' | translate | titlecase}}</label>
-                  <input [ngClass]="{'disabled': !saveMode}" id="companyName"
+                  <input id="companyName"
                     [placeholder]="'APP.PAGES.USER_PROFILE.BILLING_FORM.FIELDS.COMPANY_PLACEHOLDER' | translate" type="text"
                     aria-describedby="companyName-help" pInputText formControlName="companyName" />
                   <small *ngIf="companyName?.errors && (companyName?.touched || companyName?.dirty)" id="companyName-help">
@@ -186,7 +184,7 @@
                 </div>
                 <div class="p-field">
                   <label for="address">{{ 'APP.PAGES.USER_PROFILE.BILLING_FORM.FIELDS.ADDRESS' | translate | titlecase}}</label>
-                  <input [ngClass]="{'disabled': !saveMode}" id="address"
+                  <input id="address"
                     [placeholder]="'APP.PAGES.USER_PROFILE.BILLING_FORM.FIELDS.ADDRESS_PLACEHOLDER' | translate" type="text"
                     aria-describedby="address-help" pInputText formControlName="address" />
                   <small *ngIf="address?.errors && (address?.touched || address?.dirty)" id="address-help">
@@ -195,7 +193,7 @@
                 </div>
                 <div class="p-field">
                   <label for="fiscalCode">{{ 'APP.PAGES.USER_PROFILE.BILLING_FORM.FIELDS.FISCAL_CODE' | translate | titlecase}}</label>
-                  <input [ngClass]="{'disabled': !saveMode}" id="fiscalCode"
+                  <input id="fiscalCode"
                     [placeholder]="'APP.PAGES.USER_PROFILE.BILLING_FORM.FIELDS.FISCAL_CODE_PLACEHOLDER' | translate" type="text"
                     aria-describedby="fiscalCode-help" pInputText formControlName="fiscalCode" />
                   <small *ngIf="fiscalCode?.errors && (fiscalCode?.touched || name?.dirty)" id="fiscalCode-help">
@@ -207,7 +205,7 @@
               <div class="right-panel">
                 <div class="p-field">
                   <label for="no_reg">{{ 'APP.PAGES.USER_PROFILE.BILLING_FORM.FIELDS.REG_NUMBER' | translate | titlecase}}</label>
-                  <input [ngClass]="{'disabled': !saveMode}" id="no_reg"
+                  <input id="no_reg"
                     [placeholder]="'APP.PAGES.USER_PROFILE.BILLING_FORM.FIELDS.REG_NUMBER_PLACEHOLDER' | translate" type="text"
                     aria-describedby="no_reg-help" pInputText formControlName="no_reg" />
                   <small *ngIf="no_reg?.errors && (no_reg?.touched || no_reg?.dirty)" id="no_reg-help">
@@ -216,7 +214,7 @@
                 </div>
                 <div class="p-field">
                   <label for="iban">{{ 'APP.PAGES.USER_PROFILE.BILLING_FORM.FIELDS.IBAN' | translate | titlecase}}</label>
-                  <input [ngClass]="{'disabled': !saveMode}" id="iban"
+                  <input id="iban"
                     [placeholder]="'APP.PAGES.USER_PROFILE.BILLING_FORM.FIELDS.IBAN_PLACEHOLDER' | translate" type="text"
                     aria-describedby="iban-help" pInputText formControlName="iban" />
                   <small *ngIf="iban?.errors && (iban?.touched || iban?.dirty)" id="iban-help">
@@ -225,7 +223,7 @@
                 </div>
                 <div class="p-field">
                   <label for="bankName">{{ 'APP.PAGES.USER_PROFILE.BILLING_FORM.FIELDS.BANK_NAME' | translate | titlecase}}</label>
-                  <input [ngClass]="{'disabled': !saveMode}" id="bankName"
+                  <input id="bankName"
                     [placeholder]="'APP.PAGES.USER_PROFILE.BILLING_FORM.FIELDS.BANK_NAME_PLACEHOLDER' | translate" type="text"
                     aria-describedby="bankName-help" pInputText formControlName="bankName" />
                   <small *ngIf="bankName?.errors && (bankName?.touched || bankName?.dirty)" id="bankName-help">
@@ -235,14 +233,16 @@
               </div>
             </div>
 
-            <div *ngIf="saveMode" class="form-actions">
-              <a 
-                class="save-button" 
-                type="submit" 
-                (click)="onBillingFormSubmit()">
+            <div class="form-actions">
+              <button
+                class="save-button"
+                type="submit"
+                [disabled]="billingForm.pristine"
+                (click)="onBillingFormSubmit()"
+              >
                 <i class="far fa-save"></i>
-                <span> {{ 'APP.PAGES.USER_PROFILE.SAVE_BTN' | translate}} </span>
-              </a>
+                <span> {{ 'APP.PAGES.USER_PROFILE.SAVE_BTN' | translate }} </span>
+              </button>
             </div>
           </form>
         </p-tabpanel>
