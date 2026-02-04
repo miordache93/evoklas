@@ -1,0 +1,106 @@
+<div 
+  class="register-component" 
+  
+ 
+ >
+  <div class="register-form">
+    <div class="form-title">
+      <h2> Contact Support Team</h2>
+    </div>
+    <div class="form-container">
+        <p-toast position="top-left"></p-toast>
+        <form 
+        [formGroup]="supportForm" 
+        
+       
+        
+       
+        (ngSubmit)="onSubmit()">
+        <div 
+        class="p-field" 
+        
+        
+       >
+        <label for="name">Name</label>
+        <input 
+          id="name" 
+          type="text" 
+          
+          aria-describedby="name-help" 
+          pInputText 
+          formControlName="name" />
+          <small
+            id="name-help">
+                Va rugam completati name!
+          </small>
+      </div>
+       
+        <div 
+        class="p-field" 
+        
+       >
+        <label for="email">{{ 'APP.PAGES.REGISTER.FORM.FIELDS.EMAIL' | translate}}</label>
+        <input 
+          id="email" 
+          type="email" 
+          aria-describedby="email-help" 
+          pInputText 
+          formControlName="email" />
+        <small 
+          *ngIf="email?.errors && (email?.touched || email?.dirty)" 
+          id="email-help">
+          {{ 'APP.PAGES.REGISTER.FORM.FIELDS.EMAIL_ERROR' | translate}}
+        </small>
+      </div>  
+      <div 
+      class="p-field" 
+      
+      
+     >
+      <label for="subject">Subject</label>
+      <input 
+        id="subject" 
+        type="text" 
+        
+        aria-describedby="subject-help" 
+        pInputText 
+        formControlName="subject" />
+        <small
+          id="subject-help">
+              Va rugam completati Subiect!
+        </small>
+    </div>
+        <div 
+            class="p-field" 
+            
+            
+           >
+            <label for="message">Message</label>
+            <input 
+              id="message" 
+              type="text" 
+        
+              aria-describedby="message-help" 
+              pInputText 
+              formControlName="message" />
+              <small
+                id="message-help">
+                    Va rugam completati mesajul!
+              </small>
+        </div>
+          <button 
+            pButton 
+            pRipple 
+            class="register-button"
+            type="submit"
+            [label]="'APP.PAGES.REGISTER.FORM.SUBMIT_BUTTON' | translate">
+          </button>
+          <div class="info-terms">
+            <p>
+                The reported problems will be solved as soon as possible.
+            </p>
+          </div>
+      </form>
+    </div>
+  </div>
+  </div>

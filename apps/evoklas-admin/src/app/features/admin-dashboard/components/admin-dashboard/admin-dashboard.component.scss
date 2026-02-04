@@ -1,0 +1,23 @@
+
+
+
+::ng-deep {
+  .p-field {
+    padding-bottom: 15px;
+  
+    label {
+      padding-bottom: 10px;
+    }
+  }
+
+  .export-btn, .import-input {
+    margin-left:10px;
+  }
+
+  .p-datatable-header {
+    input {
+      width: 255px;
+    }
+  }
+}
+

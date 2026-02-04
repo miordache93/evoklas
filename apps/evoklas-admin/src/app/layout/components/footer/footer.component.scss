@@ -1,0 +1,66 @@
+
+@use 'responsive.mixin' as *;
+@use 'variables' as *;
+
+.footer-component {
+  width: 100%;
+  padding: 0 20%;
+  height: 70px;
+  color: $dark-blue;
+  background-color: $white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+
+  @include screen('desktop-large') {
+    padding: 0 105px;
+  }
+
+  @include screen('desktop') {
+    padding: 0 48px;
+  }
+
+  @include screen('tablet-landscape') {
+    padding: 0 40px;
+  }
+
+  @include screen('tablet') {
+    height: 140px;
+    padding: 0 24px;
+    flex-direction: column-reverse;
+    justify-content: space-around;
+    gap: 15px;
+  }
+
+  @include screen('phone-landscape') {
+    height: 271px;
+  }
+
+  .copyright {
+    font-size: 14px;
+    font-family: 'Roboto';
+    line-height: 22px;
+  }
+
+  .footer-items {    
+    display: flex;
+    align-items: center;
+    gap: 40px;
+
+    a {
+      color: $dark-blue;
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 22px;
+      font-family: 'Roboto';
+      text-decoration: none;
+    }
+
+    @include screen('tablet') {
+      padding: 24px 0;
+      flex-direction: column;
+      gap: 15px;
+    }
+  }
+}

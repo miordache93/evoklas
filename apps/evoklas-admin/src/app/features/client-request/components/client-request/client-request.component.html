@@ -1,0 +1,63 @@
+<div>
+    <p-toast position="top-left"></p-toast>
+    <p-tabs [(value)]="activeIndex">
+        <p-tablist>
+            <p-tab [value]="0">Client Request</p-tab>
+            <p-tab [value]="1">CR Report by Producer</p-tab>
+        </p-tablist>
+        <p-tabpanels>
+        <p-tabpanel [value]="0">
+            <p-toolbar styleClass="p-mb-4">
+                <ng-template pTemplate="left">
+                </ng-template>
+                <ng-template pTemplate="right">
+                    <button pButton pRipple icon="pi pi-question-circle" (click)="goToSupport()"></button>
+                </ng-template>
+            </p-toolbar>
+            <p-table [value]="clientRequests" [rows]="10" [paginator]="true"  dataKey="id"
+            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th pSortableColumn="producer">Producer <p-sortIcon field="producer"></p-sortIcon></th>
+                    <th pSortableColumn="carModel">Car Model<p-sortIcon field="carModel"></p-sortIcon></th>
+                    <th pSortableColumn="version">Version<p-sortIcon field="version"></p-sortIcon></th>
+                    <th pSortableColumn="fuel">Fuel<p-sortIcon field="fuel"></p-sortIcon></th>
+                    <th pSortableColumn="engine">Engine<p-sortIcon field="engine"></p-sortIcon></th>
+                    <th pSortableColumn="color">Color<p-sortIcon field="color"></p-sortIcon></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-cr>
+                <tr>
+                    <td>{{cr.producer}}</td>
+                    <td>{{cr.carModel}}</td>
+                    <td>{{cr.version}}</td>
+                    <td>{{cr.fuel}}</td>
+                    <td>{{cr.engine}}</td>
+                    <td>{{cr.color}}</td>
+                </tr>
+            </ng-template>
+            </p-table>
+        </p-tabpanel>
+        <p-tabpanel [value]="1" class="chart-panel">
+            <div class="chart-filters">
+                <p-select [options]="years" [(ngModel)]="selectedYear" placeholder="Select a Year"
+	                [showClear]="false" (onChange)="onYearChange(selectedYear)"></p-select>
+            </div>
+            <div class="chart-grid">
+                <div class="chart-card">
+                    <h4 class="chart-title">Requests by Month and Producer</h4>
+                    <div class="chart-wrapper">
+                        <p-chart type="bar" [data]="chartData" [options]="basicOptions"></p-chart>
+                    </div>
+                </div>
+                <div class="chart-card chart-card--compact">
+                    <h4 class="chart-title">Requests by Status</h4>
+                    <div class="chart-wrapper chart-wrapper--small">
+                        <p-chart type="doughnut" [data]="statusChartData" [options]="statusChartOptions"></p-chart>
+                    </div>
+                </div>
+            </div>
+        </p-tabpanel>
+        </p-tabpanels>
+    </p-tabs>
+</div>

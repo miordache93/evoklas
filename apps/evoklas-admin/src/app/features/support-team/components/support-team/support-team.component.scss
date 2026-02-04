@@ -1,0 +1,49 @@
+@use 'responsive.mixin' as *;
+@use 'variables' as *;
+
+.register-component {
+  min-height: 100vh;
+  padding: 80px 38.5% 142px 38.5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  @include screen('desktop-large') {
+    padding: 80px 35.5% 167px;
+  }
+
+  @include screen('desktop') {
+    padding: 80px 33.5% 44px;
+  }
+
+  @include screen('tablet-landscape') {
+    padding: 64px 23% 60px;
+  }
+
+  @include screen('tablet') {
+    padding: 40px 13.5% 46px;
+  }
+
+  @include screen('phone-landscape') {
+    padding: 40px 5% 92px;
+  }
+}
+
+.register-form {
+  background-color: $white;
+  padding: 32px 24px;
+  width: 100%;
+
+  .form-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .p-field {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

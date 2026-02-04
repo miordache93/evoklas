@@ -1,0 +1,457 @@
+{
+    "APP": {
+        "LOGO_NAME": "Platforma Auto",
+        "PAGES": {
+            "HOME": {
+                "FIRST_PANEL": {
+                    "BANNER_TITLE": "Primul agregator de reprezentanțe auto din România",
+                    "DESCRIPTION": "Vrei să-ți cumperi o mașină nouă? Gata cu drumurile, mailu-urile sau telefoanele la reprezentanțe auto pentru a identifica cea mai bună ofertă. Selectezi modelul și configurația dorită, trimiți cererea către toți dealerii de pe platformă si aceștia îți vor trimite ofertele personalizate.",
+                    "SEARCH_BUTTON": "Start căutare",
+                    "DEALER_BUTTON": "Verificare cereri ofertă"
+                },
+                "SECOND_PANEL": {
+                    "TITLE": "De ce sa folosești EVOKLAS",
+                    "BENEFITS": {
+                        "FIRST_BENEFIT": {
+                            "TITLE": "#1 - Totul într-un sigur loc",
+                            "DESCRIPTION": "Pe EVOKLAS poti gasi dealeri reprezentand diferite brand-uri auto (sau acelasi brand auto) din toata tara. Poti obtine oferte personalizate de la mai multi dealeri al aceluiasi brand si sa alegi oferta cea mai buna, oferta care sa se incadreze in bugetul tau."
+                        },
+                        "SECOND_BENEFIT": {
+                            "TITLE": "#2 - Proces simplificat",
+                            "DESCRIPTION": "Știm cât de dificil și obositor este să identifici cea mai buna ofertă. Gata cu drumurile la reprezentanță, telefoane sau mailurile transmise catre dealeri. Am creat EVOKLAS pentru a ușura si simplifica procesul achizitiei unui autoturism nou prin identificarea celei mai bune oferte."
+                        },
+                        "THIRD_BENEFIT": {
+                            "TITLE": "#3 - Răspunsuri rapide",
+                            "DESCRIPTION": "In momentul in care transmiti cererea de oferta, dupa selectarea configuratiei, dealer-ii de pe platforma EVOKLAS vor primi instant cererea ta si iti vor transmite oferta personalizata. Niciodata nu a fost mai simplu! Cu un click vei putea contacta in acelasi timp dealer-i din toata tara sau dealerii din orasul tau."
+                        }
+                    }
+                },
+                "PACKAGES_PREVIEW": {
+                    "TITLE": "Pachete disponibile",
+                    "SUBTITLE": "Descoperă pachetul potrivit pentru numărul tău de cereri",
+                    "CTA": "Vezi toate pachetele",
+                    "REQUESTS": "Pentru {{count}} cereri"
+                },
+                "THIRD_PANEL": {
+                    "FAQ_LIST": {
+                        "TITLE": "Lista F.A.Q                        ",
+                        "ITEMS": {
+                            "ITEM1": {
+                                "TITLE": "Ce este EVOKLAS?",
+                                "DESCRIPTION": "EVOKLAS este un agregator de reprezentante auto, locul unde dealer-i din toata tara, reprezentand brand-uri variate ce pot fi contactati in acelasi timp doar printr-un click."
+                            },
+                            "ITEM2": {
+                                "TITLE": "De ce EVOKLAS?",
+                                "DESCRIPTION": "EVOKLAS te scutește de drumurile la reprezentanță, telefoanele și mailurile pe care le transmiți către dealeri pentru a identifica cea mai bună ofertă. Totul doar printr-un click"
+                            },
+                            "ITEM3": {
+                                "TITLE": "Ce ne diferentiaza?",
+                                "DESCRIPTION": "EVOKLAS aduna in acelasi loc dealeri de la diferite reprezentante dintr-o gama variata de brand-uri. Pe EVOKLAS Vei putea gasi dealeri care reprezinta acelasi brand auto si astfel vei putea compara si alege cea mai buna oferta pentru autoturismul dorit. Niciodata nu a fost mai simplu!"
+                            },
+                            "ITEM4": {
+                                "TITLE": "De unde pot obtine?",
+                                "DESCRIPTION": "Multe pachete de editare desktop și editori de pagini web folosesc acum Lorem Ipsum ca model de text implicit, iar o căutare pentru „lorem ipsum” va descoperi multe site-uri web încă la început."
+                            }
+                        }
+                    }
+                },
+                "FOURTH_PANEL": {
+                    "TITLE": "Feedback-ul clienților"
+                }
+            },
+            "REGISTER": {
+                "TITLE": "Platforma Auto",
+                "REGISTER_DEALER": "DEALER",
+                "REGISTER_CLIENT": "CLIENT",
+                "REGISTER_SUCCESS_TITLE": "Felicitari!",
+                "REGISTER_SUCCESS_MESSAGE": "Acum puteti primi cereri de oferta!",
+                "FORM": {
+                    "TITLE": "Înregistrare",
+                    "TITLE1": "CLIENT",
+                    "TITLE2": "DEALER",
+                    "CREDIT_INFO": "5 credite gratuite",
+                    "REGISTER_SUCCESS_TITLE": "Felicitari!",
+                    "REGISTER_SUCCESS_MESSAGE": "De acum puteti primi cereri de oferte!",
+                    "REGISTER-BUTTON": "Înregistrați-vă",
+                    "INFO": "Dând click pe buton, sunteți de acord cu Termenii si Conditiile și confirmați că ați citit politica noastră de confidențialitate.",
+                    "FIELDS": {
+                        "NAME": "NUME",
+                        "NAME_PLACEHOLDER": "Nume",
+                        "NAME_ERROR": "Vă rugăm să verificați numele",
+                        "SURNAME": "Prenume",
+                        "SURNAME_PLACEHOLDER": "Prenume",
+                        "SURNAME_ERROR": "Vă rugăm să verificați prenumele",
+                        "PHONE": "Telefon",
+                        "PHONE_PLACEHOLDER": "Numar Telefon",
+                        "PHONE_ERROR": "Vă rugăm să verificați numarul de telefon",
+                        "ADDRESS": "Adresa",
+                        "ADDRESS_PLACEHOLDER": "Adresa dumneavoastra",
+                        "ADDRESS_ERROR": "Vă rugăm să verificați adresa",
+                        "CUI": "Cod Fiscal (CUI/CIF)",
+                        "CUI_PLACEHOLDER": "Cod fiscal (CUI/CIF)",
+                        "CUI_ERROR": "Va rugam sa verificati codul fiscal (CUI/CIF)",
+                        "CITY": "Judetul",
+                        "CITY_PLACEHOLDER": "Judetul curent",
+                        "CITY_ERROR": "Vă rugăm să verificați numele judetului",
+                        "COMPANY": "Compania",
+                        "COMPANY_PLACEHOLDER": "Compania",
+                        "COMPANY_ERROR": "Vă rugăm să verificați numele companiei",
+                        "DEALER_BRANDS": "Marca Auto",
+                        "DEALER_BRANDS_PLACEHOLDER": "Marca auto",
+                        "DEALER_BRANDS_ERROR": "Vă rugăm să verificați marca/marcile auto reprezentata",
+                        "EMAIL": "Adresa email",
+                        "EMAIL_PLACEHOLDER": "Adresa email",
+                        "EMAIL_ERROR": "Vă rugăm să verificați adresa de email",
+                        "EMAIL_TAKEN": "Email deja folosit",
+                        "PASSWORD": "Parola",
+                        "PASSWORD_PLACEHOLDER": "Configurați parola",
+                        "PASSWORD_ERROR": "Vă rugăm să verificați parola",
+                        "PASSWORD2": "Rescrie Parola",
+                        "PASSWORD2_PLACEHOLDER": "Rescrie parola",
+                        "PASSWORD2_ERROR": "Vă rugăm să verificați parola",
+                        "PASSWORD_MATCH_ERROR": "Parolele nu se potrivesc",
+                        "TERMS_AND_CONDITIONS": "Verifica termenii si conditiile"
+                    },
+                    "SUBMIT_BUTTON": "Inregistreaza-te",
+                    "SOCIAL_MEDIA_ACTIONS": {
+                        "GMAIL_BUTTON": "Inregistreaza-te cu Google",
+                        "FACEBOOK_BUTTON": "Inregistreaza-te cu Facebook"
+                    },
+                    "RESET_FORM": {
+                        "TITLE": "Please enter your email addres to reset your password",
+                        "SUBMIT_BUTTON": "Submit",
+                        "CANCEL_BUTTON": "Cancel"
+                    }
+                }
+            },
+            "LOGIN": {
+                "TITLE": "EVOKLAS",
+                "INFO": "Nu ai inca un cont?",
+                "REGISTER_LINK": "Inregistreaza-te acum!",
+                "FORGOT_PASSWORD": "Ti-ai uitat parola?",
+                "FORM": {
+                    "FIELDS": {
+                        "EMAIL": "ADRESA EMAIL",
+                        "EMAIL_PLACEHOLDER": "Adresa email",
+                        "EMAIL_ERROR": "Vă rugăm să verificați adresa de mail",
+                        "PASSWORD": "PAROLA",
+                        "PASSWORD_PLACEHOLDER": "Parola",
+                        "PASSWORD_ERROR": "Vă rugăm să verificați parola"
+                    },
+                    "TITLE": "Autentificare",
+                    "SUBMIT_BUTTON": "Autentificare",
+                    "SOCIAL_MEDIA_ACTIONS": {
+                        "GMAIL_BUTTON": "Continuă cu Google",
+                        "FACEBOOK_BUTTON": "Continuă cu Facebook"
+                    }
+                }
+            },
+            "CAR_SELECTOR": {
+                "ACTIONS": {
+                    "STEP_1": "Alege Marca",
+                    "STEP_2": "Alege Modelul",
+                    "STEP_3": "Alege Versiunea",
+                    "STEP_4": "Alege Tipul de combustibil",
+                    "STEP_5": "Alege Motorul",
+                    "STEP_6": "Alege Culoarea",
+                    "STEP_7": "Alege Judetul",
+                    "STEP_8": "Trimite cererea"
+                },
+                "STEPPER": {
+                    "INFO": "* după aceea veți fi redirecționat automat la pasul următor"
+                },
+                "STEP1": {
+                    "SEARCH_PLACEHOLDER": "Căutați mărci..."
+                },
+                "STEP3_CARDS": {
+                    "EQUIPMENTS_BTN": "VEZI TOATE ECHIPAMENTELE",
+                    "SELECT_BTN": "Selectați",
+                    "STARTING_PRICE": "PREȚUL DE PORNIRE"
+                },
+                "STEP5_CARDS": {
+                    "SELECT_BTN": "Selectați",
+                    "POWER": "PUTERE",
+                    "PRICE": "PRET",
+                    "FUEL": "COMBUSTIBIL",
+                    "TRANSMISION": "CUTIE VITEZE",
+                    "DRIVE_TYPE": "TRANSMISIE"
+                },
+                "STEP7": {
+                    "REGION": "Selecteaza",
+                    "REGION_BTN": "Pasul urmator"
+                },
+                "STEP8": {
+                    "REQUEST_BTN": "Trimite cererea",
+                    "REQUEST_DETAILS": {
+                        "CAR": "Marca",
+                        "MODEL": "Model",
+                        "VERSION": "Versiune",
+                        "FUEL": "Combustibil",
+                        "ENGINE": "Motor",
+                        "COLOR": "Culoare",
+                        "REGION": "Regiune",
+                        "POWER": "Putere",
+                        "PRICE": "Pret",
+                        "TRANSMISION": "Transmisie",
+                        "DRIVE_TYPE": "Tractiune"
+                    },
+                    "STOC_OPTION": "Accept masini din stoc"
+                },
+                "NOT_FOUND": {
+                    "CARS": "Nu a fost gasita marca selectata",
+                    "MODEL": "Nu a fost gasit model pentru marca selectata",
+                    "VERSIONS": "Nu a fost gasita o versiune pentru acest model",
+                    "FUELS": "Nu a fost gasit tipul de combustibil selectat pentru acest model",
+                    "ENGINE": "Nu au fost gasite motorizari pentru acest tip de combustibil",
+                    "PRODUCER": "Nu a fost gasita marca selectata"
+                },
+                "INFO": {
+                    "UNAVAILABLE_PRODUCER": "Momentan nu sunt dealeri disponibili pentru aceasta marca auto",
+                    "THANKS_FOR_UNDERSTANDING": "Multumim pentru intelegere!"
+                }
+            },
+            "MESSAGES": {
+                "REQUEST_TITLE": "TOATE CERERILE DVS.",
+                "REQUEST_DETAILS": {
+                    "PRODUCER": "Marca",
+                    "MODEL": "Model",
+                    "VERSION": "Versiune",
+                    "FUEL": "Tip combustibil",
+                    "ENGINE": "Motorizare",
+                    "COLOR": "Culoare",
+                    "STOC_OPTION": "Acest client accepta masini din stoc"
+                },
+                "REQUEST_MESSAGE": {
+                    "GET_CAR_ERROR": "Nu s-au putut prelua marca!"
+                },
+                "ACTION_BUTTONS": {
+                    "ADD_ATTACHMENT": "Încărcați oferta",
+                    "MESSAGE_PLACEHOLDER": "Scrie un mesaj...",
+                    "SEND_MESSAGE": "Trimite mesaj",
+                    "USE_CREDIT": "Foloseste 1 Credit",
+                    "RENEW_CREDITS": "Adauga credite"
+                },
+                "REQUESTS_LEFT": "Ramase",
+                "NO_DEALER_RESPONSE": "Cererea nu a fost procesată încă de către un dealer.",
+                "ATTACHMENT": {
+                    "VIEW": "Vezi sau descarcă oferta atașată",
+                    "LABEL": "Atașament:"
+                },
+                "CONFIRMATION_DIALOG": {
+                    "ACCEPT": "APROBA",
+                    "REJECT": "RESPINGE"
+                },
+                "REQUESTS": {
+                    "SEARCH_INPUT": {
+                        "PLACEHOLDER": "Cauta cererea",
+                        "LABEL": "Cererile dvs."
+                    }
+                },
+                "CONVERSATIONS": {
+                    "SEARCH_INPUT": {
+                        "PLACEHOLDER": "Cauta conversatia",
+                        "LABEL": "Cauta conversatia"
+                    }
+                }
+            },
+            "PLACEHOLDER": {
+                "PILL": "Structura layout",
+                "HEADLINE": "{{title}} este in lucru.",
+                "BODY": "Rutele sunt conectate la layout, astfel incat poti adauga componente fara sa modifici navigatia.",
+                "CTA": "Mergi la dashboard"
+            },
+            "PACKAGES": {
+                "ACTION_BUTTONS": {
+                    "BUY_NOW": "Cumpara",
+                    "GET_FOR_FREE": "Incearca"
+                },
+                "BILLING_INFO": {
+                    "DESCRIPTION": "Pentru a achizitiona credite, trebuie sa completati datele de facturare",
+                    "LINK": "aici."
+                }
+            },
+            "REQUESTS": {
+                "EMPTY_BLOCKED_TITLE": "Nicio solicitare blocată",
+                "EMPTY_BLOCKED_SUBTITLE": "Aici vor apărea solicitările nedeblocate.",
+                "EMPTY_BLOCKED_CTA": "Deschide filtrele",
+                "EMPTY_UNBLOCKED_TITLE": "Nicio solicitare nouă",
+                "EMPTY_UNBLOCKED_SUBTITLE": "Când apar solicitări, le vei vedea aici.",
+                "EMPTY_UNBLOCKED_CTA": "Creează solicitare",
+                "EMPTY_ALL_TITLE": "Nu există solicitări încă",
+                "EMPTY_ALL_SUBTITLE": "Creează una nouă sau ajustează filtrele pentru a începe.",
+                "EMPTY_ALL_CTA_PRIMARY": "Creează solicitare",
+                "EMPTY_ALL_CTA_SECONDARY": "Deschide filtrele",
+                "BLOCKED": "Cereri blocate",
+                "UNBLOCKED": "Cereri deblocate",
+                "NOT_ENOUGH_CREDIT": {
+                    "TITLE": "Nu ai suficiente credite",
+                    "MESSAGE": "Vei fi redirecționat către pagina de abonamente."
+                },
+                "USE_CREDIT": {
+                    "TEXT": "Esti sigur/a ca vrei sa folosesti creditul?",
+                    "HEADER": "Confirmare",
+                    "ACCEPT": {
+                        "SUMMARY": "Confirmat",
+                        "DETAIL": "Ai confirmat"
+                    },
+                    "REJECT": {
+                        "SUMMARY": "Respins",
+                        "DETAIL": "Ai respins"
+                    }
+                }
+            },
+            "USER_PROFILE": {
+                "SAVE_BTN": "Salveaza",
+                "EDIT_BTN": "Editeaza",
+                "CANCEL_EDIT_BTN": "Anuleaza modul de editare",
+                "BACK_TO_FORM": "Inapoi la profil",
+                "CREDITS": "Credite",
+                "ORDERS_HISTORY": "Istoric comenzi",
+                "DELETE_ACCOUNT_BTN": "Sterge contul",
+                "LOGOUT_BTN": "Logout",
+                "BILLING_INFO_PLACEHOLDER": {
+                    "TITLE": "Nu ai setat încă datele de facturare",
+                    "SUBTITLE": "Completează formularul de mai jos pentru a salva informațiile."
+                },
+                "NO_ORDERS_PLACEHOLDER": "Momentan nu ai comenzi de afișat.",
+                "TABLE_DESCRIPTION": "Descriere",
+                "TABLE_PRICE": "Pret",
+                "TABLE_DATE": "Data",
+                "TABLE_REQUESTS": "Numar cereri",
+                "CONFIRMATION_DIALOG": {
+                    "ACCEPT": "Confirmă",
+                    "REJECT": "Anulează"
+                },
+                "UPDATE_CONFIRMATION": {
+                    "HEADER": "Confirmare",
+                    "TEXT": "Salvezi modificarile profilului?"
+                },
+                "PERSONAL_DETAILS": "Date personale",
+                "BILLING_INFO": "Date de facturare",
+                "BILLING_FORM": {
+                    "FIELDS": {
+                        "COMPANY": "Nume companie/reprezentanta",
+                        "COMPANY_PLACEHOLDER": "Nume companie/reprezentanta",
+                        "COMPANY_ERROR": "",
+                        "ADDRESS": "Adresa",
+                        "ADDRESS_PLACEHOLDER": "Adresa",
+                        "ADDRESS_ERROR": "Adresa",
+                        "FISCAL_CODE": "Cod fiscal (CUI / CIF)",
+                        "FISCAL_CODE_PLACEHOLDER": "Cod fiscal (CUI / CIF)",
+                        "FISCAL_CODE_ERROR": "Cod fiscal (CUI / CIF)",
+                        "REG_NUMBER": "Numar de inregistrare",
+                        "REG_NUMBER_PLACEHOLDER": "Numar de inregistrare",
+                        "REG_NUMBER_ERROR": "Numar de inregistrare",
+                        "IBAN": "IBAN",
+                        "IBAN_PLACEHOLDER": "RO49AAAA1B31007593840000",
+                        "IBAN_ERROR": "IBAN",
+                        "BANK_NAME": "Nume banca",
+                        "BANK_NAME_PLACEHOLDER": "Nume banca",
+                        "BANK_NAME_ERROR": "Nume banca"
+                    }
+                },
+                "DESCRIPTION": "Note: Pentru a edita datele de facturare va rugam sa utilizati formularul de contact.",
+                "DELETE_ACCOUNT": {
+                    "TEXT": "Esti sigur/a ca vrei sa continui?",
+                    "HEADER": "Confirmare",
+                    "ACCEPT": {
+                        "SUMMARY": "Confirmat",
+                        "DETAIL": "Ai confirmat"
+                    },
+                    "REJECT": {
+                        "SUMMARY": "Respins",
+                        "DETAIL": "Ai respins"
+                    }
+                },
+                "RESET_PASSWORD": {
+                    "TITLE": "Resetare parola",
+                    "SUBMIT_BUTTON": "Trimite",
+                    "SUCCESS_RESET_TITLE": "Succes",
+                    "SUCCESS_RESET": "Parola dvs. a fost resetata. Redirectionare catre login..."
+                }
+            }
+        },
+        "HEADER": {
+            "OFFERS": "Adauga Credite",
+            "HOME": "Acasa",
+            "INBOX": "Mesaje",
+            "REQUESTS": "Cereri",
+            "PROFILE": "Profil",
+            "LOGOUT": "Logout",
+            "NOTIFICATIONS": {
+                "MESSAGES": {
+                    "TEXT1": "Aveti",
+                    "TEXT2": "mesaje noi"
+                },
+                "REQUESTS": {
+                    "TEXT1": "Aveti",
+                    "TEXT2": "cereri noi"
+                }
+            },
+            "LOGIN_OR_REGISTER": "Login / Register"
+        },
+        "ERRORS": {
+            "400": {
+                "title": "Custom 400 error title",
+                "message": "Custom 400 error message"
+            },
+            "401": {
+                "title": "Titlu de eroare pentru 401",
+                "message": "Mesaj de eroare pentru 401"
+            },
+            "403": {
+                "title": "Titlu de eroare pentru 403",
+                "message": "Mesaj de eroare pentru 403"
+            },
+            "404": {
+                "title": "Titlu de eroare pentru 404",
+                "message": "Mesaj de eroare pentru 404"
+            },
+            "500": {
+                "title": "Titlu de eroare pentru 500",
+                "message": "Mesaj de eroare pentru 500"
+            },
+            "501": {
+                "title": "Titlu de eroare pentru 501",
+                "message": "Mesaj de eroare pentru 501"
+            },
+            "504": {
+                "title": "Titlu de eroare pentru 504",
+                "message": "Mesaj de eroare pentru 504"
+            },
+            "0": {
+                "title": "Titlu eroare generala",
+                "message": "Mesaj general de eroare"
+            },
+            "REQUIRED": "Acest câmp este obligatoriu.",
+            "EMAIL_FORMAT": "Introduceți un email valid.",
+            "PHONE_FORMAT": "Introduceți un număr de telefon valid (RO).",
+            "NAME_FORMAT": "Folosiți doar litere, spații, cratimă/apostrof, 2–50 caractere.",
+            "SURNAME_FORMAT": "Folosiți doar litere, spații, cratimă/apostrof, 2–50 caractere.",
+            "PASSWORD_WEAK": "Parola trebuie să aibă min. 8 caractere, cu literă mică, literă mare, cifră și simbol.",
+            "MIN_ONE": "Selectați cel puțin o opțiune."
+        },
+        "SUCCESS": {
+            "RESET_PASSWORD_TITLE": "Email trimis",
+            "RESET_PASSWORD": "In curand veti primii un email pentru resetarea parolei!",
+            "EDIT_USER": "Datele dvs. au fost salvate cu success",
+            "EDIT_BILLING_DETAILS": "Datele de facturare au fost salvate",
+            "REQUEST_SENT": "Cererea a fost trimisă cu succes",
+            "SUBSCRIPTION_PURCHASED": "Pachetul a fost procesat cu succes",
+            "DELETE_ACCOUNT": "Contul a fost șters"
+        },
+        "SIDEBAR": {
+            "NAVIGATION": "Navigare"
+        },
+        "FOOTER": {
+            "COPYRIGHT": "@ Copyright 2021",
+            "LINKS": {
+                "CONTACT_US": "Contact",
+                "PRIVACY_AND_POLICY": "Politica de confidentialitate",
+                "COOKIES_POLICY": "Cookies",
+                "TERMS_AND_CONDITIONS": "Termeni si Conditii",
+                "GDPR": "GDPR"
+            }
+        }
+    }
+}

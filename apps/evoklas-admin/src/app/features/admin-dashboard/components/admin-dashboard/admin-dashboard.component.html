@@ -1,0 +1,457 @@
+<div class="admin-dashboard">
+    <p-toast position="top-left"></p-toast>
+    <p-tabs [(value)]="activeIndex">
+        <p-tablist>
+            <p-tab [value]="0">Producers</p-tab>
+            <p-tab [value]="1">Cars Model</p-tab>
+            <p-tab [value]="2">Version</p-tab>
+            <p-tab [value]="3">Engines</p-tab>
+        </p-tablist>
+        <p-tabpanels>
+        <p-tabpanel [value]="0">
+            <p-toolbar styleClass="p-mb-4">
+                <ng-template pTemplate="left">
+                    <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success p-mr-2"
+                        (click)="addNewProducer()"></button>
+                    <button type="button" pButton pRipple icon="pi pi-file-excel" (click)="exportExcel('producers')"
+                        class="p-button-success mr-2 export-btn" pTooltip="XLS" tooltipPosition="bottom"></button>
+                    <button type="button" pButton pRipple label="Master Export" icon="pi pi-file-excel" (click)="exportExcel('master')"
+                        class="p-button-info mr-2" pTooltip="Export All Data" tooltipPosition="bottom"></button>
+                    <!-- <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success p-mr-2"
+                        (click)="importProducers()"></button> -->
+                </ng-template>
+                <ng-template pTemplate="right">
+                    <button pButton pRipple icon="pi pi-question-circle" (click)="goToSupport()"></button>
+                </ng-template>
+            </p-toolbar>
+            <p-table #dt [value]="producers" [rows]="10" [paginator]="true" dataKey="id"
+                [globalFilterFields]="['name']"
+                currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                [showCurrentPageReport]="true">
+                <ng-template pTemplate="caption">
+                    <div class="p-d-flex">
+                        <span class="p-input-icon-left p-ml-auto">
+                            <i class="pi pi-search"></i>
+                            <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Search producer" />
+                        </span>
+                    </div>
+                </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon>
+                        </th>
+                        <th>Icon</th>
+                        <th>Actions</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-producer>
+                    <tr>
+                        <td>{{producer.name}}</td>
+                        <td>
+                            <img [src]="producer.icon" />
+                        </td>
+                        <td>
+                            <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2"
+                                (click)="editProducer(producer)"></button>
+                            <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"
+                                (click)="deleteProduct(producer)"></button>
+                            <button type="button" pButton pRipple icon="pi pi-file-excel" (click)="exportExcelProducer(producer)"
+                                class="p-button-success mr-2 export-btn" pTooltip="XLS" tooltipPosition="bottom"></button>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </p-tabpanel>
+        <p-tabpanel [value]="1">
+            <p-toolbar styleClass="p-mb-4">
+                <ng-template pTemplate="left">
+                    <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success p-mr-2"
+                        (click)="addNewModel()"></button>
+                    <button type="button" pButton pRipple icon="pi pi-file-excel" (click)="exportExcel('models')"
+                        class="p-button-success mr-2 export-btn" pTooltip="XLS" tooltipPosition="bottom"></button>
+                    <input class="import-input" type="file" id="fileInput" (change)="onExcelImport($event, 'models')" />
+                </ng-template>
+                <ng-template pTemplate="right">
+                    <button pButton pRipple icon="pi pi-question-circle" (click)="goToSupport()"></button>
+                </ng-template>
+            </p-toolbar>
+            <p-table #dt2 [value]="cars" [rows]="10" [paginator]="true" dataKey="id"
+                currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                [globalFilterFields]="['name', 'producerName']"
+                [showCurrentPageReport]="true">
+                <ng-template pTemplate="caption">
+                    <div class="p-d-flex">
+                        <span class="p-input-icon-left p-ml-auto">
+                            <i class="pi pi-search"></i>
+                            <input pInputText type="text" (input)="dt2.filterGlobal($event.target.value, 'contains')" placeholder="Search by model or producer" />
+                        </span>
+                    </div>
+                </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="producerName">
+                            Producer name
+                            <p-sortIcon field="producerName"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="description">Description <p-sortIcon field="description"></p-sortIcon>
+                        </th>
+                        <th>Icon</th>
+                        <th>Actions</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-car>
+                    <tr>
+                        <td>{{car.name}}</td>
+                        <td>{{ car.producerName }} </td>
+                        <td *ngIf="car.description"> {{car.description }}</td>
+                        <td *ngIf="!car.description"></td>
+                        <td>
+                            <img [src]="car.icon" />
+                        </td>
+                        <td>
+                            <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2"
+                                (click)="editModel(car)"></button>
+                            <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"
+                                (click)="deleteModel(car)"></button>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+
+        </p-tabpanel>
+        <p-tabpanel [value]="2">
+            <p-toolbar styleClass="p-mb-4">
+                <ng-template pTemplate="left">
+                    <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success p-mr-2"
+                        (click)="addNewVersion()"></button>
+                    <button type="button" pButton pRipple icon="pi pi-file-excel" (click)="exportExcel('versions')"
+                        class="p-button-success mr-2 export-btn" pTooltip="XLS" tooltipPosition="bottom"></button>
+                    <input class="import-input" type="file" id="fileInput"
+                        (change)="onExcelImport($event, 'versions')" />
+                </ng-template>
+                <ng-template pTemplate="right">
+                    <button pButton pRipple icon="pi pi-question-circle" (click)="goToSupport()"></button>
+                </ng-template>
+            </p-toolbar>
+
+            <p-table #dt3 [value]="versions" [rows]="10" [paginator]="true" dataKey="id"
+                currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                [globalFilterFields]="['name']"
+                [showCurrentPageReport]="true">
+                <ng-template pTemplate="caption">
+                    <div class="p-d-flex">
+                        <span class="p-input-icon-left p-ml-auto">
+                            <i class="pi pi-search"></i>
+                            <input pInputText type="text" (input)="dt3.filterGlobal($event.target.value, 'contains')" placeholder="Search versions" />
+                        </span>
+                    </div>
+                </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon>
+                        </th>
+                        <th>Icon</th>
+                        <th>Actions</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-versions>
+                    <tr>
+                        <td>{{versions.name}}</td>
+                        <td>
+                            <img [src]="versions.icon" />
+                        </td>
+                        <td>
+                            <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2"
+                                (click)="editVersion(versions)"></button>
+                            <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"
+                                (click)="deleteVersion(versions)"></button>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+
+        </p-tabpanel>
+        <p-tabpanel [value]="3">
+            <p-toolbar styleClass="p-mb-4">
+                <ng-template pTemplate="left">
+                    <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success p-mr-2"
+                        (click)="addNewEngine()"></button>
+                    <button type="button" pButton pRipple icon="pi pi-file-excel" (click)="exportExcel('engines')"
+                        class="p-button-success mr-2 export-btn" pTooltip="XLS" tooltipPosition="bottom"></button>
+                    <input class="import-input" type="file" id="fileInput"
+                        (change)="onExcelImport($event, 'engines')" />
+                </ng-template>
+                <ng-template pTemplate="right">
+                    <button pButton pRipple icon="pi pi-question-circle" (click)="goToSupport()"></button>
+                </ng-template>
+            </p-toolbar>
+
+
+            <p-table #dt4 [value]="engines" [rows]="10" [paginator]="true" dataKey="id"
+                currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                [globalFilterFields]="['name']"
+                [showCurrentPageReport]="true">
+                <ng-template pTemplate="caption">
+                    <div class="p-d-flex">
+                        <span class="p-input-icon-left p-ml-auto">
+                            <i class="pi pi-search"></i>
+                            <input pInputText type="text" (input)="dt4.filterGlobal($event.target.value, 'contains')" placeholder="Search engine" />
+                        </span>
+                    </div>
+                </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="power">Power <p-sortIcon field="power"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="fuel">Fuel <p-sortIcon field="fuel"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="transmision">Transmision <p-sortIcon field="transmision"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="driveType">Drive type <p-sortIcon field="driveType"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="driveType">Car model price <p-sortIcon field="driveType"></p-sortIcon>
+                        </th>
+                        <th>Actions</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-engines>
+                    <tr>
+                        <td>{{engines.name}}</td>
+                        <td>{{engines.power}}</td>
+                        <td>{{engines.fuel}}</td>
+                        <td>{{engines.transmision}}</td>
+                        <td>{{engines.driveType}}</td>
+                        <td>{{ engines.price | currency: 'EUR':'symbol':'1.0-2' }}</td>
+                        <td>
+                            <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2"
+                                (click)="editEngine(engines)"></button>
+                            <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"
+                                (click)="deleteEngine(engines)"></button>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </p-tabpanel>
+        </p-tabpanels>
+    </p-tabs>
+
+
+    <p-dialog [(visible)]="producerDialog" [style]="{width: '450px'}" header="Producer Details" [modal]="true"
+        styleClass="p-fluid">
+        <ng-template pTemplate="content">
+            <div class="p-field">
+                <label for="float-input">Producer name</label>
+                <input id="float-input" name="name" type="text" pInputText [(ngModel)]="producer.name">
+            </div>
+            <div class="p-field">
+                <label for="producer-file">Producer icon:</label>
+                <input id="producer-file" type="file" name="icon" (change)="onFileSelect($event, 'producer')">
+            </div>
+        </ng-template>
+
+        <ng-template pTemplate="footer">
+            <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text"
+                (click)="hideProducerDialog()"></button>
+            <button *ngIf="!save" pButton pRipple label="Edit" icon="pi pi-check" class="p-button-text"
+                (click)="doEditProducer()"></button>
+            <button *ngIf="save" pButton pRipple label="Save" icon="pi pi-check" class="p-button-text"
+                (click)="saveProducer()"></button>
+        </ng-template>
+    </p-dialog>
+
+    <p-dialog [(visible)]="modelDialog" [style]="{width: '450px'}" header="Car Model Details" [modal]="true"
+        styleClass="p-fluid">
+        <ng-template pTemplate="content">
+            <div class="p-field">
+                <label for="car-name-input">Model name</label>
+                <input id="car-name-input" name="car-name" type="text" pInputText [(ngModel)]="car.name">
+            </div>
+            <div class="p-field">
+                <label for="car-savings-description-input">Description</label>
+                <input id="car-savings-description-input" name="car-description" type="text" pInputText
+                    [(ngModel)]="car.description">
+            </div>
+            <div class="p-field">
+                <label for="car-producer-dropdwon">Producer</label>
+                <!-- <p-select id="car-producer-dropdwon" appendTo="body" [options]="producers"
+                    [(ngModel)]="car.producerId" optionLabel="name" optionValue="id" placeholder="Select a producer">
+                </p-select> -->
+                <!-- dropdown change -->
+                <p-select 
+                    id="car-producer-dropdwon" 
+                    [options]="producers"
+                    appendTo="body"
+                    [(ngModel)]="car.producerId" 
+                    optionLabel="name"
+                    optionValue="id"
+                    [filter]="true" 
+                    filterBy="name"
+                    [showClear]="true"
+                    placeholder="Select producer">
+                </p-select>
+            </div>
+
+            <div class="p-field">
+                <input id="producer-file" type="file" name="car-icon" (change)="onFileSelect($event, 'car-model')">
+            </div>
+        </ng-template>
+
+        <ng-template pTemplate="footer">
+            <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text"
+                (click)="hideModelDialog()"></button>
+            <button *ngIf="!save" pButton pRipple label="Edit" icon="pi pi-check" class="p-button-text"
+                (click)="doEditModel()"></button>
+            <button *ngIf="save" pButton pRipple label="Save" icon="pi pi-check" class="p-button-text"
+                (click)="saveCarModel()"></button>
+        </ng-template>
+    </p-dialog>
+
+    <p-dialog [(visible)]="versionDialog" [style]="{width: '450px'}" header="Version Details" [modal]="true"
+        styleClass="p-fluid">
+        <ng-template pTemplate="content">
+            <div class="p-field">
+                <label for="version-name-input">Version name</label>
+                <input id="version-name-input" name="version-name" type="text" pInputText [(ngModel)]="version.name">
+            </div>
+
+            <div class="p-field">
+                <label for="car-producer-dropdown">Producer</label>
+                <p-select 
+                    id="car-producer-dropdwon" 
+                    [options]="producers"
+                    appendTo="body"
+                    [(ngModel)]="car.producerId" 
+                    optionLabel="name"
+                    (onChange)="getCarsbyProducer(car.producerId)"
+                    optionValue="id"
+                    [filter]="true" 
+                    filterBy="name"
+                    [showClear]="true"
+                    placeholder="Select producer">
+                </p-select>
+            </div>
+
+            <div class="p-field">
+                <label for="version-car-dropdown">Car model</label>
+
+                <p-select 
+                    id="version-car-dropdown" 
+                    [options]="carsByProducer"
+                    appendTo="body"
+                    [(ngModel)]="version.carId" 
+                    optionLabel="name"
+                    optionValue="id"
+                    [filter]="true" 
+                    filterBy="name"
+                    [showClear]="true"
+                    placeholder="Select car model">
+                </p-select>
+                <!-- <p-select id="version-car-input" appendTo="body" [options]="carsByProducer" [(ngModel)]="version.carId"
+                    optionLabel="name" placeholder="Select car model" optionValue="id">
+                </p-select> -->
+            </div>
+
+            <div class="p-field">
+                <input id="versioon-file" type="file" name="version-icon" (change)="onFileSelect($event, 'version')">
+            </div>
+        </ng-template>
+
+        <ng-template pTemplate="footer">
+            <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text"
+                (click)="hideVersionDialog()"></button>
+            <button *ngIf="!save" pButton pRipple label="Edit" icon="pi pi-check" class="p-button-text"
+                (click)="doEditVersion()"></button>
+            <button *ngIf="save" pButton pRipple label="Save" icon="pi pi-check" class="p-button-text"
+                (click)="saveCarVersion()"></button>
+        </ng-template>
+    </p-dialog>
+
+
+    <p-dialog [(visible)]="engineDialog" [style]="{width: '450px'}" header="Engine Details" [modal]="true"
+        styleClass="p-fluid">
+        <ng-template pTemplate="content">
+            <div class="p-field">
+                <label for="engine-name-input">Engine name</label>
+                <input id="engine-name-input" name="engine-name" type="text" pInputText [(ngModel)]="engine.name">
+
+            </div>
+            <div class="p-field">
+                <label for="engine-model-price-input">Model price</label>
+                <p-inputNumber [(ngModel)]="engine.price" inputId="locale-us" mode="decimal" locale="en-US" [minFractionDigits]="2"> </p-inputNumber>
+            </div>
+            <div class="p-field">
+                <label for="engine-fuel-input">Engine fuel</label>
+                <p-select placeholder="Select a engine fuel" appendTo="body" [showClear]="true" [options]="fuelTypes"
+                    [(ngModel)]="engine.fuel" optionLabel="displayValue" optionValue="name">
+                </p-select>
+            </div>
+            <div class="p-field">
+                <label for="engine-power-input">Engine power</label>
+                <input id="engine-power-input" name="engine-power" type="text" pInputText [(ngModel)]="engine.power">
+            </div>
+            <div class="p-field">
+                <label for="engine-fuel-input">Engine transmision</label>
+                <p-select appendTo="body" placeholder="Select a engine transmision" [showClear]="true"
+                    [options]="engineTransmisions" [(ngModel)]="engine.transmision" optionLabel="name"
+                    optionValue="name">
+                </p-select>
+            </div>
+            <div class="p-field">
+                <label for="engine-driveType-input">Engine drive type</label>
+                <p-select id="ngine-driveType-input" placeholder="Select drive type" appendTo="body"
+                    [options]="driveTypes" [(ngModel)]="engine.driveType" optionLabel="name" optionValue="name">
+                </p-select>
+            </div>
+            <div class="p-field">
+                <label for="engine-car-model">Car model for this engine</label>
+                    <p-select 
+                        id="engine-car-model" 
+                        [options]="cars"
+                        appendTo="body"
+                        [(ngModel)]="engine.carId" 
+                        optionLabel="name"
+                        (onChange)="getVersionsByCarId(engine.carId)"
+                        optionValue="id"
+                        [filter]="true" 
+                        filterBy="name"
+                        [showClear]="true"
+                        placeholder="Select car model">
+                    </p-select>
+
+                <!-- <p-select id="engine-car-version" placeholder="Select car model" appendTo="body" [options]="cars"
+                    [(ngModel)]="engine.carId" optionLabel="name" optionValue="id">
+                </p-select> -->
+            </div>
+            <div class="p-field">
+                <label for="engine-car-version">Version for this engine</label>
+                    <p-select 
+                        id="engine-car-version" 
+                        [options]="versionsByCar"
+                        appendTo="body"
+                        [(ngModel)]="engine.versionId" 
+                        optionLabel="name"
+                        optionValue="id"
+                        [filter]="true" 
+                        filterBy="name"
+                        [showClear]="true"
+                        placeholder="Select version">
+                    </p-select>
+            </div>
+        </ng-template>
+
+        <ng-template pTemplate="footer">
+            <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text"
+                (click)="hideEngineDialog()"></button>
+            <button *ngIf="!save" pButton pRipple label="Edit" icon="pi pi-check" class="p-button-text"
+                (click)="doEditEngine()"></button>
+            <button *ngIf="save" pButton pRipple label="Save" icon="pi pi-check" class="p-button-text"
+                (click)="saveEngineModel()"></button>
+        </ng-template>
+    </p-dialog>
+
+
+</div>

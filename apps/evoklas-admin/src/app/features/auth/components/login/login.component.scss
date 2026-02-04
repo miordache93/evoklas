@@ -1,0 +1,204 @@
+@use 'responsive.mixin' as *;
+@use 'variables' as *;
+
+.login-component {
+    min-height: 100vh;
+    padding: 80px 38.5% 142px 38.5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+
+    @include screen('desktop-large') {
+        padding: 80px 35.5% 167px;
+    }
+
+    @include screen('desktop') {
+        padding:80px 33.5% 44px;
+    }
+
+    @include screen('tablet-landscape') {
+        padding: 64px 23% 60px;
+    }
+
+    @include screen('tablet') {
+        padding: 40px 13.5% 46px;
+    }
+
+    @include screen('phone-landscape') {
+        padding: 40px 5% 92px;
+    }
+
+    .header {
+        margin-bottom: 40px;
+
+        h1 {
+            margin: 0;
+            color: $dark-blue;
+            font-family: Roboto;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    }
+
+    .login-form {
+        background-color: $white;
+        padding: 32px 24px;
+        width: 100%;
+
+        .form-container form {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            width: 100%;
+        }
+
+        .form-title {
+            text-align: center;
+
+            h2 {
+                margin: 0 0 40px 0;
+                color: $dark-blue;
+                font-family: Roboto;
+                font-size: 24px;
+                line-height: 32px;
+            }
+        }
+
+        .p-field {
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 100%;
+
+            ::ng-deep {
+                label {
+                    color: $darker-blue;
+                    padding-bottom: 16px;
+                    line-height: 20px;
+                }
+
+                p-password {
+                    width: 100%;
+                    display: block;
+                    border: none;
+
+                    // &:focus {
+                    //     box-shadow: 0 0 0 0.2rem #a6d5fa;
+                    // }
+
+                    .p-inputwrapper {
+                        width: 100%;
+
+                        input {
+                            width: 100%;
+                        }
+
+                        .p-inputtext:enabled:focus {
+                            // box-shadow: none;
+                        }
+                    }
+                }
+
+                .p-inputtext {
+                    width: 100%;
+                }
+
+                input {
+                    width: 100%;
+                    color: $blue;
+                    line-height: 24px;
+                    border: none;
+                    border-bottom: 1px solid #F3F8FA;
+
+                    &.p-filled {
+                        color: $black !important;
+                    }
+                }
+                
+                small {
+                    color: $error;
+                    padding-top: 5px;
+                }
+            }
+        }
+
+        .login-button {
+            padding: 16px 10%;
+        }
+
+        .info-forgot-pwd {
+            p {
+                color: $dark-blue;
+                font-size: 12px;
+                line-height: 20px;
+            }
+        }
+    }
+
+    .login-social-media {
+        color: $white;
+        width: 100%;
+        text-align: center;
+        max-height: 118px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        align-items: center;
+
+        a {
+            border-radius: 3px;
+            cursor: pointer;
+
+            i {
+                margin-right: 16px;
+            }
+        }
+
+        .gmail-login {
+            background-color: $gmail;
+            width: 100%;
+            padding: 16px 10%;
+        }
+
+        .facebook-login {
+            background-color: $facebook;
+            width: 100%;
+            padding: 16px 10%;
+        }
+    }
+
+    .login-button {
+        background-color: $dark-blue;
+    
+        &:hover {
+            background-color: $darker-blue;
+        }
+    }
+
+    .info-forgot-pwd {
+        text-align: center;
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 20px;
+    }
+
+    .register-redirect {
+        font-size: 16px;
+        line-height: 24px;
+        color: $dark-blue;
+
+        a {
+            font-weight: bold;
+            text-decoration: none;
+            color: $dark-blue;
+        }
+    }
+}

@@ -1,0 +1,76 @@
+<div>
+  <p-toast position="top-left"></p-toast>
+  <p-tabs [(value)]="activeIndex">
+      <p-tablist>
+          <p-tab [value]="0">Packages</p-tab>
+      </p-tablist>
+      <p-tabpanels>
+      <p-tabpanel [value]="0">
+          <p-toolbar styleClass="p-mb-4">
+              <ng-template pTemplate="left">
+                  <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success p-mr-2" (click)="addPackage()"></button> 
+              </ng-template>
+              <ng-template pTemplate="right">
+                  <button pButton pRipple icon="pi pi-question-circle" (click)="goToSupport()"></button>
+              </ng-template>
+          </p-toolbar>
+          <p-table [value]="packages" [rows]="10" [paginator]="true"  dataKey="id"
+          currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
+          <ng-template pTemplate="header">
+              <tr>
+                  <th pSortableColumn="title">Title <p-sortIcon field="title"></p-sortIcon></th>
+                  <th pSortableColumn="description">Description<p-sortIcon field="description"></p-sortIcon></th>
+                  <th pSortableColumn="price">Price<p-sortIcon field="price"></p-sortIcon></th>
+                  <th pSortableColumn="nr_requests">No of requests<p-sortIcon field="nr_requests"></p-sortIcon></th>
+                  <th>Actions</th>
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-package>
+              <tr>
+                  <td>{{package.title}}</td>
+                  <td>{{package.description}}</td>
+                  <td>{{package.price}}</td>
+                  <td>{{package.nr_requests}}</td>
+                  <td>
+                      <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" (click)="editPackage(package)"></button>
+                      <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deletePackage(package)"></button>
+                  </td>
+              </tr>
+          </ng-template>
+          </p-table>
+      </p-tabpanel>
+      </p-tabpanels>
+  </p-tabs>
+</div>
+
+<p-dialog 
+  [(visible)]="packageDialog" 
+  [style]="{width: '450px'}" 
+  header="Packages" 
+  [modal]="true" 
+  styleClass="p-fluid">
+    <ng-template pTemplate="content">
+        <div class="p-field">
+            <label for="float-input">Title</label>
+            <input id="float-input" name="title" type="text" pInputText [(ngModel)]="selectedPackage.title">
+        </div>
+        <div class="p-field">
+            <label for="float-input">Description</label>
+            <input id="float-input" name="description" type="text" pInputText [(ngModel)]="selectedPackage.description">
+        </div>
+        <div class="p-field">
+          <label for="float-input">Price</label>
+          <input id="float-input" name="price" type="text" pInputText [(ngModel)]="selectedPackage.price">
+      </div>
+      <div class="p-field">
+        <label for="float-input">No of requests</label>
+        <input id="float-input" name="nr_requests" type="text" pInputText [(ngModel)]="selectedPackage.nr_requests">
+      </div>
+    </ng-template>
+  
+    <ng-template pTemplate="footer">
+        <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hidePackageDialog()"></button>
+        <button *ngIf="!save" pButton pRipple label="Edit" icon="pi pi-check" class="p-button-text" (click)="doEditPackage()"></button>
+        <button *ngIf="save" pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="savePackage()"></button>
+    </ng-template>
+</p-dialog>

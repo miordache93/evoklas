@@ -1,0 +1,86 @@
+<div>
+    <p-toast position="top-left"></p-toast>
+    <p-tabs [(value)]="activeIndex">
+        <p-tablist>
+            <p-tab [value]="0">Users</p-tab>
+        </p-tablist>
+        <p-tabpanels>
+        <p-tabpanel [value]="0">
+            <p-toolbar styleClass="p-mb-4">
+                <ng-template pTemplate="left">
+                    <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success p-mr-2" (click)="addUser()"></button> 
+                    <button type="button" pButton pRipple icon="pi pi-file-excel" (click)="exportExcel()"
+                    class="p-button-success mr-2 export-btn" pTooltip="XLS" tooltipPosition="bottom"></button>
+                </ng-template>
+                <ng-template pTemplate="right">
+                    <button pButton pRipple icon="pi pi-question-circle" (click)="goToSupport()"></button>
+                </ng-template>
+            </p-toolbar>
+            <p-table [value]="users" [rows]="10" [paginator]="true"  dataKey="id"
+            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th pSortableColumn="fullName">Full Name <p-sortIcon field="fullName"></p-sortIcon></th>
+                    <th pSortableColumn="updatedAt">Company <p-sortIcon field="updatedAt"></p-sortIcon></th>
+                    <th pSortableColumn="email">Email<p-sortIcon field="email"></p-sortIcon></th>
+                    <th pSortableColumn="role">Role<p-sortIcon field="role"></p-sortIcon></th>
+                    <th pSortableColumn="active">Active<p-sortIcon field="active"></p-sortIcon></th>
+                    <th pSortableColumn="createdAt">Created At <p-sortIcon field="createdAt"></p-sortIcon></th>
+                    <th pSortableColumn="updatedAt">Update At <p-sortIcon field="updatedAt"></p-sortIcon></th>
+                    <th>Actions</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-user>
+                <tr>
+                    <td>{{user.surname }} {{user.name}}</td>
+                    <td >{{ user.company ? user.company : 'NOT AVAILABLE' }} </td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.role}}</td>
+                    <td *ngIf="user.active == 1">Active</td>
+                    <td *ngIf="user.active == 0">Inactive</td>
+                    <td>{{user.createdAt ? user.createdAt : ''}}  </td>
+                    <td>{{user.updatedAt ? user.updatedAt : ''}}  </td>
+                    <td>
+                        <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" (click)="editUser(user)"></button>
+                        <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteUser(user)"></button>
+                    </td>
+                </tr>
+            </ng-template>
+            </p-table>
+        </p-tabpanel>
+        </p-tabpanels>
+    </p-tabs>
+</div>
+
+<p-dialog [(visible)]="userDialog" [style]="{width: '450px'}" header="Users Details" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+        <div class="p-field">
+            <label for="float-input">Full name</label>
+            <input id="float-input" name="fullName" type="text" pInputText [(ngModel)]="user.fullName">
+        </div>
+        <div class="p-field">
+            <label for="float-input">Email</label>
+            <input id="float-input" name="email" type="text" pInputText [(ngModel)]="user.email">
+        </div>
+
+        
+        <div class="p-field">
+            <label for="float-input">Role</label>
+            <p-select [options]="roles" appendTo="body" [(ngModel)]="selectedRole" optionLabel="name"></p-select> 
+        </div>
+
+        <div *ngIf="!save" class="p-field">
+            <label for="float-input">Active</label>
+            <p-select [options]="activeOptions" appendTo="body" [(ngModel)]="selectedActive" optionLabel="name"></p-select> 
+        </div>
+
+
+    </ng-template>
+    
+    <ng-template pTemplate="footer">
+        <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideUserDialog()"></button>
+        <button *ngIf="!save" pButton pRipple label="Reset Password" icon="pi pi-undo" class="p-button-text" (click)="resetPass()"></button>
+        <button *ngIf="!save" pButton pRipple label="Edit" icon="pi pi-check" class="p-button-text" (click)="doEditUser()"></button>
+        <button *ngIf="save" pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="saveUser()"></button>
+    </ng-template>
+</p-dialog>

@@ -1,0 +1,694 @@
+@use 'responsive.mixin' as *;
+@use 'variables' as *;
+
+.home-component {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 160px;
+
+  @include screen('desktop-large') {
+    gap: 90px;
+  }
+}
+
+.first-row {
+    padding: 80px 20% 0 20%;
+
+    .title {
+      width: 95%;
+
+      h1 {
+        font-size: 64px;
+        line-height: 72px;
+        font-weight: bold;
+      }
+    }
+
+    .search-button {
+      padding: 24px 65px;
+    }
+
+
+    @include screen('desktop-large') {
+      padding: 80px 105px 0 105px;
+
+      .title {
+        width: 95%;
+
+        h1 {
+          font-size: 64px;
+          line-height: 72px;
+          font-weight: bold;
+        }
+      }
+
+
+      .search-button {
+        padding: 24px 65px;
+      }
+    }
+
+
+    @include screen('desktop') {
+      padding: 80px 48px 0 48px;
+
+      .title {
+        width: 95%;
+
+        h1 {
+            font-size: 56px;
+            line-height: 56px;
+            font-weight: bold;
+        }
+      }
+
+     
+    }
+
+    @include screen('tablet-landscape') {
+      padding: 80px 40px 240px 40px;
+
+      .title {
+        h1 {
+          font-size: 48px;
+          line-height: 56px;
+          font-weight: bold;
+        }
+      }
+    }
+
+    .tablet-landscape {
+      min-height: 390px;
+    }
+
+    @include screen('tablet') {
+      padding: 80px 24px 0 24px;
+
+      .banner-image {
+        width: 520px;
+        height: 280px;
+      }
+
+      .search-container {
+        margin-top: 24px;
+        width: 100%;
+        display: flex;
+        text-align: center;
+
+        .search-button {
+          padding: 24px 24px;
+          width: 100%;
+        }
+      }
+    }
+
+    @include screen('phone-landscape') {
+      padding: 80px 16px 0 16px;
+
+      .banner-image {
+        width: 288px;
+        height: 200px;
+      }
+
+      .title {
+        h1 {
+          font-size: 32px;
+          line-height: 48px;
+          font-weight: bold;
+        }
+      }
+
+      .search-container {
+        margin-top: 0;
+      }
+    }
+
+  .title {
+    h1 {
+        margin: 0;
+        font-style: normal;
+        font-weight: bold;
+        color: $dark-blue;
+    }
+  }
+
+  .description {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: $dark-blue;
+  }
+
+  .search-button {
+    background-color: $green;
+    border-radius: 4px;
+    color: $white;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 24px;
+    cursor: pointer;
+    font-family: 'Roboto';
+
+    i {
+        margin-right: 24px;
+    }
+  }
+
+  .search-button:hover {
+    background-color: #19b574;
+  }
+
+  .banner-image {
+    object-fit: cover;
+  }
+}
+
+.second-row {
+  // margin-top: 160px;
+  padding: 0 80px;
+
+  .benefits-container {
+    position: relative;
+
+    h1 {
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 232px;
+      line-height: 184px;
+      color: $white;
+      margin: 0;
+    }
+
+    .benefits-row {
+      margin-top: -2%;
+      width: 66%;
+
+      img {
+        margin-bottom: 24px;
+        margin-left: 30px;
+      }
+
+      .benefit {
+        color:red;
+      }
+
+      .benefit-title {
+        font-size: 24px;
+        line-height: 32px;
+        color: $dark-blue;
+        font-weight: bold;
+
+        position: absolute;
+        margin-top: -1px;
+        margin-left: 30px;
+      }
+
+      .benefit-description {
+        background-color: $white;
+        p {
+          padding: 32px;
+          font-family: Roboto;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 16px;
+          line-height: 24px;
+          color: $dark-blue;
+        }
+      }
+    }
+  }
+
+  @include screen('desktop-large') {
+    padding: 0 20px;
+    
+    .benefits-container {
+      h1 {
+        font-size: 184px;
+        line-height: 144px;
+      }
+
+      .benefits-row {
+        width: 87%;
+      }
+    }
+  }
+
+  @include screen('desktop') {
+    padding: 0 16px;
+
+    .benefits-container {
+      h1 {
+        font-size: 120px;
+        line-height: 104px;
+      }
+
+      .benefits-row {
+        width: 95.5%;
+        margin-top: -4%;
+
+          img {
+            margin-bottom: 24px;
+            margin-left: auto;
+            margin-right: auto;
+          }
+
+          .benefit {
+            text-align: center;
+          }
+      }
+    }
+  }
+
+  @include screen('tablet-landscape') {
+    // margin-bottom: 90px;
+    
+    .benefits-container {
+      h1 {
+        font-size: 96px;
+        line-height: 96px;
+      }
+
+      .benefit-title {
+        margin: 0 auto -30px auto !important;
+        position: unset !important;
+    }
+
+      .benefits-row {
+        .benefit {
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  @include screen('tablet') {
+    padding: 0 24px;
+    margin-top: 80px;
+
+    .benefits-container {
+      h1 {
+        font-size: 80px;
+        line-height: 80px;
+      }
+
+      .benefits-row {
+        margin-top: -13%;
+  
+        .benefit-description {
+          p {
+            padding: 32px 16px;
+          }
+        }
+      }
+    }
+  }
+
+  @include screen('phone-landscape') {
+    padding: 0 16px;
+
+    .benefits-container {
+      h1 {
+        font-size: 64px;
+        line-height: 64px;
+      }
+
+      .benefits-row {
+        margin-top: -15%;
+      }
+    }
+  }
+}
+
+.third-row {
+  .faq-list-container {
+    background-color: $white;
+    width: 80%;
+    float: right;
+    position: relative;
+
+    img {
+      margin: 76px 0 76px 45%;
+    }
+
+    .faq-list {
+      position: absolute;
+      width: 73%;
+      padding: 120px 0;
+      height: 100%;
+
+      .title {
+        padding-left: 96px;
+
+        h1 {
+          font-family: Roboto;
+          font-style: normal;
+          font-weight: bold;
+          font-size: 56px;
+          line-height: 64px;
+          color: $dark-blue;
+          margin: 0;
+        }
+      }
+      
+      .list {
+        padding-left: 99px;
+        width: 100%;
+        margin-top: 80px;
+        color: $dark-blue;
+
+        div {
+          width: 100%;
+        }
+
+        .accordion {
+          cursor: pointer;
+          width: 100%;
+
+          p {
+            margin: 0;
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 32px;
+            line-height: 40px;
+            color: $dark-blue;
+          }
+
+          i {
+            font-weight: bolder;
+            color: $dark-blue;
+          }
+        }
+
+        .panel {
+          margin-top: 24px;
+          display: none;
+          overflow: hidden;
+          color: $dark-blue
+        }
+      }
+    }
+  }
+
+  @include screen('desktop-large') {
+    .faq-list-container {
+      width: 93%;
+
+      img {
+        margin-left: 54%;
+      }
+
+      .faq-list {
+        width: 90%;
+
+        .title {
+          h1 {
+            font-size: 56px;
+            line-height: 64px;
+          }
+          
+        }
+
+        .list {
+          .panel {
+            font-size: 16px;
+            line-height: 24px;
+          }
+        }
+      }
+    }
+  }
+
+  @include screen('desktop') {
+    .faq-list-container {
+      width: 100%;
+      padding-bottom: 90px;
+
+      img {
+        width: 265px;
+        height: 437px;
+        object-fit: contain;
+        margin-left: 65%;
+        padding-top: 5%;
+      }
+
+      .faq-list {
+        padding: 80px 0;
+        width: 96%;
+
+        .list {
+          padding: 0 5%;
+        }
+      }
+    }
+  }
+
+  @include screen('tablet-landscape') {
+    .faq-list-container {
+      min-height: 840px;
+
+      img {
+        width: 177px;
+        height: 292px;
+        object-fit: contain;
+        margin-top: 10%;
+      }
+
+      .faq-list {
+        padding: 80px 15px;
+        width: 100%;
+
+        .title {
+          padding-left: 15px;
+        }
+        .list {
+          padding: 0 3%;
+        }
+      }
+    }
+  }
+
+  @include screen('tablet') {
+    .faq-list-container {
+      min-height: 740px;
+
+      img {
+        margin-top: 17%;
+      }
+
+      .faq-list {
+        padding: 80px 15px;
+        width: 100%;
+
+        .list {
+          padding: 0 24px;
+        }
+
+        .title {
+         h1 {
+          font-size: 40px;
+          line-height: 48px;
+         }
+        }
+      }
+    }
+  }
+
+  @include screen('phone-landscape') {
+    .faq-list-container {
+      min-height: 688px;
+      img {
+        display: none;
+      }
+
+      .faq-list {
+        padding: 40px 0;
+        width: 100%;
+
+        .list {
+          padding: 0 16px;
+          margin-top: 32px;
+          .accordion {
+            p {
+              font-size: 24px;
+              line-height: 40px;
+              margin-top: -5px;
+            }
+          }
+        }
+      
+
+        .title {
+         h1 {
+          font-size: 32px;
+          line-height: 48px;
+         }
+        }
+      }
+    }
+  }
+}
+
+.fourth-row {
+  margin-bottom: 160px;
+  min-height: 1200px;
+
+  .clients-feedback-container {
+    position: relative;
+    margin: 0 16px;
+
+    .title {
+      width: 50%;
+      margin-left: 80px;
+      h1 {
+        margin: 0;
+        color: $white;
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 184px;
+        line-height: 144px;
+      }
+    }
+
+    .feedback-list {
+      position: absolute;
+      padding: 0 20%;
+      margin-top: 15%;
+
+      ::ng-deep {
+
+      .feedback {
+        border: 1px dashed $dark-blue;
+        padding: 65px 110px;
+          .feedback-description {
+            padding: 32px;
+            font-size: 16px;
+            line-height: 24px;
+            color: $dark-blue;
+          }
+
+          .feedback-author {
+            align-self: flex-end;
+            color: $dark-blue;
+
+            .author-name {
+              font-weight: bold;
+              font-size: 16px;
+              line-height: 24px;
+            }
+
+            .date {
+              font-size: 12px;
+            }
+          }
+        }
+      
+
+        img:last-child {
+          float:right;
+        }
+      }
+      .quotes {
+        width: 56px;
+        height: 36px;
+      }
+    }
+  }
+
+  @include screen('desktop-large') {
+    .clients-feedback-container {
+
+      .title {
+        width: 100%;
+        margin-left: 16px;
+
+        h1 {
+          font-size: 120px;
+          line-height: 104px;
+        }
+      }
+
+      .feedback-list {
+        padding: 0 5%;
+        margin-top: 7%;
+
+        .feedback {
+          padding: 32px;
+         .content {
+            width: 90%;
+            margin: auto;
+          }
+        }
+      }
+    }
+  }
+
+  @include screen('tablet-landscape') {
+    min-height: 900px;
+
+    .clients-feedback-container {
+
+      .title {
+        margin: auto;
+        text-align: center;
+        h1 {
+          font-size: 96px;
+          line-height: 96px;
+        }
+      }
+      .feedback-list {
+        padding: 0 5%;
+        margin-top: 10%;
+
+        .feedback {
+          padding: 24px;
+          .content {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  @include screen('tablet') {
+    .clients-feedback-container {
+    
+      .title {
+        text-align: start;
+      }
+
+      .feedback-list {
+        margin-top: 30%;
+      }
+    
+    }
+  }
+
+  @include screen('phone-landscape') {
+    .clients-feedback-container {
+      .title {
+        h1 {
+          font-size: 64px;
+          line-height: 64px;
+        }
+      }
+
+      .feedback-list {
+        padding: 0;
+
+        .feedback-description {
+          padding: 24px;
+        }
+
+        .feedback {
+          padding: 16px;
+        }
+      }
+    }
+  }
+}

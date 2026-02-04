@@ -1,0 +1,39 @@
+<div class="header-component">
+  <!-- Testing routes -->
+  <div class="navbar">
+    <div class="logo-name">
+      <a routerLink="/">PlatformaAuto - Admin Dashboard</a>
+    </div>
+
+    <div class="navbar-items">
+      <a *ngIf="currentUser && !isMobile" [routerLink]="['/cars']">
+        <i class="fas fa-car"></i>
+        <span *ngIf="!isMobile"> Cars </span> 
+      </a>
+      <a *ngIf="currentUser && !isMobile" [routerLink]="['/users']">
+        <i class="fas fa-users"></i>
+        <span *ngIf="!isMobile"> Users </span> 
+      </a>
+      <a *ngIf="currentUser && !isMobile" [routerLink]="['/requests']">
+        <i class="fab fa-creative-commons-share"></i>
+        <span *ngIf="!isMobile"> Requests </span> 
+      </a>
+      <a *ngIf="currentUser && !isMobile" [routerLink]="['/packages']">
+        <i class="fas fa-money-bill-wave"></i>
+        <span *ngIf="!isMobile"> Packages </span> 
+      </a>
+
+      <a *ngIf="!currentUser" (click)="goToLogin()">
+        <i class="pi pi-sign-in"></i> 
+        <span *ngIf="!isMobile"> Login / Register </span> 
+      </a>
+      <a *ngIf="currentUser" class="my-account-btn" (click)="menu.toggle($event)">
+        <i class="far fa-user"></i> 
+        <!-- <span *ngIf="!isMobile"> {{ currentUser.name  }} {{ currentUser.surname}} </span> -->
+        <span *ngIf="!isMobile"> {{ currentUser.fullName  }} </span>
+        <i class="fas fa-chevron-down"></i>
+      </a>
+        <p-menu #menu [popup]="true" [model]="items"></p-menu>
+    </div>
+  </div>
+</div>
